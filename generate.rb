@@ -25,6 +25,8 @@ require 'nokogiri'
 @output_dir = "letters_new"
 @tei_ns = "http://www.tei-c.org/ns/1.0"
 @warnings = "warnings.txt"
+@warning_count = 0
+@error_count = 0
 
 @tei_cases = ["teiHeader", "fileDesc", "titleStmt", "respStmt", "publicationStmt",
               "addrLine", "seriesStmt", "sourceDesc", "persName", "msDesc",
@@ -32,8 +34,35 @@ require 'nokogiri'
               "placeName"]
               # "msIdentifier", "msContents", "physDesc", "objectDesc", "revisionDesc"
 
+def _add_annotate(letterID, element, annotation)
+  quote = annotation["quote"]
+  range = annotation["ranges"]
+  start = range[0]["startOffset"].to_i
+  ending = range[0]["endOffset"].to_i
+  characters = (start..ending)
 
-def add_ref(element_html, start, ending, annotationID)
+  highlight = element.inner_html[characters]
+  
+  # TODO should check to see if previously annotated?  Otherwise will be <ref><ref></ref></ref>
+  if highlight.strip == quote.strip
+    new_content = _add_ref(element.inner_html, start, ending, annotation["id"])
+    if new_content
+      element.inner_html = new_content
+    else
+      write_to_file(@warnings, "Unable to add #{annotation['id']} ref to cat.let#{letterID}.xml: #{quote}")
+      @error_count += 1
+    end
+  else
+    write_to_file(@warnings, "Check file cat.let#{letterID}.xml for #{annotation['id']} ('#{quote}') placement")
+    @warning_count += 1
+    first_match = element.inner_html.index(quote)
+    first_match_end = quote.length + first_match
+    new_content = _add_ref(element.inner_html, first_match, first_match_end, annotation["id"])
+    element.inner_html = new_content
+  end
+end
+
+def _add_ref(element_html, start, ending, annotationID)
   new_content = element_html
   # put the closing tag on before the starting tag or the index == kablam
   begin
@@ -45,42 +74,11 @@ def add_ref(element_html, start, ending, annotationID)
   end
 end
 
-def add_annotate(letterID, element, range, quote, annotationID)
-  start = range[0]["startOffset"].to_i
-  ending = range[0]["endOffset"].to_i
-  characters = (start..ending)
-  # This portion is going to need to take an element 
-  # and alter the content to have the following
-  # <ref type="annotation" target="ann:00162"/>
-
-  highlight = element.inner_html[characters]
-  
-  # TODO should check to see if previously annotated?  Otherwise will be <ref><ref></ref></ref>
-  if highlight.strip == quote.strip
-    new_content = add_ref(element.inner_html, start, ending, annotationID)
-    if new_content
-      element.inner_html = new_content
-    else
-      puts "Unable to add #{annotationID} ref to cat.let#{letterID}.xml: '#{quote}'"
-      write_to_file(@warnings, "Unable to add #{annotationID} ref to cat.let#{letterID}.xml: #{quote}")
-    end
-  else
-    puts "Attempting guess for cat.let#{letterID}.xml for annotation '#{quote}'"
-    write_to_file(@warnings, "Check file cat.let#{letterID}.xml for annotation '#{quote}' placement")
-    first_match = element.inner_html.index(quote)
-    first_match_end = quote.length + first_match
-    new_content = add_ref(element.inner_html, first_match, first_match_end, annotationID)
-    element.inner_html = new_content
-  end
-end
-
-# move later
 def annotate_tei(id, tei, annotation)
   xpath = prep_xpath(annotation["ranges"])
-  # puts xpath
   element = tei.at_xpath(xpath, "tei" => @tei_ns)
   if element
-    add_annotate(id, element, annotation["ranges"], annotation["quote"], annotation["id"])
+    _add_annotate(id, element, annotation)
   else
     puts "No element found at xpath #{xpath} for cat.let#{id}.xml"
   end
@@ -195,9 +193,12 @@ def main
         File.write("#{@output_dir}/cat.let#{id}.xml", tei.to_xml)
       end
     end
+    puts "Found #{@warning_count} warning(s): please review #{@warnings}" if @warning_count > 0
+    puts "Found #{@error_count} errors(s): please review #{@warnings}" if @error_count > 0
   else
     puts "Please add letters to the #{@letters_dir} directory and try rerunning the script"
   end
 end
 
 main
+
