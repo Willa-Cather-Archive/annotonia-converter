@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://cather.unl.edu/cat.letters.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title type="main">Willa Cather to Ferris Greenslet, August 26 [1921]</title>
+                <title type="sub">electronic edition</title>
+                <author key="Cather, Willa">Willa Cather</author>
+                <editor role="co-editor" xml:id="awj">Andrew Jewell</editor>
+                <editor role="co-editor" xml:id="ja_st">Janis Stout</editor>
+                <editor role="associate_editor" xml:id="me_ho">Melissa Homestead</editor>
+                <respStmt>
+                    <resp>Editorial Assistant</resp>
+                    <name xml:id="ga_ki">Gabi Kirilloff</name>
+                </respStmt>
+                <respStmt>
+                    <resp>Editorial Assistant</resp>
+                    <name xml:id="ca_be">Caterina Bernardini</name>
+                </respStmt>
+                <respStmt>
+                    <resp>Editorial Assistant</resp>
+                    <name xml:id="sa_gr">Samantha Greenfield</name>
+                </respStmt>
+                <respStmt>
+                    <resp>Editorial Assistant</resp>
+                    <name xml:id="em_ra">Emily Rau</name>
+                </respStmt>
+            </titleStmt>
+            <publicationStmt>
+                <authority>The Willa Cather Archive</authority>
+                <idno>cat.let0550</idno>
+                <address><addrLine>http://cather.unl.edu</addrLine></address>
+                <publisher>University of Nebraska–Lincoln</publisher>
+                <distributor>
+                    <name>Center for Digital Research in the Humanities</name>
+                    <address>
+              <addrLine>319 Love Library</addrLine> 
+             <addrLine>University of Nebraska–Lincoln</addrLine>      
+             <addrLine>Lincoln, NE 68588-4100</addrLine> 
+             <addrLine>http://cdrh.unl.edu</addrLine>
+                 </address>
+                </distributor>
+                <date>2018</date>
+                <availability>
+                    <p>The Willa Cather Archive is freely distributed by the Center for Digital
+                        Research in the Humanities at the University of Nebraska-Lincoln and
+                        licensed under a Creative Commons Attribution-Noncommercial-Share Alike 3.0
+                        United States License</p>
+                </availability>
+            </publicationStmt>
+            <seriesStmt>
+                <title level="m">The Complete Letters of Willa Cather</title>
+                <editor role="co-editor" sameAs="#awj"/>
+                <editor role="co-editor" sameAs="#ja_st"/>
+                <editor role="associate_editor" sameAs="#me_ho"/>
+            </seriesStmt>
+            <sourceDesc>
+                <bibl>
+                    <author>Willa Cather</author>
+                    <persName type="addressee" target="psn:0401">Ferris Greenslet</persName>
+                    <date when="1921-08-26">August 26 [1921]</date>
+                </bibl>
+                <msDesc>
+                    <msIdentifier>
+                        <repository target="rep:002">Harvard University, Houghton
+                            Library, Cambridge, MA</repository>
+                        <collection>Houghton Mifflin Company Correspondence and Records </collection>
+                        <idno type="collection">MS AM 1925</idno>
+                    </msIdentifier>
+                    <msContents>
+                        <p>Document is one leaf, handwritten on recto only </p>
+                    </msContents>
+                    <physDesc>
+                        <objectDesc>
+                            <supportDesc>
+                                <extent>
+                                    <measure type="composition" unit="leaf" quantity="1">1
+                                        leaf</measure>
+                                </extent>
+                            </supportDesc>
+                        </objectDesc>
+                        <handDesc hands="2">
+                            <handNote xml:id="wc_hand" medium="pen">Willa Cather
+                                handwritten</handNote>
+                            <handNote xml:id="unknown_hand" medium="pencil">unknown
+                                handwriting</handNote>
+                        </handDesc>
+                    </physDesc>
+                    <history>
+                        <origin>
+                            <origDate when="1921-08-26">August 26 [1921]</origDate>
+                            <origPlace>
+                                <placeName target="geo:0213">Toronto, Ontario, Canada</placeName>
+                            </origPlace>
+                        </origin>
+                    </history>
+                </msDesc>
+            </sourceDesc>
+        </fileDesc>
+        <encodingDesc>
+            <editorialDecl>
+                <hyphenation eol="some">
+                    <p>End-of-line hyphenation silently removed where appropriate.</p>
+                </hyphenation>
+                <normalization method="markup">
+                    <p>Typographical or spelling irregularities in the orginal have been noted using
+                        markup. Over-typed characters, where the typist has re-keyed the proper
+                        character over the top of a mis-typed character, have not been noted in the
+                        markup.</p>
+                </normalization>
+            </editorialDecl>
+            <listPrefixDef>
+                <prefixDef ident="psn" matchPattern="([0-9]{4})" replacementPattern="cat.let.personography.xml#$1">
+                    <p> Private URIs using the <code>psn</code> prefix are pointers to
+                            <gi>person</gi> elements in the cat.let.personography.xml file. For
+                        example, <code>psn:2365</code> dereferences to
+                            <code>cat.let.personography.xml#2365</code>. </p>
+                </prefixDef>
+                <prefixDef ident="wrk" matchPattern="([0-9]{4})" replacementPattern="cat.let.works.xml#$1">
+                    <p> Private URIs using the <code>wrk</code> prefix are pointers to <gi>bibl</gi>
+                        elements in the cat.let.works.xml file. For example, <code>wrk:1342</code>
+                        dereferences to <code>cat.let.works.xml#1342</code>. </p>
+                </prefixDef>
+                <prefixDef ident="geo" matchPattern="([0-9]{4})" replacementPattern="cat.let.gazetteer.xml#$1">
+                    <p> Private URIs using the <code>geo</code> prefix are pointers to
+                            <gi>place</gi> elements in the cat.let.gazetteer.xml file. For example,
+                            <code>geo:0023</code> dereferences to
+                            <code>cat.let.gazetteer.xml#0023</code>. </p>
+                </prefixDef>
+                <prefixDef ident="rep" matchPattern="([0-9]{4})" replacementPattern="cat.let.repositories.xml#$1">
+                    <p> Private URIs using the <code>rep</code> prefix are pointers to
+                            <gi>repository</gi> elements in the cat.let.repositories.xml file. For
+                        example, <code>rep:1020</code> dereferences to
+                            <code>cat.let.repositories.xml#1020</code>. </p>
+                </prefixDef>
+            </listPrefixDef>
+        </encodingDesc>
+        <revisionDesc>
+            <change when="2015-09-02" who="#em_ra">Initial creation of XML from non-XML electronic
+                files</change>
+        </revisionDesc>
+    </teiHeader>
+    <facsimile>
+        <surface>
+            <graphic url="cat.let0550.001"/>
+        </surface>
+    </facsimile>
+    <text>
+        <body>
+            <pb facs="cat.let0550.001"/>
+            <note hand="#unknown_hand"><emph rend="double_underline">Willa Cather</emph></note>
+            <note hand="#unknown_hand">FG</note>
+            <opener>
+                <dateline><placeName target="geo:0213">Toronto</placeName></dateline>
+                <dateline><date when="1921-08-26">August 26</date></dateline>
+                <salute>Dear <persName target="psn:0401">Mr. Greenslet</persName>:</salute>
+            </opener>
+            <p>Thank you for the delightful <ref type="annotation" target="AVRyUDGhQF3Cd7E0UXNr">French</ref> notice, and the <ref type="annotation" target="ann.00162">information</ref> about books in
+                stock.</p>
+            <p> I go out to <placeName target="geo:0173">Red Cloud</placeName> on August 30. I
+                lecture for the <placeName target="geo:0155">Omaha</placeName> Society of Fine Arts
+                on October 29. I cut out the lecture for the Woman's Aid of <placeName target="geo:0047">Chicago</placeName> because I could not catch it en route. If
+                you haven't yet seen <name type="work" target="wrk:0263">the <emph rend="underline">Nation</emph></name> article, let me know and I'll send you one.</p>
+            <p><name type="work" target="wrk:0307">"Claude"</name> will not appear until next
+                August—I have just completed it, and prefer not to publish it in the
+                spring—so until that is published all the advertising like that in the <emph rend="underline">Nation</emph> will apply only to the books you publish. </p>
+            <closer>
+                <salute>Yours</salute>
+                <signed>W. S. C.</signed>
+            </closer>
+        </body>
+    </text>
+</TEI>

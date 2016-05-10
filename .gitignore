@@ -1,0 +1,7 @@
+# Ignore actual letters, except those in the tests
+letters_orig/cat.*.xml
+letters_new/cat.*.xml
+
+config.rb
+annotations.txt
+warnings.txt

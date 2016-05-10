@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://cather.unl.edu/cat.letters.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title type="main">Willa Cather to Roscoe Cather, June 20 [1932]</title>
+                <title type="sub">electronic edition</title>
+                <author key="Cather, Willa">Willa Cather</author>
+                <editor role="co-editor" xml:id="awj">Andrew Jewell</editor>
+                <editor role="co-editor" xml:id="ja_st">Janis Stout</editor>
+                <editor role="associate_editor" xml:id="me_ho">Melissa Homestead</editor>
+                <respStmt>
+                    <resp>Editorial Assistant</resp>
+                    <name xml:id="ga_ki">Gabi Kirilloff</name>
+                </respStmt>
+                <respStmt>
+                    <resp>Editorial Assistant</resp>
+                    <name xml:id="ca_be">Caterina Bernardini</name>
+                </respStmt>
+                <respStmt>
+                    <resp>Editorial Assistant</resp>
+                    <name xml:id="sa_gr">Samantha Greenfield</name>
+                </respStmt>
+                <respStmt>
+                    <resp>Editorial Assistant</resp>
+                    <name xml:id="em_ra">Emily Rau</name>
+                </respStmt>
+            </titleStmt>
+            <publicationStmt>
+                <authority>The Willa Cather Archive</authority>
+                <idno>cat.let2161</idno>
+                <address><addrLine>http://cather.unl.edu</addrLine></address>
+                <publisher>University of Nebraska–Lincoln</publisher>
+                <distributor>
+                    <name>Center for Digital Research in the Humanities</name>
+                    <address>
+              <addrLine>319 Love Library</addrLine> 
+             <addrLine>University of Nebraska–Lincoln</addrLine>      
+             <addrLine>Lincoln, NE 68588-4100</addrLine> 
+             <addrLine>http://cdrh.unl.edu</addrLine>
+                 </address>
+                </distributor>
+                <date>2018</date>
+                <availability>
+                    <p>The Willa Cather Archive is freely distributed by the Center for Digital
+                        Research in the Humanities at the University of Nebraska-Lincoln and
+                        licensed under a Creative Commons Attribution-Noncommercial-Share Alike 3.0
+                        United States License</p>
+                </availability>
+            </publicationStmt>
+            <seriesStmt>
+                <title level="m">The Complete Letters of Willa Cather</title>
+                <editor role="co-editor" sameAs="#awj"/>
+                <editor role="co-editor" sameAs="#ja_st"/>
+                <editor role="associate_editor" sameAs="#me_ho"/>
+            </seriesStmt>
+            <sourceDesc>
+                <bibl>
+                    <author>Willa Cather</author>
+                    <persName type="addressee" target="psn:0200">Roscoe Cather</persName>
+                    <date when="1932-06-20">June 20 [1932]</date>
+                    <note type="date">In another letter to Alfred A. Knopf also dated June 20
+                        (letter 1672), Cather laments the death of Samuel Knopf, who died in 1932.
+                        Cather's reference in this letter to the loss of a friend who was also a
+                        "strong arm" in the business is almost certainly a reference to Samuel
+                        Knopf, who did work for his son's publishing firm. Additionally, Roscoe's
+                        daughter Virginia, also referenced in the letter, was a student at Smith
+                        College in 1932 and therefore eligible for scholarships; she graduated in
+                        1933.</note>
+                </bibl>
+                <msDesc>
+                    <msIdentifier>
+                        <repository target="rep:001">Archives and Special Collections, University of
+                            Nebraska—Lincoln Libraries</repository>
+                        <collection>Roscoe and Meta Cather Collection </collection>
+                        <idno type="collection">MS316</idno>
+                    </msIdentifier>
+                    <msContents>
+                        <p>Document is one leaf, handwritten on recto only.</p>
+                    </msContents>
+                    <physDesc>
+                        <objectDesc>
+                            <supportDesc>
+                                <extent>
+                                    <measure type="composition" unit="leaf" quantity="1">1
+                                        leaf</measure>
+                                </extent>
+                            </supportDesc>
+                        </objectDesc>
+                        <handDesc hands="1">
+                            <handNote xml:id="wc_hand" medium="pen"><p>Willa Cather
+                                handwritten</p></handNote>
+                        </handDesc>
+
+                    </physDesc>
+                    <history>
+                        <origin>
+                            <origDate when="1932-06-20">June 20 [1932]</origDate>
+                            <origPlace>
+                                <placeName target="geo:0082">Grand Manan, NB, Canada</placeName>
+                            </origPlace>
+                        </origin>
+                    </history>
+                </msDesc>
+            </sourceDesc>
+        </fileDesc>
+        <encodingDesc>
+            <editorialDecl>
+                <hyphenation eol="some">
+                    <p>End-of-line hyphenation silently removed where appropriate.</p>
+                </hyphenation>
+                <normalization method="markup">
+                    <p>Typographical or spelling irregularities in the orginal have been noted using
+                        markup. Over-typed characters, where the typist has re-keyed the proper
+                        character over the top of a mis-typed character, have not been noted in the
+                        markup.</p>
+                </normalization>
+            </editorialDecl>
+            <listPrefixDef>
+                <prefixDef ident="psn" matchPattern="([0-9]{4})" replacementPattern="cat.let.personography.xml#$1">
+                    <p> Private URIs using the <code>psn</code> prefix are pointers to
+                            <gi>person</gi> elements in the cat.let.personography.xml file. For
+                        example, <code>psn:2365</code> dereferences to
+                            <code>cat.let.personography.xml#2365</code>. </p>
+                </prefixDef>
+                <prefixDef ident="wrk" matchPattern="([0-9]{4})" replacementPattern="cat.let.works.xml#$1">
+                    <p> Private URIs using the <code>wrk</code> prefix are pointers to <gi>bibl</gi>
+                        elements in the cat.let.works.xml file. For example, <code>wrk:1342</code>
+                        dereferences to <code>cat.let.works.xml#1342</code>. </p>
+                </prefixDef>
+                <prefixDef ident="geo" matchPattern="([0-9]{4})" replacementPattern="cat.let.gazetteer.xml#$1">
+                    <p> Private URIs using the <code>geo</code> prefix are pointers to
+                            <gi>place</gi> elements in the cat.let.gazetteer.xml file. For example,
+                            <code>geo:0023</code> dereferences to
+                            <code>cat.let.gazetteer.xml#0023</code>. </p>
+                </prefixDef>
+                <prefixDef ident="rep" matchPattern="([0-9]{4})" replacementPattern="cat.let.repositories.xml#$1">
+                    <p> Private URIs using the <code>rep</code> prefix are pointers to
+                            <gi>repository</gi> elements in the cat.let.repositories.xml file. For
+                        example, <code>rep:1020</code> dereferences to
+                            <code>cat.let.repositories.xml#1020</code>. </p>
+                </prefixDef>
+            </listPrefixDef>
+        </encodingDesc>
+        <revisionDesc>
+            <change when="2014-12-04" who="#awj">Initial creation of XML from non-XML electronic
+                files</change>
+            <change when="2015-01-23" who="#em_ra">First round xml proofing</change>
+            <change when="2015-10-15" who="#ga_ki">First round of XML revision</change>
+        </revisionDesc>
+    </teiHeader>
+    <facsimile>
+        <surface>
+            <graphic url="cat.let2161.001"/>
+        </surface>
+    </facsimile>
+    <text>
+        <body>
+            <pb facs="cat.let2161.001"/>
+            <fw type="letterhead" place="top"><ref type="annotation" target="AVOF5og8QF3Cd7E0UXNc">WHALE</ref> COVE<lb/>GRAND
+                    MANAN<lb/><ref type="annotation" target="AVOF5lTUQF3Cd7E0UXNa">NEW BRUNSWICK</ref><lb/>CANADA</fw>
+            <opener><dateline><date when="1932-06-20">June 20</date></dateline><salute>My Dear
+                        <persName target="psn:0200">Roscoe</persName>;</salute></opener>
+            <p>I have lost a <persName target="psn:0522">true friend</persName> — one of the
+                most helpful and kind I ever knew — and the <ref type="annotation" target="AVOF3xKSQF3Cd7E0UXNQ">business</ref> has lost a strong arm. It
+                will affect us all seriously.</p>
+            <p>I am so proud of <persName target="psn:0201">Virginia</persName> that she won the
+                scholarship again, and I enclose a check to show my appreciation. I wish it were
+                larger, but you know the story; none of my grand railroad stocks pay <emph rend="underline">at</emph>
+                <emph rend="underline">all</emph>, etc. etc. With love to all of you.</p>
+
+            <closer>Willie</closer>
+        </body>
+    </text>
+</TEI>
