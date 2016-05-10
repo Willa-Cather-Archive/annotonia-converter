@@ -109,6 +109,6 @@ class AnnotationManager
     puts "Running this script will remove files in the #{@output_dir} directory"
     puts "and it will wipe the files #{$annotation_file} and #{$warnings_file}"
     puts "Continue?  y/N"
-    input = gets.chomp
+    return gets.chomp
   end
 end

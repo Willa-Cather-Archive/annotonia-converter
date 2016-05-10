@@ -4,8 +4,6 @@ class Letter
   attr_reader :file_read
   attr_reader :file_write
 
-  # attr_accessor :annotations
-  # attr_accessor :flask_res
   attr_accessor :xml
   attr_accessor :warnings
   attr_accessor :errors
