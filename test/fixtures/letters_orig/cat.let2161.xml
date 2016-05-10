@@ -31,12 +31,12 @@
                 <authority>The Willa Cather Archive</authority>
                 <idno>cat.let2161</idno>
                 <address><addrLine>http://cather.unl.edu</addrLine></address>
-                <publisher>University of Nebraska–Lincoln</publisher>
+                <publisher>University of Nebraska&#8211;Lincoln</publisher>
                 <distributor>
                     <name>Center for Digital Research in the Humanities</name>
                     <address>
               <addrLine>319 Love Library</addrLine> 
-             <addrLine>University of Nebraska–Lincoln</addrLine>      
+             <addrLine>University of Nebraska&#8211;Lincoln</addrLine>      
              <addrLine>Lincoln, NE 68588-4100</addrLine> 
              <addrLine>http://cdrh.unl.edu</addrLine>
                  </address>
@@ -72,7 +72,7 @@
                 <msDesc>
                     <msIdentifier>
                         <repository target="rep:001">Archives and Special Collections, University of
-                            Nebraska—Lincoln Libraries</repository>
+                            Nebraska&#8212;Lincoln Libraries</repository>
                         <collection>Roscoe and Meta Cather Collection </collection>
                         <idno type="collection">MS316</idno>
                     </msIdentifier>
@@ -118,24 +118,28 @@
                 </normalization>
             </editorialDecl>
             <listPrefixDef>
-                <prefixDef ident="psn" matchPattern="([0-9]{4})" replacementPattern="cat.let.personography.xml#$1">
+                <prefixDef ident="psn" matchPattern="([0-9]{4})"
+                    replacementPattern="cat.let.personography.xml#$1">
                     <p> Private URIs using the <code>psn</code> prefix are pointers to
                             <gi>person</gi> elements in the cat.let.personography.xml file. For
                         example, <code>psn:2365</code> dereferences to
                             <code>cat.let.personography.xml#2365</code>. </p>
                 </prefixDef>
-                <prefixDef ident="wrk" matchPattern="([0-9]{4})" replacementPattern="cat.let.works.xml#$1">
+                <prefixDef ident="wrk" matchPattern="([0-9]{4})"
+                    replacementPattern="cat.let.works.xml#$1">
                     <p> Private URIs using the <code>wrk</code> prefix are pointers to <gi>bibl</gi>
                         elements in the cat.let.works.xml file. For example, <code>wrk:1342</code>
                         dereferences to <code>cat.let.works.xml#1342</code>. </p>
                 </prefixDef>
-                <prefixDef ident="geo" matchPattern="([0-9]{4})" replacementPattern="cat.let.gazetteer.xml#$1">
+                <prefixDef ident="geo" matchPattern="([0-9]{4})"
+                    replacementPattern="cat.let.gazetteer.xml#$1">
                     <p> Private URIs using the <code>geo</code> prefix are pointers to
                             <gi>place</gi> elements in the cat.let.gazetteer.xml file. For example,
                             <code>geo:0023</code> dereferences to
                             <code>cat.let.gazetteer.xml#0023</code>. </p>
                 </prefixDef>
-                <prefixDef ident="rep" matchPattern="([0-9]{4})" replacementPattern="cat.let.repositories.xml#$1">
+                <prefixDef ident="rep" matchPattern="([0-9]{4})"
+                    replacementPattern="cat.let.repositories.xml#$1">
                     <p> Private URIs using the <code>rep</code> prefix are pointers to
                             <gi>repository</gi> elements in the cat.let.repositories.xml file. For
                         example, <code>rep:1020</code> dereferences to
@@ -158,16 +162,17 @@
     <text>
         <body>
             <pb facs="cat.let2161.001"/>
-            <fw type="letterhead" place="top"><ref type="annotation" target="AVOF5og8QF3Cd7E0UXNc">WHALE</ref> COVE<lb/>GRAND
-                    MANAN<lb/><ref type="annotation" target="AVOF5lTUQF3Cd7E0UXNa">NEW BRUNSWICK</ref><lb/>CANADA</fw>
+            <fw type="letterhead" place="top">WHALE COVE<lb/>GRAND
+                    MANAN<lb/>NEW BRUNSWICK<lb/>CANADA</fw>
             <opener><dateline><date when="1932-06-20">June 20</date></dateline><salute>My Dear
                         <persName target="psn:0200">Roscoe</persName>;</salute></opener>
-            <p>I have lost a <persName target="psn:0522">true friend</persName> — one of the
-                most helpful and kind I ever knew — and the <ref type="annotation" target="AVOF3xKSQF3Cd7E0UXNQ">business</ref> has lost a strong arm. It
+            <p>I have lost a <persName target="psn:0522">true friend</persName> &#8212; one of the
+                most helpful and kind I ever knew &#8212; and the business has lost a strong arm. It
                 will affect us all seriously.</p>
             <p>I am so proud of <persName target="psn:0201">Virginia</persName> that she won the
                 scholarship again, and I enclose a check to show my appreciation. I wish it were
-                larger, but you know the story; none of my grand railroad stocks pay <emph rend="underline">at</emph>
+                larger, but you know the story; none of my grand railroad stocks pay <emph
+                    rend="underline">at</emph>
                 <emph rend="underline">all</emph>, etc. etc. With love to all of you.</p>
 
             <closer>Willie</closer>

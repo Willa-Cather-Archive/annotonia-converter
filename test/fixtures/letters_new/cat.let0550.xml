@@ -31,12 +31,12 @@
                 <authority>The Willa Cather Archive</authority>
                 <idno>cat.let0550</idno>
                 <address><addrLine>http://cather.unl.edu</addrLine></address>
-                <publisher>University of Nebraska&#8211;Lincoln</publisher>
+                <publisher>University of Nebraska–Lincoln</publisher>
                 <distributor>
                     <name>Center for Digital Research in the Humanities</name>
                     <address>
               <addrLine>319 Love Library</addrLine> 
-             <addrLine>University of Nebraska&#8211;Lincoln</addrLine>      
+             <addrLine>University of Nebraska–Lincoln</addrLine>      
              <addrLine>Lincoln, NE 68588-4100</addrLine> 
              <addrLine>http://cdrh.unl.edu</addrLine>
                  </address>
@@ -111,28 +111,24 @@
                 </normalization>
             </editorialDecl>
             <listPrefixDef>
-                <prefixDef ident="psn" matchPattern="([0-9]{4})"
-                    replacementPattern="cat.let.personography.xml#$1">
+                <prefixDef ident="psn" matchPattern="([0-9]{4})" replacementPattern="cat.let.personography.xml#$1">
                     <p> Private URIs using the <code>psn</code> prefix are pointers to
                             <gi>person</gi> elements in the cat.let.personography.xml file. For
                         example, <code>psn:2365</code> dereferences to
                             <code>cat.let.personography.xml#2365</code>. </p>
                 </prefixDef>
-                <prefixDef ident="wrk" matchPattern="([0-9]{4})"
-                    replacementPattern="cat.let.works.xml#$1">
+                <prefixDef ident="wrk" matchPattern="([0-9]{4})" replacementPattern="cat.let.works.xml#$1">
                     <p> Private URIs using the <code>wrk</code> prefix are pointers to <gi>bibl</gi>
                         elements in the cat.let.works.xml file. For example, <code>wrk:1342</code>
                         dereferences to <code>cat.let.works.xml#1342</code>. </p>
                 </prefixDef>
-                <prefixDef ident="geo" matchPattern="([0-9]{4})"
-                    replacementPattern="cat.let.gazetteer.xml#$1">
+                <prefixDef ident="geo" matchPattern="([0-9]{4})" replacementPattern="cat.let.gazetteer.xml#$1">
                     <p> Private URIs using the <code>geo</code> prefix are pointers to
                             <gi>place</gi> elements in the cat.let.gazetteer.xml file. For example,
                             <code>geo:0023</code> dereferences to
                             <code>cat.let.gazetteer.xml#0023</code>. </p>
                 </prefixDef>
-                <prefixDef ident="rep" matchPattern="([0-9]{4})"
-                    replacementPattern="cat.let.repositories.xml#$1">
+                <prefixDef ident="rep" matchPattern="([0-9]{4})" replacementPattern="cat.let.repositories.xml#$1">
                     <p> Private URIs using the <code>rep</code> prefix are pointers to
                             <gi>repository</gi> elements in the cat.let.repositories.xml file. For
                         example, <code>rep:1020</code> dereferences to
@@ -160,18 +156,15 @@
                 <dateline><date when="1921-08-26">August 26</date></dateline>
                 <salute>Dear <persName target="psn:0401">Mr. Greenslet</persName>:</salute>
             </opener>
-            <p>Thank you for the delightful French notice, and the information about books in
+            <p>Thank you for the delightful <ref type="annotation" target="AVRyUDGhQF3Cd7E0UXNr">French</ref> notice, and the information about books in
                 stock.</p>
             <p> I go out to <placeName target="geo:0173">Red Cloud</placeName> on August 30. I
                 lecture for the <placeName target="geo:0155">Omaha</placeName> Society of Fine Arts
-                on October 29. I cut out the lecture for the Woman's Aid of <placeName
-                    target="geo:0047">Chicago</placeName> because I could not catch it en route. If
-                you haven't yet seen <name type="work" target="wrk:0263">the <emph rend="underline"
-                        >Nation</emph></name> article, let me know and I'll send you one.</p>
+                on October 29. I cut out the lecture for the Woman's Aid of <placeName target="geo:0047">Chicago</placeName> because I could not catch it en route. If
+                you haven't yet seen <name type="work" target="wrk:0263">the <emph rend="underline">Nation</emph></name> article, let me know and I'll send you one.</p>
             <p><name type="work" target="wrk:0307">"Claude"</name> will not appear until next
-                August&#8212;I have just completed it, and prefer not to publish it in the
-                spring&#8212;so until that is published all the advertising like that in the <emph
-                    rend="underline">Nation</emph> will apply only to the books you publish. </p>
+                August—I have just completed it, and prefer not to publish it in the
+                spring—so until that is published all the advertising like that in the <emph rend="underline">Nation</emph> will apply only to the books you publish. </p>
             <closer>
                 <salute>Yours</salute>
                 <signed>W. S. C.</signed>

@@ -4,7 +4,7 @@
     <teiHeader>
         <fileDesc>
             <titleStmt>
-                <title type="main">Willa Cather to Ferris Greenslet, August 26 [1921]</title>
+                <title type="main">Willa Cather to Roscoe Cather, June 20 [1932]</title>
                 <title type="sub">electronic edition</title>
                 <author key="Cather, Willa">Willa Cather</author>
                 <editor role="co-editor" xml:id="awj">Andrew Jewell</editor>
@@ -29,14 +29,14 @@
             </titleStmt>
             <publicationStmt>
                 <authority>The Willa Cather Archive</authority>
-                <idno>cat.let0550</idno>
+                <idno>cat.let2161</idno>
                 <address><addrLine>http://cather.unl.edu</addrLine></address>
-                <publisher>University of Nebraska&#8211;Lincoln</publisher>
+                <publisher>University of Nebraska–Lincoln</publisher>
                 <distributor>
                     <name>Center for Digital Research in the Humanities</name>
                     <address>
               <addrLine>319 Love Library</addrLine> 
-             <addrLine>University of Nebraska&#8211;Lincoln</addrLine>      
+             <addrLine>University of Nebraska–Lincoln</addrLine>      
              <addrLine>Lincoln, NE 68588-4100</addrLine> 
              <addrLine>http://cdrh.unl.edu</addrLine>
                  </address>
@@ -58,18 +58,26 @@
             <sourceDesc>
                 <bibl>
                     <author>Willa Cather</author>
-                    <persName type="addressee" target="psn:0401">Ferris Greenslet</persName>
-                    <date when="1921-08-26">August 26 [1921]</date>
+                    <persName type="addressee" target="psn:0200">Roscoe Cather</persName>
+                    <date when="1932-06-20">June 20 [1932]</date>
+                    <note type="date">In another letter to Alfred A. Knopf also dated June 20
+                        (letter 1672), Cather laments the death of Samuel Knopf, who died in 1932.
+                        Cather's reference in this letter to the loss of a friend who was also a
+                        "strong arm" in the business is almost certainly a reference to Samuel
+                        Knopf, who did work for his son's publishing firm. Additionally, Roscoe's
+                        daughter Virginia, also referenced in the letter, was a student at Smith
+                        College in 1932 and therefore eligible for scholarships; she graduated in
+                        1933.</note>
                 </bibl>
                 <msDesc>
                     <msIdentifier>
-                        <repository target="rep:002">Harvard University, Houghton
-                            Library, Cambridge, MA</repository>
-                        <collection>Houghton Mifflin Company Correspondence and Records </collection>
-                        <idno type="collection">MS AM 1925</idno>
+                        <repository target="rep:001">Archives and Special Collections, University of
+                            Nebraska—Lincoln Libraries</repository>
+                        <collection>Roscoe and Meta Cather Collection </collection>
+                        <idno type="collection">MS316</idno>
                     </msIdentifier>
                     <msContents>
-                        <p>Document is one leaf, handwritten on recto only </p>
+                        <p>Document is one leaf, handwritten on recto only.</p>
                     </msContents>
                     <physDesc>
                         <objectDesc>
@@ -80,18 +88,17 @@
                                 </extent>
                             </supportDesc>
                         </objectDesc>
-                        <handDesc hands="2">
-                            <handNote xml:id="wc_hand" medium="pen">Willa Cather
-                                handwritten</handNote>
-                            <handNote xml:id="unknown_hand" medium="pencil">unknown
-                                handwriting</handNote>
+                        <handDesc hands="1">
+                            <handNote xml:id="wc_hand" medium="pen"><p>Willa Cather
+                                handwritten</p></handNote>
                         </handDesc>
+
                     </physDesc>
                     <history>
                         <origin>
-                            <origDate when="1921-08-26">August 26 [1921]</origDate>
+                            <origDate when="1932-06-20">June 20 [1932]</origDate>
                             <origPlace>
-                                <placeName target="geo:0213">Toronto, Ontario, Canada</placeName>
+                                <placeName target="geo:0082">Grand Manan, NB, Canada</placeName>
                             </origPlace>
                         </origin>
                     </history>
@@ -111,28 +118,24 @@
                 </normalization>
             </editorialDecl>
             <listPrefixDef>
-                <prefixDef ident="psn" matchPattern="([0-9]{4})"
-                    replacementPattern="cat.let.personography.xml#$1">
+                <prefixDef ident="psn" matchPattern="([0-9]{4})" replacementPattern="cat.let.personography.xml#$1">
                     <p> Private URIs using the <code>psn</code> prefix are pointers to
                             <gi>person</gi> elements in the cat.let.personography.xml file. For
                         example, <code>psn:2365</code> dereferences to
                             <code>cat.let.personography.xml#2365</code>. </p>
                 </prefixDef>
-                <prefixDef ident="wrk" matchPattern="([0-9]{4})"
-                    replacementPattern="cat.let.works.xml#$1">
+                <prefixDef ident="wrk" matchPattern="([0-9]{4})" replacementPattern="cat.let.works.xml#$1">
                     <p> Private URIs using the <code>wrk</code> prefix are pointers to <gi>bibl</gi>
                         elements in the cat.let.works.xml file. For example, <code>wrk:1342</code>
                         dereferences to <code>cat.let.works.xml#1342</code>. </p>
                 </prefixDef>
-                <prefixDef ident="geo" matchPattern="([0-9]{4})"
-                    replacementPattern="cat.let.gazetteer.xml#$1">
+                <prefixDef ident="geo" matchPattern="([0-9]{4})" replacementPattern="cat.let.gazetteer.xml#$1">
                     <p> Private URIs using the <code>geo</code> prefix are pointers to
                             <gi>place</gi> elements in the cat.let.gazetteer.xml file. For example,
                             <code>geo:0023</code> dereferences to
                             <code>cat.let.gazetteer.xml#0023</code>. </p>
                 </prefixDef>
-                <prefixDef ident="rep" matchPattern="([0-9]{4})"
-                    replacementPattern="cat.let.repositories.xml#$1">
+                <prefixDef ident="rep" matchPattern="([0-9]{4})" replacementPattern="cat.let.repositories.xml#$1">
                     <p> Private URIs using the <code>rep</code> prefix are pointers to
                             <gi>repository</gi> elements in the cat.let.repositories.xml file. For
                         example, <code>rep:1020</code> dereferences to
@@ -141,41 +144,33 @@
             </listPrefixDef>
         </encodingDesc>
         <revisionDesc>
-            <change when="2015-09-02" who="#em_ra">Initial creation of XML from non-XML electronic
+            <change when="2014-12-04" who="#awj">Initial creation of XML from non-XML electronic
                 files</change>
+            <change when="2015-01-23" who="#em_ra">First round xml proofing</change>
+            <change when="2015-10-15" who="#ga_ki">First round of XML revision</change>
         </revisionDesc>
     </teiHeader>
     <facsimile>
         <surface>
-            <graphic url="cat.let0550.001"/>
+            <graphic url="cat.let2161.001"/>
         </surface>
     </facsimile>
     <text>
         <body>
-            <pb facs="cat.let0550.001"/>
-            <note hand="#unknown_hand"><emph rend="double_underline">Willa Cather</emph></note>
-            <note hand="#unknown_hand">FG</note>
-            <opener>
-                <dateline><placeName target="geo:0213">Toronto</placeName></dateline>
-                <dateline><date when="1921-08-26">August 26</date></dateline>
-                <salute>Dear <persName target="psn:0401">Mr. Greenslet</persName>:</salute>
-            </opener>
-            <p>Thank you for the delightful French notice, and the information about books in
-                stock.</p>
-            <p> I go out to <placeName target="geo:0173">Red Cloud</placeName> on August 30. I
-                lecture for the <placeName target="geo:0155">Omaha</placeName> Society of Fine Arts
-                on October 29. I cut out the lecture for the Woman's Aid of <placeName
-                    target="geo:0047">Chicago</placeName> because I could not catch it en route. If
-                you haven't yet seen <name type="work" target="wrk:0263">the <emph rend="underline"
-                        >Nation</emph></name> article, let me know and I'll send you one.</p>
-            <p><name type="work" target="wrk:0307">"Claude"</name> will not appear until next
-                August&#8212;I have just completed it, and prefer not to publish it in the
-                spring&#8212;so until that is published all the advertising like that in the <emph
-                    rend="underline">Nation</emph> will apply only to the books you publish. </p>
-            <closer>
-                <salute>Yours</salute>
-                <signed>W. S. C.</signed>
-            </closer>
+            <pb facs="cat.let2161.001"/>
+            <fw type="letterhead" place="top"><ref type="annotation" target="AVOF5og8QF3Cd7E0UXNc">WHALE</ref> COVE<lb/>GRAND
+                    MANAN<lb/><ref type="annotation" target="AVOF5lTUQF3Cd7E0UXNa">NEW BRUNSWICK</ref><lb/>CANADA</fw>
+            <opener><dateline><date when="1932-06-20">June 20</date></dateline><salute>My Dear
+                        <persName target="psn:0200">Roscoe</persName>;</salute></opener>
+            <p>I have lost a <persName target="psn:0522">true friend</persName> — one of the
+                most helpful and kind I ever knew — and the <ref type="annotation" target="AVOF3xKSQF3Cd7E0UXNQ">business</ref> has lost a strong arm. It
+                will affect us all seriously.</p>
+            <p>I am so proud of <persName target="psn:0201">Virginia</persName> that she won the
+                scholarship again, and I enclose a check to show my appreciation. I wish it were
+                larger, but you know the story; none of my grand railroad stocks pay <emph rend="underline">at</emph>
+                <emph rend="underline">all</emph>, etc. etc. With love to all of you.</p>
+
+            <closer>Willie</closer>
         </body>
     </text>
 </TEI>

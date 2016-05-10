@@ -4,14 +4,10 @@ require_relative 'letter'
 class AnnotationManager
   attr_reader :flask_annotations
   attr_reader :letters
-  attr_writer :warning_count
-  attr_writer :error_count
 
   def initialize
     @flask_annotations = []
     @letters = []
-    @warning_count = 0
-    @error_count = 0
   end
 
   def find_annotations(attr_type, value)
@@ -24,7 +20,7 @@ class AnnotationManager
     combined = warnings + errors
     if combined.length > 0
       File.open("#{$warnings_file}", "a") { |f| f.puts(combined.join("\n")) }
-      puts %{\nFound #{warnings.length} warning(s) and #{errors.length} errors. Please review #{$warnings_file}}
+      puts %{\nFound #{warnings.length} warning(s) and #{errors.length} error(s). Please review #{$warnings_file}}
     end
   end
 
@@ -61,10 +57,7 @@ class AnnotationManager
   # CAUTION:  Don't remove code checking if output_dir exists
   #  because if it is left empty this would remove /* instead of a relative path
   def delete_generated
-    puts "Running this script will remove files in the #{@output_dir} directory"
-    puts "and it will wipe the files #{$annotation_file} and #{$warnings_file}"
-    puts "Continue?  y/N"
-    input = gets.chomp
+    input = prompt_input
     if (input == "y" || input == "Y")
       if $letters_out && $letters_out.length > 0
         puts "Removing files in #{$letters_out}"
@@ -110,5 +103,12 @@ class AnnotationManager
       end
     end
     File.write("#{$annotation_file}", annotations.compact.join("\n"))
+  end
+
+  def prompt_input
+    puts "Running this script will remove files in the #{@output_dir} directory"
+    puts "and it will wipe the files #{$annotation_file} and #{$warnings_file}"
+    puts "Continue?  y/N"
+    input = gets.chomp
   end
 end
