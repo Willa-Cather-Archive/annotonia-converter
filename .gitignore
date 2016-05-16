@@ -5,3 +5,5 @@ letters_new/cat.*.xml
 config.rb
 annotations.txt
 warnings.txt
+
+.DS_Store
