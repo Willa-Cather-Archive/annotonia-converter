@@ -5,7 +5,7 @@ Alters Cather TEI letters with annotations from the annotonia
 
 Download the repository (you do not need to use `git clone` if you aren't comfortable with that, use the zipped file.
 
-Install [ruby](https://www.ruby-lang.org/en/documentation/installation/) on your system.  This repo is currently using ruby 2.2.0.
+Install [ruby](https://www.ruby-lang.org/en/documentation/installation/) on your system.  This repo is currently using ruby 2.3.1.
 
 Download the only required gem (this may take a few minutes):
 
