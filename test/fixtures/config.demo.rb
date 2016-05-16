@@ -9,8 +9,8 @@ $flask_url = ""
 $tei_ns = "http://www.tei-c.org/ns/1.0"
 
 $tei_cases = %w(
-  teiHeader, fileDesc, titleStmt, respStm, publicationStmt,
-  addrLine, seriesStmt, sourceDesc, persName, msDesc, handDesc,
-  encodingDesc, editorialDecl, listPrefixDef, placeName,
-  msIdentifier, msContents, physDesc, objectDesc, revisionDesc
+  teiHeader fileDesc titleStmt respStm publicationStmt
+  addrLine seriesStmt sourceDesc persName msDesc handDesc
+  encodingDesc editorialDecl listPrefixDef placeName
+  msIdentifier msContents physDesc objectDesc revisionDesc
 )

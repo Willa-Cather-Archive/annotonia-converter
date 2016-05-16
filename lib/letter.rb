@@ -31,7 +31,7 @@ class Letter
           @errors << "Unable to add #{annotation.id} ref to #{@cat_id}: #{annotation.quote}"
         end
       else
-        @warnings << %{Check file #{@cat_id}.xml for #{annotation.id} ('#{annotation.quote}') placement\n }
+        @warnings << %{Check file #{@cat_id}.xml for #{annotation.id} ('#{annotation.quote}') placement. xpath: annotation.xpath\n }
         annotation.char_start = element.inner_html.index(annotation.quote)
         annotation.char_end = annotation.quote.length + annotation.char_start
         new_content = insert_ref(element.inner_html, annotation)

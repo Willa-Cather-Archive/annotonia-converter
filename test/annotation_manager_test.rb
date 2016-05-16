@@ -35,7 +35,7 @@ class TestAnnotationManager < Minitest::Test
   def test_run_generator
     @manager.run_generator
     assert_equal 2, @manager.letters.length
-    assert_equal 20, @manager.flask_annotations.length
+    assert_equal 14, @manager.flask_annotations.length
 
     orig_xml = read_xml("#{File.dirname(__FILE__)}/fixtures/letters_orig/cat.let2161.xml")
     new_xml = read_xml("#{File.dirname(__FILE__)}/fixtures/letters_new/cat.let2161.xml")
@@ -43,7 +43,7 @@ class TestAnnotationManager < Minitest::Test
     new_refs = new_xml.xpath("//tei:ref", "tei" => $tei_ns)
 
     assert_equal 0, orig_refs.length
-    assert_equal 3, new_refs.length
+    assert_equal 4, new_refs.length
 
     assert_equal %{<ref type="annotation" target="AVOF5og8QF3Cd7E0UXNc">WHALE</ref>}, new_refs[0].to_s
   end

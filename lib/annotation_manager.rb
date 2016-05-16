@@ -29,7 +29,7 @@ class AnnotationManager
     create_letters
     create_annotations
     insert_references
-    print_annotations_for_letters
+    update_annotation_file
     report_messages
   end
 
@@ -43,7 +43,11 @@ class AnnotationManager
   def create_annotations
     annotations = get_flask_data
     annotations.each do |anno|
-      @flask_annotations << FlaskAnnotation.new(anno)
+      flask_annotation = FlaskAnnotation.new(anno)
+      # verify that only annotations that are complete are added
+      if flask_annotation.process_bool
+        @flask_annotations << flask_annotation
+      end
     end
   end
 
@@ -64,8 +68,7 @@ class AnnotationManager
         files = Dir.glob("#{$letters_out}/*")
         FileUtils.rm(files)
       end
-      puts "Removing #{$annotation_file} and #{$warnings_file}"
-      FileUtils.rm($annotation_file) if File.file?($annotation_file)
+      puts "Removing #{$warnings_file}"
       FileUtils.rm($warnings_file) if File.file?($warnings_file)
     else
       exit
@@ -73,6 +76,10 @@ class AnnotationManager
   end
 
   private
+
+  def create_annotation_json(annotation)
+    return { "letter_id" => annotation.letter_id, "xml" => annotation.xml }
+  end
 
   def get_flask_data(id=nil)
     url = id ? "#{$flask_url}?letterID=#{id}" : $flask_url
@@ -95,14 +102,19 @@ class AnnotationManager
     end
   end
 
-  def print_annotations_for_letters
+  # read in the existing file, update / add json, then write to file
+  def update_annotation_file
     letter_ids = @letters.map { |l| l.id }
-    annotations = @flask_annotations.map do |a| 
+    file = File.read("#{$annotation_file}")
+    anno_json = file ? JSON.parse(file) : {}
+
+    @flask_annotations.each do |a| 
       if letter_ids.include?(a.letter_id)
-        a.xml
+        anno_json[a.id] = create_annotation_json(a)
       end
     end
-    File.write("#{$annotation_file}", annotations.compact.join("\n"))
+
+    File.write("#{$annotation_file}", JSON.pretty_generate(anno_json))
   end
 
   def prompt_input

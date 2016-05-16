@@ -240,7 +240,7 @@
       "consumer": "mockconsumer", 
       "id": "AVOF5og8QF3Cd7E0UXNc", 
       "tags": [
-        "Needs Annotated"
+        "Complete"
       ], 
       "permissions": {
         "read": [
@@ -266,7 +266,7 @@
       "consumer": "mockconsumer", 
       "id": "AVOF5lTUQF3Cd7E0UXNa", 
       "tags": [
-        "Published"
+        "Complete"
       ], 
       "permissions": {
         "read": [
@@ -416,7 +416,7 @@
       "consumer": "mockconsumer", 
       "id": "AVOF3xKSQF3Cd7E0UXNQ", 
       "tags": [
-        "Draft"
+        "Complete"
       ], 
       "permissions": {
         "read": [
