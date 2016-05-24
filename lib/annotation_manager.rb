@@ -10,6 +10,11 @@ class AnnotationManager
     @letters = []
   end
 
+  def generate_all_annotation_json
+    create_annotations
+    update_annotation_file
+  end
+
   def find_annotations(attr_type, value)
     @flask_annotations.find_all { |anno| anno.instance_variable_get(attr_type) == value }
   end
@@ -29,7 +34,7 @@ class AnnotationManager
     create_letters
     create_annotations
     insert_references
-    update_annotation_file
+    update_annotation_file_by_letters
     report_messages
   end
 
@@ -102,14 +107,21 @@ class AnnotationManager
     end
   end
 
-  # read in the existing file, update / add json, then write to file
-  def update_annotation_file
+  def update_annotation_file_by_letters
     letter_ids = @letters.map { |l| l.id }
+    update_annotation_file(letter_ids)
+  end
+
+  # read in the existing file, update / add json, then write to file
+  # TODO make this nicer
+  def update_annotation_file(letter_ids=nil)
     file = File.read("#{$annotation_file}")
     anno_json = file ? JSON.parse(file) : {}
 
     @flask_annotations.each do |a| 
-      if letter_ids.include?(a.letter_id)
+      if letter_ids.nil?
+        anno_json[a.id] = create_annotation_json(a)
+      elsif letter_ids.include?(a.letter_id)
         anno_json[a.id] = create_annotation_json(a)
       end
     end

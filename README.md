@@ -1,6 +1,15 @@
 # annotonia-converter
 Alters Cather TEI letters with annotations from the annotonia
 
+## Overview
+
+There are several aspects to this project.
+
+- `generate.rb` : matches annotations created with annotator.py with TEI, collects JSON annotations
+- `annotations.rb` : takes collected JSON annotations and outputs XML version
+- `publisher.rb` : marks ALL annotations in elasticsearch as "published", does not take args
+- `annotation_status.php` : a PHP viewer for the status of annotations, you will need to configure your system to serve this file
+
 ## Initial Setup
 
 Download the repository (you do not need to use `git clone` if you aren't comfortable with that, use the zipped file.

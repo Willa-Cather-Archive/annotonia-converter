@@ -3,6 +3,7 @@ letters_orig/cat.*.xml
 letters_new/cat.*.xml
 
 config.rb
+config.php
 annotations.txt
 warnings.txt
 
