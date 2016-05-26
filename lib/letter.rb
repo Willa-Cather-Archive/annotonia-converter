@@ -1,3 +1,6 @@
+require 'fileutils'
+require 'nokogiri'
+
 class Letter
   attr_reader :id
   attr_reader :cat_id

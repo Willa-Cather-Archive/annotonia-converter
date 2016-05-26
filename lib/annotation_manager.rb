@@ -1,3 +1,8 @@
+require 'fileutils'
+require 'json'
+require 'net/http'
+require 'open3'
+
 require_relative 'flask_annotation'
 require_relative 'letter'
 
@@ -17,6 +22,13 @@ class AnnotationManager
 
   def find_annotations(attr_type, value)
     @flask_annotations.find_all { |anno| anno.instance_variable_get(attr_type) == value }
+  end
+
+  def publish_all_annotations
+    create_letters
+    create_annotations
+    to_publish = bulk_change_tags(@letters, "Published")
+    update_cloud_annotations(to_publish)
   end
 
   def report_messages
@@ -39,6 +51,21 @@ class AnnotationManager
   end
 
   private
+
+  def bulk_change_tags(letter_objs, tag_name)
+    updated = []
+    letter_objs.each do |letter|
+      annos = find_annotations("@letter_id", letter.id)
+      annos.each do |anno|
+        # clone the object
+        new_res = JSON.parse(JSON.generate(anno.raw_res))
+        # Make sure that you override the entire array in tags
+        new_res["tags"] = ["Published"]
+        updated << new_res
+      end
+    end
+    return updated
+  end
 
   def combine_messages(type)
     messages = @letters.map { |l| l.instance_variable_get(type) }
@@ -80,8 +107,6 @@ class AnnotationManager
     end
   end
 
-  private
-
   def create_annotation_json(annotation)
     return { "letter_id" => annotation.letter_id, "xml" => annotation.xml }
   end
@@ -103,6 +128,18 @@ class AnnotationManager
       if annotations
         annotations.each { |a| letter.add_ref(a) }
         File.write("#{$letters_out}/#{letter.cat_id}.xml", letter.xml)
+      end
+    end
+  end
+
+  def update_cloud_annotations(annotation_json)
+    # TODO I HATE THIS but I suck at net/http + PUT, apparently?
+    annotation_json.each do |anno|
+      uri = "#{$anno_store_url}#{anno['id']}"
+      cmd = "curl -i -H 'Content-Type: application/json' -X PUT -d '#{JSON.generate(anno)}' #{uri} | grep 'HTTP/1.1'"
+      Open3.popen3(cmd) do |stdin, stdout, stderr|
+        puts stdout.read
+        puts stderr.read
       end
     end
   end

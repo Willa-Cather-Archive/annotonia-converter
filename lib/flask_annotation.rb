@@ -1,8 +1,12 @@
+require 'fileutils'
+require 'json'
+
 class FlaskAnnotation
   attr_reader :id
   attr_reader :letter_id
   attr_reader :process_bool
   attr_reader :quote
+  attr_reader :raw_res
   attr_reader :tags
   attr_reader :text
   attr_reader :xpath
@@ -12,6 +16,8 @@ class FlaskAnnotation
   attr_accessor :char_end
 
   def initialize(flask_res)
+    @raw_res = JSON.parse(JSON.generate(flask_res))
+
     @id = flask_res["id"]
     @letter_id = flask_res["letterID"]
     @quote = flask_res["quote"]
