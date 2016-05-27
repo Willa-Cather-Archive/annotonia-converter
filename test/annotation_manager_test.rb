@@ -48,6 +48,10 @@ class TestAnnotationManager < Minitest::Test
     assert_equal %{<ref type="annotation" target="AVOF5og8QF3Cd7E0UXNc">WHALE</ref>}, new_refs[0].to_s
   end
 
+  def test_publish_all
+
+  end
+
   private
 
   def read_xml(path)

@@ -25,8 +25,7 @@ class AnnotationManager
   end
 
   def publish_all_annotations
-    create_letters
-    create_annotations
+    create_letters_and_annotations
     to_publish = bulk_change_tags(@letters, "Published")
     update_cloud_annotations(to_publish)
   end
@@ -43,8 +42,7 @@ class AnnotationManager
 
   def run_generator
     delete_generated
-    create_letters
-    create_annotations
+    create_letters_and_annotations
     insert_references
     update_annotation_file_by_letters
     report_messages
@@ -55,7 +53,7 @@ class AnnotationManager
   def bulk_change_tags(letter_objs, tag_name)
     updated = []
     letter_objs.each do |letter|
-      annos = find_annotations("@letter_id", letter.id)
+      annos = letter.annotations
       annos.each do |anno|
         # clone the object
         new_res = JSON.parse(JSON.generate(anno.raw_res))
@@ -86,8 +84,14 @@ class AnnotationManager
   def create_letters
     letter_paths = Dir.glob("#{$letters_in}/*")
     letter_paths.each do |path|
-      @letters << Letter.new(path)
+      annotations = find_annotations("@letter_id", path.match(/[0-9]{4}/)[0])
+      @letters << Letter.new(path, annotations)
     end
+  end
+
+  def create_letters_and_annotations
+    create_annotations
+    create_letters
   end
 
   # CAUTION:  Don't remove code checking if output_dir exists
@@ -124,10 +128,12 @@ class AnnotationManager
 
   def insert_references
     @letters.each do |letter|
-      annotations = find_annotations("@letter_id", letter.id)
-      if annotations
-        annotations.each { |a| letter.add_ref(a) }
-        File.write("#{$letters_out}/#{letter.cat_id}.xml", letter.xml)
+      if letter.publishable
+        annotations = letter.annotations
+        if annotations
+          annotations.each { |a| letter.add_ref(a) }
+          File.write("#{$letters_out}/#{letter.cat_id}.xml", letter.xml)
+        end
       end
     end
   end

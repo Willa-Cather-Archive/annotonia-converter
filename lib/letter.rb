@@ -2,25 +2,31 @@ require 'fileutils'
 require 'nokogiri'
 
 class Letter
+  attr_reader :annotations
   attr_reader :id
   attr_reader :cat_id
   attr_reader :file_read
   attr_reader :file_write
+  attr_reader :publishable
 
-  attr_accessor :xml
-  attr_accessor :warnings
   attr_accessor :errors
+  attr_accessor :warnings
+  attr_accessor :xml
 
-  def initialize(path)
+  def initialize(path, annotations)
     @file_read = path
     @id = derive_id(path)
     @cat_id = "cat.let#{@id}"
     @file_write = "#{$letters_out}/#{@cat_id}.xml"
-    @xml = read_xml(path)
-    @warnings = []
+    @annotations = annotations
+    @publishable = publishable?
+
     @errors = []
+    @warnings = []
+    @xml = read_xml(path)
   end
 
+  # TODO this may not be appropriate to have as a method on Letter
   def add_ref(annotation)
     element = @xml.at_xpath(annotation.xpath, "tei" => $tei_ns)
     if element
@@ -59,6 +65,12 @@ class Letter
 
   def derive_id(path)
     path.match(/[0-9]{4}/)[0]
+  end
+
+  def publishable?
+    # anything that is not completed will be listed here
+    uncompleted = @annotations.reject { |anno| anno.tags == ["Completed"] }
+    return uncompleted.length > 0
   end
 
   def read_xml(path)
