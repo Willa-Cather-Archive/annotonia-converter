@@ -11,6 +11,10 @@ require_relative "../lib/annotation_manager"
 class AnnotationManager
   private
 
+  def annotation_bash_cmd(cmd, annotation)
+    $published_annos << annotation
+  end
+
   def get_flask_data(id=nil)
     file = File.read("#{File.dirname(__FILE__)}/fixtures/flask_response.json")
     return JSON.parse(file)["rows"]
@@ -20,9 +24,9 @@ class AnnotationManager
     return "y"
   end
 
-  def annotation_bash_cmd(cmd, annotation)
-    $published_annos << annotation
+  def report_messages
   end
+
 end
 
 class TestAnnotationManager < Minitest::Test
@@ -68,6 +72,7 @@ class TestAnnotationManager < Minitest::Test
   def test_publish_all
     @manager.publish_all_annotations
     assert_equal 5, $published_annos.length
+    assert_equal "<p>It&apos;s a state.</p>", $published_annos[1]["text"]
   end
 
   private
