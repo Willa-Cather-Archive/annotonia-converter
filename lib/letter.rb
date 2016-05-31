@@ -7,7 +7,6 @@ class Letter
   attr_reader :cat_id
   attr_reader :file_read
   attr_reader :file_write
-  attr_reader :publishable
 
   attr_accessor :errors
   attr_accessor :warnings
@@ -16,10 +15,9 @@ class Letter
   def initialize(path, annotations)
     @file_read = path
     @id = derive_id(path)
-    @cat_id = "cat.let#{@id}"
+    @cat_id = "cat.#{@id}"
     @file_write = "#{$letters_out}/#{@cat_id}.xml"
     @annotations = annotations
-    @publishable = publishable?
 
     @errors = []
     @warnings = []
@@ -51,6 +49,12 @@ class Letter
     end
   end
 
+  def publishable?
+    # anything that is not completed will be listed here
+    uncompleted = @annotations.reject { |anno| anno.publishable }
+    return uncompleted.length == 0
+  end
+
   private
 
   def insert_ref(html, annotation)
@@ -64,13 +68,7 @@ class Letter
   end
 
   def derive_id(path)
-    path.match(/[0-9]{4}/)[0]
-  end
-
-  def publishable?
-    # anything that is not completed will be listed here
-    uncompleted = @annotations.reject { |anno| anno.tags == ["Completed"] }
-    return uncompleted.length > 0
+    path.match(/let[0-9]{4}/)[0]
   end
 
   def read_xml(path)

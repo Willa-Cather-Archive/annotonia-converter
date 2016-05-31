@@ -35,7 +35,7 @@ class TestAnnotationManager < Minitest::Test
   def test_run_generator
     @manager.run_generator
     assert_equal 2, @manager.letters.length
-    assert_equal 14, @manager.flask_annotations.length
+    assert_equal 20, @manager.flask_annotations.length
 
     orig_xml = read_xml("#{File.dirname(__FILE__)}/fixtures/letters_orig/cat.let2161.xml")
     new_xml = read_xml("#{File.dirname(__FILE__)}/fixtures/letters_new/cat.let2161.xml")

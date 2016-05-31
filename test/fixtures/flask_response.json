@@ -4,7 +4,7 @@
       "updated": "2016-05-03T20:33:34.022291+00:00", 
       "created": "2016-05-03T20:33:34.022197+00:00", 
       "text": "<p>It's a state.</p>", 
-      "letterID": "2161", 
+      "pageID": "let2161", 
       "ranges": [
         {
           "start": "/div[2]/tei[1]/text[1]/p[2]/persname[1]", 
@@ -17,7 +17,7 @@
       "quote": "Virginia", 
       "consumer": "mockconsumer", 
       "id": "AVR4U21HQF3Cd7E0UXNw", 
-      "tags": [], 
+      "tags": ["Complete"], 
       "permissions": {
         "read": [
           "group:__consumer__"
@@ -28,7 +28,7 @@
       "updated": "2016-05-03T17:40:39.735268+00:00", 
       "created": "2016-05-03T17:40:39.735203+00:00", 
       "text": "<p>Wilella</p>", 
-      "letterID": "2107", 
+      "pageID": "let2107", 
       "ranges": [
         {
           "start": "/div[2]/tei[1]/teiheader[1]/filedesc[1]/titlestmt[1]/tei-title[1]", 
@@ -54,7 +54,7 @@
       "updated": "2016-05-02T16:32:18.847151+00:00", 
       "created": "2016-05-02T16:32:18.847039+00:00", 
       "text": "<p>Refers to the people of France</p>", 
-      "letterID": "0550", 
+      "pageID": "let0550", 
       "ranges": [
         {
           "start": "/div[2]/tei[1]/text[1]/p[1]", 
@@ -67,7 +67,7 @@
       "quote": "French", 
       "consumer": "mockconsumer", 
       "id": "AVRyUDGhQF3Cd7E0UXNr", 
-      "tags": [], 
+      "tags": ["Complete"], 
       "permissions": {
         "read": [
           "group:__consumer__"
@@ -78,7 +78,7 @@
       "updated": "2016-03-18T18:00:17.898993+00:00", 
       "created": "2016-03-18T17:59:29.145844+00:00", 
       "text": "<p>Testy test test TEST</p>", 
-      "letterID": "2096", 
+      "pageID": "let2096", 
       "ranges": [
         {
           "start": "/div[2]/tei[1]/text[1]/p[1]", 
@@ -91,9 +91,7 @@
       "quote": "Duty Schedule", 
       "consumer": "mockconsumer", 
       "id": "AVOK4pLsQF3Cd7E0UXNn", 
-      "tags": [
-        "blue"
-      ], 
+      "tags": ["Complete"], 
       "permissions": {
         "read": [
           "group:__consumer__"
@@ -104,7 +102,7 @@
       "updated": "2016-03-18T18:00:04.339472+00:00", 
       "created": "2016-03-18T17:59:29.145844+00:00", 
       "text": "<p>Testy test test TEST</p>", 
-      "letterID": "2096", 
+      "pageID": "let2096", 
       "ranges": [
         {
           "start": "/div[2]/tei[1]/text[1]/p[1]", 
@@ -128,7 +126,7 @@
       "updated": "2016-03-18T17:59:29.145890+00:00", 
       "created": "2016-03-18T17:59:29.145844+00:00", 
       "text": "<p>Testy test test</p>", 
-      "letterID": "2096", 
+      "pageID": "let2096", 
       "ranges": [
         {
           "start": "/div[2]/tei[1]/text[1]/p[1]", 
@@ -141,7 +139,7 @@
       "quote": "Duty Schedule", 
       "consumer": "mockconsumer", 
       "id": "AVOK4dR7QF3Cd7E0UXNl", 
-      "tags": [], 
+      "tags": ["Complete"], 
       "permissions": {
         "read": [
           "group:__consumer__"
@@ -152,7 +150,7 @@
       "updated": "2016-03-18T17:38:56.190358+00:00", 
       "created": "2016-03-17T18:44:14.760969+00:00", 
       "text": "<p>This is her article about Mrs. Fields (This is a test edit)</p>", 
-      "letterID": "2096", 
+      "pageID": "let2096", 
       "ranges": [
         {
           "start": "/div[2]/tei[1]/text[1]/p[1]", 
@@ -178,7 +176,7 @@
       "updated": "2016-03-18T17:37:46.300718+00:00", 
       "created": "2016-03-18T17:37:46.300665+00:00", 
       "text": "<p>Text</p>\n<p>&nbsp;</p>", 
-      "letterID": "1144", 
+      "pageID": "let1144", 
       "ranges": [
         {
           "start": "/div[2]/tei[1]/text[1]/p[2]", 
@@ -202,7 +200,7 @@
       "updated": "2016-03-17T18:48:49.284088+00:00", 
       "created": "2016-03-17T18:48:49.284034+00:00", 
       "text": "<p>handwritten note at top of page - we assume this indicates that ferris has received and read the letter</p>\n<p><a href=\"http://brucespringsteen.net\" target=\"_blank\">http://brucespringsteen.net</a></p>", 
-      "letterID": "1587", 
+      "pageID": "let1587", 
       "ranges": [
         {
           "start": "/div[2]/tei[1]/text[1]/group[1]/text[1]/note[1]", 
@@ -226,7 +224,7 @@
       "updated": "2016-03-17T18:46:31.226848+00:00", 
       "created": "2016-03-17T18:45:39.529244+00:00", 
       "text": "<p>humpback whale?</p>", 
-      "letterID": "2161", 
+      "pageID": "let2161", 
       "ranges": [
         {
           "start": "/div[2]/tei[1]/text[1]/fw[1]", 
@@ -252,7 +250,7 @@
       "updated": "2016-03-17T18:46:18.066877+00:00", 
       "created": "2016-03-17T18:46:18.066832+00:00", 
       "text": "<p>is she talking about New Jersey?</p>", 
-      "letterID": "2161", 
+      "pageID": "let2161", 
       "ranges": [
         {
           "start": "/div[2]/tei[1]/text[1]/fw[1]", 
@@ -278,7 +276,7 @@
       "updated": "2016-03-17T18:44:41.084506+00:00", 
       "created": "2016-03-17T18:44:14.760969+00:00", 
       "text": "<p>This is her article about Mrs. Fields, called \"136 Charles Street.\"</p>", 
-      "letterID": "2096", 
+      "pageID": "let2096", 
       "ranges": [
         {
           "start": "/div[2]/tei[1]/text[1]/p[1]", 
@@ -304,7 +302,7 @@
       "updated": "2016-03-17T18:44:14.761027+00:00", 
       "created": "2016-03-17T18:44:14.760969+00:00", 
       "text": "<p>This is her article about Mrs. Fields</p>", 
-      "letterID": "2096", 
+      "pageID": "let2096", 
       "ranges": [
         {
           "start": "/div[2]/tei[1]/text[1]/p[1]", 
@@ -330,7 +328,7 @@
       "updated": "2016-03-17T18:41:16.852246+00:00", 
       "created": "2016-03-17T18:38:24.941103+00:00", 
       "text": "<p>Courtney Cox is the real talent here. Rude.</p>\n<p><iframe src=\"http://www.youtube.com/embed/129kuDCQtHs\" width=\"425\" height=\"350\"></iframe></p>", 
-      "letterID": "2096", 
+      "pageID": "let2096", 
       "ranges": [
         {
           "start": "/div[2]/tei[1]/teiheader[1]/filedesc[1]/titlestmt[1]/respstmt[4]/name[1]", 
@@ -354,7 +352,7 @@
       "updated": "2016-03-17T18:40:22.533521+00:00", 
       "created": "2016-03-17T18:38:24.941103+00:00", 
       "text": "<p>Courtney Cox is the real talent here</p>\n<p><iframe src=\"http://www.youtube.com/embed/129kuDCQtHs\" width=\"425\" height=\"350\"></iframe></p>", 
-      "letterID": "2096", 
+      "pageID": "let2096", 
       "ranges": [
         {
           "start": "/div[2]/tei[1]/teiheader[1]/filedesc[1]/titlestmt[1]/respstmt[4]/name[1]", 
@@ -378,7 +376,7 @@
       "updated": "2016-03-17T18:38:24.941140+00:00", 
       "created": "2016-03-17T18:38:24.941103+00:00", 
       "text": "<p><iframe src=\"http://www.youtube.com/embed/129kuDCQtHs\" width=\"425\" height=\"350\"></iframe></p>", 
-      "letterID": "2096", 
+      "pageID": "let2096", 
       "ranges": [
         {
           "start": "/div[2]/tei[1]/teiheader[1]/filedesc[1]/titlestmt[1]/respstmt[4]/name[1]", 
@@ -402,7 +400,7 @@
       "updated": "2016-03-17T18:38:22.352391+00:00", 
       "created": "2016-03-17T18:38:22.352338+00:00", 
       "text": "<p>Alfred A. Knopf, Inc.</p>", 
-      "letterID": "2161", 
+      "pageID": "let2161", 
       "ranges": [
         {
           "start": "/div[2]/tei[1]/text[1]/p[1]", 
@@ -428,7 +426,7 @@
       "updated": "2016-03-17T18:36:51.557502+00:00", 
       "created": "2016-03-17T18:36:51.557444+00:00", 
       "text": "<p>creepy</p>", 
-      "letterID": "0004", 
+      "pageID": "let0004", 
       "ranges": [
         {
           "start": "/div[2]/tei[1]/text[1]/group[1]/text[2]/p[7]", 
@@ -452,7 +450,7 @@
       "updated": "2016-03-17T18:36:06.991631+00:00", 
       "created": "2016-03-17T18:36:06.991581+00:00", 
       "text": "<p>This guy is from North Platte, just like this guy:&nbsp;</p>\n<p><img src=\"http://cather.unl.edu/figures/andy.jpg\" alt=\"\" width=\"188\" height=\"285\" /></p>", 
-      "letterID": "0004", 
+      "pageID": "let0004", 
       "ranges": [
         {
           "start": "/div[2]/tei[1]/text[1]/group[1]/text[2]/p[4]/persname[2]", 
@@ -476,7 +474,7 @@
       "updated": "2016-03-17T18:23:39.336950+00:00", 
       "created": "2016-03-17T18:23:29.958356+00:00", 
       "text": "<p>Who is mr greenslet?</p>\n<p>&nbsp;</p>", 
-      "letterID": "1697", 
+      "pageID": "let1697", 
       "ranges": [
         {
           "start": "/div[2]/tei[1]/text[1]/opener[1]/salute[1]/persname[1]", 

@@ -58,7 +58,7 @@ class AnnotationManager
         # clone the object
         new_res = JSON.parse(JSON.generate(anno.raw_res))
         # Make sure that you override the entire array in tags
-        new_res["tags"] = ["Published"]
+        new_res["tags"] = [tag_name]
         updated << new_res
       end
     end
@@ -74,17 +74,14 @@ class AnnotationManager
     annotations = get_flask_data
     annotations.each do |anno|
       flask_annotation = FlaskAnnotation.new(anno)
-      # verify that only annotations that are complete are added
-      if flask_annotation.process_bool
-        @flask_annotations << flask_annotation
-      end
+      @flask_annotations << flask_annotation
     end
   end
 
   def create_letters
     letter_paths = Dir.glob("#{$letters_in}/*")
     letter_paths.each do |path|
-      annotations = find_annotations("@letter_id", path.match(/[0-9]{4}/)[0])
+      annotations = find_annotations("@letter_id", path.match(/let[0-9]{4}/)[0])
       @letters << Letter.new(path, annotations)
     end
   end
@@ -116,7 +113,7 @@ class AnnotationManager
   end
 
   def get_flask_data(id=nil)
-    url = id ? "#{$flask_url}?letterID=#{id}" : $flask_url
+    url = id ? "#{$flask_url}?pageID=#{id}" : $flask_url
     res = Net::HTTP.get(URI.parse(URI.encode(url)))
     json = JSON.parse(res)
     if json["rows"]
@@ -128,12 +125,17 @@ class AnnotationManager
 
   def insert_references
     @letters.each do |letter|
-      if letter.publishable
+      if letter.publishable?
         annotations = letter.annotations
         if annotations
           annotations.each { |a| letter.add_ref(a) }
           File.write("#{$letters_out}/#{letter.cat_id}.xml", letter.xml)
         end
+      else
+        msg = "Letter #{letter.id} is NOT publishable due to uncomplete annotations"
+        puts msg
+        letter.errors << msg
+
       end
     end
   end
@@ -142,10 +144,11 @@ class AnnotationManager
     # TODO I HATE THIS but I suck at net/http + PUT, apparently?
     annotation_json.each do |anno|
       uri = "#{$anno_store_url}#{anno['id']}"
-      cmd = "curl -i -H 'Content-Type: application/json' -X PUT -d '#{JSON.generate(anno)}' #{uri} | grep 'HTTP/1.1'"
+      data = anno["text"].gsub(/'/, "&apos;")
+      cmd = "curl -i -H 'Content-Type: application/json' -X PUT -d '#{anno.to_json}' #{uri} | grep 'HTTP/1.1'"
       Open3.popen3(cmd) do |stdin, stdout, stderr|
         puts stdout.read
-        puts stderr.read
+        # puts stderr.read
       end
     end
   end
@@ -168,7 +171,6 @@ class AnnotationManager
         anno_json[a.id] = create_annotation_json(a)
       end
     end
-
     File.write("#{$annotation_file}", JSON.pretty_generate(anno_json))
   end
 
