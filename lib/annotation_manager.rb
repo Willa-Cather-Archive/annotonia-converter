@@ -26,7 +26,7 @@ class AnnotationManager
 
   def publish_all_annotations
     create_letters_and_annotations
-    to_publish = bulk_change_tags(@letters, "Published")
+    to_publish = bulk_change_tags(@letters)
     update_cloud_annotations(to_publish)
   end
 
@@ -50,16 +50,30 @@ class AnnotationManager
 
   private
 
-  def bulk_change_tags(letter_objs, tag_name)
+  def annotation_bash_cmd(cmd, annotation)
+    Open3.popen3(cmd) do |stdin, stdout, stderr|
+      status = stdout.read
+      if !status.include?("200")
+        puts "Error sending update for #{annotation['pageID']} annotation #{annotation['id']}"
+        puts stderr.read
+      end
+    end
+  end
+
+  def bulk_change_tags(letter_objs, tag_name="Published", override=false)
     updated = []
     letter_objs.each do |letter|
-      annos = letter.annotations
-      annos.each do |anno|
-        # clone the object
-        new_res = JSON.parse(JSON.generate(anno.raw_res))
-        # Make sure that you override the entire array in tags
-        new_res["tags"] = [tag_name]
-        updated << new_res
+      if letter.publishable? || override
+        annos = letter.annotations
+        annos.each do |anno|
+          # clone the object
+          new_res = JSON.parse(JSON.generate(anno.raw_res))
+          # Make sure that you override the entire array in tags
+          new_res["tags"] = [tag_name]
+          updated << new_res
+        end
+      else
+        puts "UNABLE TO PUBLISH #{letter.id}: not all tags marked 'Complete' "
       end
     end
     return updated
@@ -87,8 +101,8 @@ class AnnotationManager
   end
 
   def create_letters_and_annotations
-    create_annotations
-    create_letters
+    create_annotations if @flask_annotations.empty?
+    create_letters if @letters.empty?
   end
 
   # CAUTION:  Don't remove code checking if output_dir exists
@@ -132,10 +146,9 @@ class AnnotationManager
           File.write("#{$letters_out}/#{letter.cat_id}.xml", letter.xml)
         end
       else
-        msg = "Letter #{letter.id} is NOT publishable due to uncomplete annotations"
+        msg = "Letter #{letter.id} is NOT publishable due to incomplete annotations"
         puts msg
         letter.errors << msg
-
       end
     end
   end
@@ -146,10 +159,7 @@ class AnnotationManager
       uri = "#{$anno_store_url}#{anno['id']}"
       data = anno["text"].gsub(/'/, "&apos;")
       cmd = "curl -i -H 'Content-Type: application/json' -X PUT -d '#{anno.to_json}' #{uri} | grep 'HTTP/1.1'"
-      Open3.popen3(cmd) do |stdin, stdout, stderr|
-        puts stdout.read
-        # puts stderr.read
-      end
+      annotation_bash_cmd(cmd, anno)
     end
   end
 
