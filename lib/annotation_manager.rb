@@ -55,7 +55,8 @@ class AnnotationManager
       status = stdout.read
       if !status.include?("200")
         puts "Error sending update for #{annotation['pageID']} annotation #{annotation['id']}"
-        puts stderr.read
+        puts status
+        # puts stderr.read
       end
     end
   end
@@ -157,7 +158,7 @@ class AnnotationManager
     # TODO I HATE THIS but I suck at net/http + PUT, apparently?
     annotation_json.each do |anno|
       uri = "#{$anno_store_url}#{anno['id']}"
-      data = anno["text"].gsub(/'/, "&apos;")
+      anno["text"].gsub!(/'/, "&apos;")
       cmd = "curl -i -H 'Content-Type: application/json' -X PUT -d '#{anno.to_json}' #{uri} | grep 'HTTP/1.1'"
       annotation_bash_cmd(cmd, anno)
     end
