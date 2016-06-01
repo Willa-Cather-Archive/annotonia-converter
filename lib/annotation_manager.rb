@@ -1,3 +1,8 @@
+require 'fileutils'
+require 'json'
+require 'net/http'
+require 'open3'
+
 require_relative 'flask_annotation'
 require_relative 'letter'
 
@@ -19,6 +24,12 @@ class AnnotationManager
     @flask_annotations.find_all { |anno| anno.instance_variable_get(attr_type) == value }
   end
 
+  def publish_all_annotations
+    create_letters_and_annotations
+    to_publish = bulk_change_tags(@letters)
+    update_cloud_annotations(to_publish)
+  end
+
   def report_messages
     warnings = combine_messages("@warnings").compact
     errors = combine_messages("@errors").compact
@@ -31,14 +42,43 @@ class AnnotationManager
 
   def run_generator
     delete_generated
-    create_letters
-    create_annotations
+    create_letters_and_annotations
     insert_references
     update_annotation_file_by_letters
     report_messages
   end
 
   private
+
+  def annotation_bash_cmd(cmd, annotation)
+    Open3.popen3(cmd) do |stdin, stdout, stderr|
+      status = stdout.read
+      if !status.include?("200")
+        puts "Error sending update for #{annotation['pageID']} annotation #{annotation['id']}"
+        puts status
+        # puts stderr.read
+      end
+    end
+  end
+
+  def bulk_change_tags(letter_objs, tag_name="Published", override=false)
+    updated = []
+    letter_objs.each do |letter|
+      if letter.publishable? || override
+        annos = letter.annotations
+        annos.each do |anno|
+          # clone the object
+          new_res = JSON.parse(JSON.generate(anno.raw_res))
+          # Make sure that you override the entire array in tags
+          new_res["tags"] = [tag_name]
+          updated << new_res
+        end
+      else
+        puts "UNABLE TO PUBLISH #{letter.id}: not all tags marked 'Complete' "
+      end
+    end
+    return updated
+  end
 
   def combine_messages(type)
     messages = @letters.map { |l| l.instance_variable_get(type) }
@@ -49,18 +89,21 @@ class AnnotationManager
     annotations = get_flask_data
     annotations.each do |anno|
       flask_annotation = FlaskAnnotation.new(anno)
-      # verify that only annotations that are complete are added
-      if flask_annotation.process_bool
-        @flask_annotations << flask_annotation
-      end
+      @flask_annotations << flask_annotation
     end
   end
 
   def create_letters
     letter_paths = Dir.glob("#{$letters_in}/*")
     letter_paths.each do |path|
-      @letters << Letter.new(path)
+      annotations = find_annotations("@letter_id", path.match(/let[0-9]{4}/)[0])
+      @letters << Letter.new(path, annotations)
     end
+  end
+
+  def create_letters_and_annotations
+    create_annotations if @flask_annotations.empty?
+    create_letters if @letters.empty?
   end
 
   # CAUTION:  Don't remove code checking if output_dir exists
@@ -80,14 +123,12 @@ class AnnotationManager
     end
   end
 
-  private
-
   def create_annotation_json(annotation)
     return { "letter_id" => annotation.letter_id, "xml" => annotation.xml }
   end
 
   def get_flask_data(id=nil)
-    url = id ? "#{$flask_url}?letterID=#{id}" : $flask_url
+    url = id ? "#{$flask_url}?pageID=#{id}" : $flask_url
     res = Net::HTTP.get(URI.parse(URI.encode(url)))
     json = JSON.parse(res)
     if json["rows"]
@@ -99,11 +140,27 @@ class AnnotationManager
 
   def insert_references
     @letters.each do |letter|
-      annotations = find_annotations("@letter_id", letter.id)
-      if annotations
-        annotations.each { |a| letter.add_ref(a) }
-        File.write("#{$letters_out}/#{letter.cat_id}.xml", letter.xml)
+      if letter.publishable?
+        annotations = letter.annotations
+        if annotations
+          annotations.each { |a| letter.add_ref(a) }
+          File.write("#{$letters_out}/#{letter.cat_id}.xml", letter.xml)
+        end
+      else
+        msg = "Letter #{letter.id} is NOT publishable due to incomplete annotations"
+        puts msg
+        letter.errors << msg
       end
+    end
+  end
+
+  def update_cloud_annotations(annotation_json)
+    # TODO I HATE THIS but I suck at net/http + PUT, apparently?
+    annotation_json.each do |anno|
+      uri = "#{$anno_store_url}#{anno['id']}"
+      anno["text"].gsub!(/'/, "&apos;")
+      cmd = "curl -i -H 'Content-Type: application/json' -X PUT -d '#{anno.to_json}' #{uri} | grep 'HTTP/1.1'"
+      annotation_bash_cmd(cmd, anno)
     end
   end
 
@@ -125,7 +182,6 @@ class AnnotationManager
         anno_json[a.id] = create_annotation_json(a)
       end
     end
-
     File.write("#{$annotation_file}", JSON.pretty_generate(anno_json))
   end
 

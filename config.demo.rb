@@ -5,6 +5,7 @@ $letters_out = "#{File.dirname(__FILE__)}/letters_new"
 $warnings_file = "#{File.dirname(__FILE__)}/warnings.txt"
 
 $flask_url = ""
+$anno_store_url = "server/annostore/annotations/"
 $tei_ns = "http://www.tei-c.org/ns/1.0"
 
 $tei_cases = %w(

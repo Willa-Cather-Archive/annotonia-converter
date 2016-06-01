@@ -1,4 +1,4 @@
-# Annotation Generator
+# Publisher
 #
 # Spring 2016 for Cather Archive
 #
@@ -15,19 +15,13 @@
 #   
 # Run:
 #   put TEI letters files in "letter_dir" path
-#   $ ruby generate.rb
-#   compare output_dir files with original TEI to view annotation markup
-#   new annotations output into the annotation file
+#   $ ruby publish.rb
+#   for all of the letters in the letters_orig directory, this
+#   script will change the tag status to "Published"
 
-
-require 'fileutils'
-require 'json'
-require 'net/http'
 
 require_relative 'config'
 require_relative 'lib/annotation_manager'
-# require_relative 'lib/flask_annotation'
-# require_relative 'lib/letter'
 
 manager = AnnotationManager.new
-manager.run_generator
+manager.publish_all_annotations

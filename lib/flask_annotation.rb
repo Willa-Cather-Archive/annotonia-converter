@@ -1,8 +1,12 @@
+require 'fileutils'
+require 'json'
+
 class FlaskAnnotation
   attr_reader :id
   attr_reader :letter_id
-  attr_reader :process_bool
+  attr_reader :publishable
   attr_reader :quote
+  attr_reader :raw_res
   attr_reader :tags
   attr_reader :text
   attr_reader :xpath
@@ -12,13 +16,15 @@ class FlaskAnnotation
   attr_accessor :char_end
 
   def initialize(flask_res)
+    @raw_res = JSON.parse(JSON.generate(flask_res))
+
     @id = flask_res["id"]
-    @letter_id = flask_res["letterID"]
+    @letter_id = flask_res["pageID"]
     @quote = flask_res["quote"]
     @tags = flask_res["tags"]
     @text = flask_res["text"]
 
-    @process_bool = should_process?
+    @publishable = should_publish?
     @xpath = prep_xpath(flask_res["ranges"])
     @char_start = flask_res["ranges"][0]["startOffset"].to_i
     @char_end = flask_res["ranges"][0]["endOffset"].to_i
@@ -49,8 +55,8 @@ class FlaskAnnotation
     return "//tei:TEI#{xpath}"
   end
 
-  def should_process?
-    return @tags && (@tags.length == 0 || @tags.include?("Complete"))
+  def should_publish?
+    return @tags == ["Complete"]
   end
 
   def tei_casing(xpath)

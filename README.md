@@ -22,6 +22,13 @@ Download the only required gem (this may take a few minutes):
 gem install nokogiri
 ```
 
+If you prefer, you can instead run the following to download nokogiri:
+
+```
+gem install bundler
+bundle install
+```
+
 Copy `config.demo.rb` to `config.rb` and make edits as needed.  You may only need to put in the path to the flask URI.  Ask one of the devs or Andy.
 
 ## Running the Script
