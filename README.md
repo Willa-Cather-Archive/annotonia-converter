@@ -1,6 +1,14 @@
 # annotonia-converter
 Alters Cather TEI letters with annotations from the annotonia
 
+## Contents
+
+- [Overview](#overview)
+- [First Time Setup](#initial-setup)
+- [Generating Annotated Files](#generating-annotated-files)
+- [Setting Published Status](#setting-published-status)
+- [Run Tests (Dev)](#run-tests)
+
 ## Overview
 
 There are several aspects to this project.
@@ -29,9 +37,9 @@ gem install bundler
 bundle install
 ```
 
-Copy `config.demo.rb` to `config.rb` and make edits as needed.  You may only need to put in the path to the flask URI.  Ask one of the devs or Andy.
+Copy `config.demo.rb` to `config.rb` and make edits as needed.  You may only need to put in the path to the flask URI.  Ask one of the devs or Andy.  Also, create a new file `annotations.txt` with the contents `{}` if the file does not already exist.
 
-## Running the Script
+## Generating Annotated Files
 
 ### Begin
 
@@ -99,17 +107,29 @@ Additionally, small xml snippets were generated to help aid each annotation's ad
 
 Once you are happy with the state of the TEI, take the letters from `letters_orig` and drop them back in the cather letters repository.
 
-Review the changes and commit them to git as you would with the normal workflow of editing letters.
+Review the changes and commit them to git as you would with the normal workflow of editing letters.  Assuming that you are happy with all your changes, go ahead and run the publishing script in the next section.
 
-Add the new annotations to an annotations resource file, if you plan on using one.  It may be a good idea to delete the letters you 
-copied into `letters_orig` at this point, indicating that the processing of the batch is done for the next person.
+It may be a good idea to delete the letters you copied into `letters_orig` at this point, indicating that the processing of the batch is done for the next person.  Additionally, you can grab any of the generated annotations from `annotations.txt` if you like.  Coming soon:  a script to turn this from JSON into XML!
 
-## Run Tests (For Developers)
+## Setting Published Status
 
-### Setup
+`publish.rb` will look at all the letters in the `letters_orig` directory and set all their annotation statuses to "Published" if all of them are currently set to "Complete".  If a letter has any annotations which are not "Complete" then the script will not publish them.
+
+```
+ruby publish.rb
+```
+
+## Run Tests
+
+Don't worry about this if you aren't a developer, but you're welcome to run them if you like.  First, make sure you have all the test gems (should only need to set this up once): 
 
 ```
 gem install bundler
 bundle install
+```
+
+Now you can run your tests!
+
+```
 rake test
 ```
