@@ -80,6 +80,8 @@ class TestAnnotationManager < Minitest::Test
     assert_equal wrong_content, new_wrongs[0].to_s
 
     assert_equal %{<ref type="annotation" target="anno.203">WHALE</ref>}, new_refs[0].to_s
+
+    assert_equal letter2.warnings.length, 1
   end
 
   def test_publish_all

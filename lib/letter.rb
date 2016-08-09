@@ -33,9 +33,16 @@ class Letter
       # differs between the HTML and the TEI characters in the xpath
       # so pick the first instance of the annotation quote and use that instead
       if highlight.strip != annotation.quote.strip
-        @warnings << %{Check file #{@cat_id}.xml for #{annotation.id} ('#{annotation.quote}') placement. xpath: annotation.xpath\n }
-        annotation.char_start = element.inner_html.index(annotation.quote)
-        annotation.char_end = annotation.quote.length + annotation.char_start
+        multiple_quotes = element.inner_html.scan(annotation.quote).length > 1
+        if multiple_quotes
+          @warnings << %{Guessed ref location in #{@cat_id}.xml for #{annotation.id} ('#{annotation.quote}') placement. xpath: annotation.xpath\n }
+        end
+        begin
+          annotation.char_start = element.inner_html.index(annotation.quote)
+          annotation.char_end = annotation.quote.length + annotation.char_start
+        rescue => e
+          @errors << "Unable to add ref to #{@cat_id}.xml for #{annotation.id}: #{e}"
+        end
       end
 
       new_content = update_html(element.inner_html, annotation)
