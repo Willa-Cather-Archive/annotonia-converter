@@ -56,7 +56,8 @@ class FlaskAnnotation
   end
 
   def should_publish?
-    return @tags == ["Complete"]
+    # checks against the config file for publishable statuses
+    return @tags.all? { |tag| $allowed_statuses.include?(tag) }
   end
 
   def tei_casing(xpath)

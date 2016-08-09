@@ -158,14 +158,14 @@
     <text>
         <body>
             <pb facs="cat.let2161.001"/>
-            <fw type="letterhead" place="top"><ref type="annotation" target="AVOF5og8QF3Cd7E0UXNc">WHALE</ref> COVE<lb/>GRAND
-                    MANAN<lb/><ref type="annotation" target="AVOF5lTUQF3Cd7E0UXNa">NEW BRUNSWICK</ref><lb/>CANADA</fw>
+            <fw type="letterhead" place="top"><ref type="annotation" target="anno.203">WHALE</ref> COVE<lb/>GRAND
+                    MANAN<lb/><ref type="annotation" target="anno.204">NEW BRUNSWICK</ref><lb/>CANADA</fw>
             <opener><dateline><date when="1932-06-20">June 20</date></dateline><salute>My Dear
                         <persName target="psn:0200">Roscoe</persName>;</salute></opener>
             <p>I have lost a <persName target="psn:0522">true friend</persName> — one of the
-                most helpful and kind I ever knew — and the <ref type="annotation" target="AVOF3xKSQF3Cd7E0UXNQ">business</ref> has lost a strong arm. It
-                will affect us all seriously.</p>
-            <p>I am so proud of <persName target="psn:0201"><ref type="annotation" target="AVR4U21HQF3Cd7E0UXNw">Virginia</ref></persName> that she won the
+                most helpful and kind I ever knew — and the <ref type="annotation" target="anno.212">business</ref> has lost a strong arm. It
+                will affect us all seriously. Also I'm writing another line about business so that there are multiple words about business in this paragraph</p>
+            <p>I am so proud of <persName target="psn:0201"><wrong><ref type="annotation" target="anno.172">Virginia</ref></wrong></persName> that she won the
                 scholarship again, and I enclose a check to show my appreciation. I wish it were
                 larger, but you know the story; none of my grand railroad stocks pay <emph rend="underline">at</emph>
                 <emph rend="underline">all</emph>, etc. etc. With love to all of you.</p>

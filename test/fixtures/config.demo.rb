@@ -8,6 +8,8 @@ $warnings_file = "#{File.dirname(__FILE__)}/warnings.txt"
 $flask_url = ""
 $tei_ns = "http://www.tei-c.org/ns/1.0"
 
+$allowed_statuses = ["Complete", "Needs Correction", "Published"]
+
 $tei_cases = %w(
   teiHeader fileDesc titleStmt respStm publicationStmt
   addrLine seriesStmt sourceDesc persName msDesc handDesc
