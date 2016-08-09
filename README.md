@@ -46,9 +46,9 @@ Copy `config.demo.rb` to `config.rb` and make edits as needed.  You may only nee
 Locate letters from the Cather Letters repository which have been annotated via a website and which are ready to have those 
 annotations embedded in their TEI.
 
-Copy them into the `letters_orig` directory.  You may wish to remove any existing files from that directory before you begin.
+Copy them into the `letters_orig` directory.  You will need to look at the `config.rb` file to see where this is.  It may be set up to share the cocoon annotonia directory, in which case you will not need to move any files around.
 
-In the terminal at the base of the repository, run this command:
+In the terminal at the base of THIS repository, run the following command:
 
 ```
 ruby generate.rb
