@@ -26,8 +26,6 @@ require 'net/http'
 
 require_relative 'config'
 require_relative 'lib/annotation_manager'
-# require_relative 'lib/flask_annotation'
-# require_relative 'lib/letter'
 
 manager = AnnotationManager.new
 manager.run_generator

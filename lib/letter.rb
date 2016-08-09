@@ -24,29 +24,25 @@ class Letter
     @xml = read_xml(path)
   end
 
-  # TODO this may not be appropriate to have as a method on Letter
   def add_ref(annotation)
     element = @xml.at_xpath(annotation.xpath, "tei" => $tei_ns)
     if element
       range = (annotation.char_start..annotation.char_end)
       highlight = element.inner_html[range]
-      if highlight.strip == annotation.quote.strip
-        new_content = insert_ref(element.inner_html, annotation)
-        if new_content && new_content.class == String
-          element.inner_html = new_content
-        else
-          @errors << "Unable to add #{annotation.id} ref to #{@cat_id}: #{annotation.quote}"
-        end
+      # if the start - end range does not match the annotation quote, then something
+      # differs between the HTML and the TEI characters in the xpath
+      # so pick the first instance of the annotation quote and use that instead
+      if highlight.strip != annotation.quote.strip
+        @warnings << %{Check file #{@cat_id}.xml for #{annotation.id} ('#{annotation.quote}') placement. xpath: annotation.xpath\n }
+        annotation.char_start = element.inner_html.index(annotation.quote)
+        annotation.char_end = annotation.quote.length + annotation.char_start
+      end
+
+      new_content = update_html(element.inner_html, annotation)
+      if new_content && new_content.class == String
+        element.inner_html = new_content
       else
-        begin
-          @warnings << %{Check file #{@cat_id}.xml for #{annotation.id} ('#{annotation.quote}') placement. xpath: annotation.xpath\n }
-          annotation.char_start = element.inner_html.index(annotation.quote)
-          annotation.char_end = annotation.quote.length + annotation.char_start
-          new_content = insert_ref(element.inner_html, annotation)
-          element.inner_html = new_content
-        rescue => e
-          @errors << "Something went really wrong for #{@cat_id}.xml and #{annotation.id} ('#{annotation.quote}')"
-        end
+        @errors << "Unable to add #{annotation.id} ref to #{@cat_id}: #{annotation.quote}"
       end
     else
       @errors << "No element found at xpath #{annotation.xpath} for #{cat_id}.xml and annotation #{annotation.id}: '#{annotation.quote}'\n"
@@ -61,23 +57,56 @@ class Letter
 
   private
 
-  def insert_ref(html, annotation)
-    ref = %{<ref type='annotation' target='#{annotation.id}'>}
-    begin
-      html.insert(annotation.char_end, "</ref>")
-      html.insert(annotation.char_start, ref)
-    rescue => e
-      @errors << "Unable to add ref to #{@cat_id} for annotation #{annotation.id}: #{e}"
-    end
-  end
-
   def derive_id(path)
     path.match(/let[0-9]{4}/)[0]
+  end
+
+  def insert_annotation(html, location, anno_id)
+    elements = { :opening => "<ref type='annotation' target='#{anno_id}'>", :closing => "</ref>" }
+    return insert_ref(html, location, elements, anno_id)
+  end
+
+  def insert_annotation_and_badtei(html, location, anno_id)
+    elements = { :opening => "<wrong><ref type='annotation' target='#{anno_id}'>",
+                 :closing => "</ref></wrong>"
+               }
+    return insert_ref(html, location, elements, anno_id)
+  end
+
+  def insert_badtei(html, location, anno_id)
+    elements = { :opening => "<wrong>", :closing => "</wrong>" }
+    return insert_ref(html, location, elements, anno_id)
+  end
+
+  def insert_ref(html, location, elements, anno_id)
+    begin
+      html.insert(location[:end], elements[:closing])
+      html.insert(location[:start], elements[:opening])
+    rescue => e
+      @errors << "Unable to add ref to #{@cat_id} for annotation #{anno_id}: #{e}"
+    end
+    return html
   end
 
   def read_xml(path)
     if File.file?(path)
       File.open(path) { |f| Nokogiri::XML(f) }
     end
+  end
+
+  def update_html(html, annotation)
+    tags = annotation.tags
+    location = { :start => annotation.char_start, :end => annotation.char_end }
+    updated = html
+    if tags.include?("Published")
+      # at this time, do not do anything, may change in the future
+    elsif tags.include?("Complete") && tags.include?("Needs Correction")
+      updated = insert_annotation_and_badtei(html, location, annotation.id)
+    elsif tags.include?("Needs Correction")
+      updated = insert_badtei(html, location, annotation.id)
+    elsif tags.include?("Complete")
+      updated = insert_annotation(html, location, annotation.id)
+    end
+    return html
   end
 end

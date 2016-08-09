@@ -74,7 +74,7 @@ class AnnotationManager
           updated << new_res
         end
       else
-        puts "UNABLE TO PUBLISH #{letter.id}: not all tags marked 'Complete' "
+        puts "UNABLE TO PUBLISH #{letter.id} due to statuses of annotations"
       end
     end
     return updated

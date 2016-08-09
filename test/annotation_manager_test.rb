@@ -46,27 +46,40 @@ class TestAnnotationManager < Minitest::Test
     assert_equal 3, @manager.letters.length
     assert_equal 20, @manager.flask_annotations.length
 
+    # 0000
     letter0 = @manager.letters[0]
     assert_equal 1, letter0.annotations.length
     assert_equal false, letter0.publishable?
 
+    # 0550
     letter1 = @manager.letters[1]
     assert_equal 1, letter1.annotations.length
     assert_equal true, letter1.publishable?
 
+    # 2161
     letter2 = @manager.letters[2]
     assert_equal 4, letter2.annotations.length
     assert_equal true, letter2.publishable?
+    assert_equal ["Complete", "Needs Correction"], letter2.annotations[0].tags
 
     orig_xml = read_xml("#{File.dirname(__FILE__)}/fixtures/letters_orig/cat.let2161.xml")
     new_xml = read_xml("#{File.dirname(__FILE__)}/fixtures/letters_new/cat.let2161.xml")
     orig_refs = orig_xml.xpath("//tei:ref", "tei" => $tei_ns)
     new_refs = new_xml.xpath("//tei:ref", "tei" => $tei_ns)
+    orig_wrongs = orig_xml.xpath("//tei:wrong", "tei" => $tei_ns)
+    new_wrongs = new_xml.xpath("//tei:wrong", "tei" => $tei_ns)
 
     assert_equal 0, orig_refs.length
     assert_equal 4, new_refs.length
 
-    assert_equal %{<ref type="annotation" target="AVOF5og8QF3Cd7E0UXNc">WHALE</ref>}, new_refs[0].to_s
+    # verify that <wrong></wrong> was added to the letter once AROUND a ref
+    assert_equal 0, orig_wrongs.length
+    assert_equal 1, new_wrongs.length
+    assert_equal "Virginia", new_wrongs[0].text
+    wrong_content = %{<wrong>\n  <ref type="annotation" target="anno.172">Virginia</ref>\n</wrong>}
+    assert_equal wrong_content, new_wrongs[0].to_s
+
+    assert_equal %{<ref type="annotation" target="anno.203">WHALE</ref>}, new_refs[0].to_s
   end
 
   def test_publish_all
