@@ -32,7 +32,9 @@ class Letter
       # if the start - end range does not match the annotation quote, then something
       # differs between the HTML and the TEI characters in the xpath
       # so pick the first instance of the annotation quote and use that instead
+      new_content = nil
       if highlight.strip != annotation.quote.strip
+        # quotation is not exactly where expected, try to find single instance
         multiple_quotes = element.inner_html.scan(annotation.quote).length > 1
         if multiple_quotes
           @warnings << %{Guessed ref location in #{@cat_id}.xml for #{annotation.id} ('#{annotation.quote}') placement. xpath: annotation.xpath\n }
@@ -40,16 +42,17 @@ class Letter
         begin
           annotation.char_start = element.inner_html.index(annotation.quote)
           annotation.char_end = annotation.quote.length + annotation.char_start
+          new_content = update_html(element.inner_html, annotation)
         rescue => e
-          @errors << "Unable to add ref to #{@cat_id}.xml for #{annotation.id}: #{e}"
+          @errors << "Unable to add ref to #{@cat_id}.xml for #{annotation.id}: #{e}\n  (This may mean the highlighted string in HTML contains characters that the TEI does not)"
         end
+      else
+        # found annotation exactly where expected, carry on!
+        new_content = update_html(element.inner_html, annotation)
       end
 
-      new_content = update_html(element.inner_html, annotation)
       if new_content && new_content.class == String
         element.inner_html = new_content
-      else
-        @errors << "Unable to add #{annotation.id} ref to #{@cat_id}: #{annotation.quote}"
       end
     else
       @errors << "No element found at xpath #{annotation.xpath} for #{cat_id}.xml and annotation #{annotation.id}: '#{annotation.quote}'\n"
