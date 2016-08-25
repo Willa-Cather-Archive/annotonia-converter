@@ -15,7 +15,7 @@
       <?php 
         // GET a request to the flask url for the requested tag (or no tags if all annotations)
         $curl = curl_init();
-        curl_setopt($curl, CURLOPT_URL, $flask_url."/search");
+        curl_setopt($curl, CURLOPT_URL, $flask_url."/search?limit=2000");
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
         $res = curl_exec($curl); 
         curl_close($curl);

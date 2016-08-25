@@ -36,14 +36,14 @@
       </div>
 
       <div class="results">
-        <?php
+        <?php 
           // GET a request to the flask url for the requested tag (or no tags if all annotations)
           $curl = curl_init();
-          $url = (isset($_GET["tag"]) ? $flask_url."/search?tags=" . $_GET["tag"] : $flask_url."/search");
+          $url = (isset($_GET["tag"]) ? $flask_url."/search?limit=2000&tags=" . $_GET["tag"] : $flask_url."/search?limit=2000");
           $url = str_replace(" ", "%20", $url);
           curl_setopt($curl, CURLOPT_URL, $url);
           curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-          $res = curl_exec($curl);
+          $res = curl_exec($curl); 
           curl_close($curl);
 
           // Parse json and display results
@@ -77,7 +77,7 @@
                 <!-- Annotation content -->
                 <div class="col-md-8">
                   <p>Highlight: <span class="quote"><?php echo $row["quote"]?></span></p>
-                  <p>Annotation:
+                  <p>Annotation: 
                     <div class="text">
                       <?php echo htmlspecialchars($row["text"]) ?>
                     </div>
