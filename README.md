@@ -16,7 +16,6 @@ There are several aspects to this project.
 - `generate.rb` : matches annotations created with annotator.py with TEI, collects JSON annotations
 - `annotations.rb` : takes collected JSON annotations and outputs XML version
 - `publish.rb` : marks ALL annotations in elasticsearch as "published", does not take args
-- `annotation_status.php` : a PHP viewer for the status of annotations, you will need to configure your system to serve these files
 
 ## Initial Setup
 
