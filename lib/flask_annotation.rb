@@ -38,7 +38,7 @@ class FlaskAnnotation
 
   def create_annotation_xml
     if @text
-      note = %{<note type='annotation' xml:id='#{@id}' target='#{@id}' letter='#{@letter_id}'>#{@text}</note>}
+      note = %{<note type='annotation' xml:id='a#{@id}' target='#{@id}' corresp='cat.#{@letter_id}'>#{@text}</note>}
       anno = TeiAnnotation.new(note)
       @xml = anno.tei
     end

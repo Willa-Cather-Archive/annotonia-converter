@@ -13,6 +13,7 @@ class TeiAnnotation
     @tei = @html
     replace_one_to_one("br", "<lb>")
     replace_open_close("i", "<hi rend='italic'>", "</hi>")
+    replace_open_close("em", "<hi rend='italic'>", "</hi>")
     replace_open_close("blockquote", "<q rend='block'>", "</q>")
     # underlined text
     replace_open_close("span[style='text-decoration: underline;']", "<hi rend='underline'>", "</hi>")

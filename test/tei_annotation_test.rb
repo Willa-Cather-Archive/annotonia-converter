@@ -4,7 +4,7 @@ class TestTeiAnnotation < Minitest::Test
   def test_teify
     start_text = %{
 <note>
-<p>This is a <i>test</i> of <br/> the <i>system</i>.</p>
+<p>This is a <i>test</i> of <br/> the <em>system</em>.</p>
 <p>It has some other stuff like lists</p>
 <ul><li>1</li><li>2</li></ul>
 <ol><li>1</li><li>2</li></ol>
