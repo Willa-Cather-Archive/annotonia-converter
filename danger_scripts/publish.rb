@@ -24,4 +24,4 @@ require_relative 'config'
 require_relative '../lib/annotation_manager'
 
 manager = AnnotationManager.new
-manager.publish_all_annotations
+manager.publish_letter_annotations

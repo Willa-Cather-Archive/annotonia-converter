@@ -80,12 +80,12 @@ class TestAnnotationManager < Minitest::Test
     assert_equal wrong_content, new_wrongs[0].to_s
 
     assert_equal %{<ref type="annotation" target="anno.203">WHALE</ref>}, new_refs[0].to_s
-
     assert_equal letter2.warnings.length, 1
   end
 
-  def test_publish_all
-    @manager.publish_all_annotations
+  # does not actually update the index, see annotation_bash_cmd at top of this file
+  def test_publish_letter_annotations
+    @manager.publish_letter_annotations
     assert_equal 5, $published_annos.length
     assert_equal "<p>It&apos;s a state.</p>", $published_annos[1]["text"]
   end

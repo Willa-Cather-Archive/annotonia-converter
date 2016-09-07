@@ -1,6 +1,8 @@
 require 'fileutils'
 require 'json'
 
+require_relative 'tei_annotation'
+
 class FlaskAnnotation
   attr_reader :id
   attr_reader :letter_id
@@ -32,15 +34,13 @@ class FlaskAnnotation
     @xml = create_annotation_xml
   end
 
-  def write_annotation_xml
-    File.open("#{$annotation_file}", "a") { |f| f.puts(@xml) }
-  end
-  
   private
 
   def create_annotation_xml
     if @text
-      @xml = %{<note type='annotation' xml:id='#{@id}' target='#{@id}' letter='#{@letter_id}'>#{@text}</note>}
+      note = %{<note type='annotation' xml:id='#{@id}' target='#{@id}' letter='#{@letter_id}'>#{@text}</note>}
+      anno = TeiAnnotation.new(note)
+      @xml = anno.tei
     end
   end
 

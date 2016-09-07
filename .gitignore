@@ -4,7 +4,7 @@ letters_new/cat.*.xml
 
 config.rb
 config.php
-annotations.txt
+annotations.xml
 warnings.txt
 
 .DS_Store

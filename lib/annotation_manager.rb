@@ -5,26 +5,32 @@ require 'open3'
 
 require_relative 'flask_annotation'
 require_relative 'letter'
+require_relative 'tei_document'
 
 class AnnotationManager
   attr_reader :flask_annotations
+  attr_reader :flask_queried_bool
   attr_reader :letters
 
   def initialize
     @flask_annotations = []
+    @flask_queried_bool = false
     @letters = []
   end
 
-  def generate_all_annotation_json
-    create_annotations
-    update_annotation_file
+  def create_annotation_xml
+    create_annotations if !@flask_queried_bool
+    annotations = @flask_annotations.map{ |anno| anno.xml }
+    teimaker = TeiDocument.new(annotations, $annotation_file)
+    teimaker.wrap
   end
 
   def find_annotations(attr_type, value)
     @flask_annotations.find_all { |anno| anno.instance_variable_get(attr_type) == value }
   end
 
-  def publish_all_annotations
+  def publish_letter_annotations
+    # this should only publish annotations for the given set of letters!
     create_letters_and_annotations
     to_publish = bulk_change_tags(@letters)
     update_cloud_annotations(to_publish)
@@ -44,7 +50,7 @@ class AnnotationManager
     delete_generated
     create_letters_and_annotations
     insert_references
-    update_annotation_file_by_letters
+    # update_annotation_file_by_letters
     report_messages
   end
 
@@ -128,10 +134,11 @@ class AnnotationManager
   end
 
   def get_flask_data(id=nil)
-    url = id ? "#{$flask_url}?pageID=#{id}" : $flask_url
+    url = id ? "#{$flask_url}&pageID=#{id}" : $flask_url
     res = Net::HTTP.get(URI.parse(URI.encode(url)))
     json = JSON.parse(res)
     if json["rows"]
+      @flask_queried_bool = true
       return json["rows"]
     else
       raise "Unexpected response from flask at #{url}"
@@ -162,27 +169,6 @@ class AnnotationManager
       cmd = "curl -i -H 'Content-Type: application/json' -X PUT -d '#{anno.to_json}' #{uri} | grep 'HTTP/1.1'"
       annotation_bash_cmd(cmd, anno)
     end
-  end
-
-  def update_annotation_file_by_letters
-    letter_ids = @letters.map { |l| l.id }
-    update_annotation_file(letter_ids)
-  end
-
-  # read in the existing file, update / add json, then write to file
-  # TODO make this nicer
-  def update_annotation_file(letter_ids=nil)
-    file = File.read("#{$annotation_file}")
-    anno_json = file ? JSON.parse(file) : {}
-
-    @flask_annotations.each do |a| 
-      if letter_ids.nil?
-        anno_json[a.id] = create_annotation_json(a)
-      elsif letter_ids.include?(a.letter_id)
-        anno_json[a.id] = create_annotation_json(a)
-      end
-    end
-    File.write("#{$annotation_file}", JSON.pretty_generate(anno_json))
   end
 
   def prompt_input

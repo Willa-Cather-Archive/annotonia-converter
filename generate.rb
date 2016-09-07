@@ -29,3 +29,4 @@ require_relative 'lib/annotation_manager'
 
 manager = AnnotationManager.new
 manager.run_generator
+manager.create_annotation_xml
