@@ -4,6 +4,7 @@ require 'nokogiri'
 class TeiDocument
   attr_reader :annotations
   attr_reader :file
+  attr_reader :tei_content
 
   def initialize(annotations, file)
     @annotations = annotations
@@ -14,13 +15,23 @@ class TeiDocument
     return Time.now.strftime("%Y-%m-%d")
   end
 
+  def wrap_and_write
+    wrap
+    write
+  end
+
   def wrap
     tei = Nokogiri::XML(tei_wrapper(date), &:noblanks)
     div = tei.at_css("div[type='annotations']")
     annotations.each do |anno|
       div.add_child(anno.at_css("note").to_s)
     end
-    File.write("#{@file}", tei.to_xml( indent: 4, encoding: "UTF-8" ))
+    @tei_content = tei
+    return @tei_content
+  end
+
+  def write
+    File.write("#{@file}", @tei_content.to_xml( indent: 4, encoding: "UTF-8" ))
   end
 
   def tei_wrapper(change_date)
@@ -61,12 +72,12 @@ class TeiDocument
               <address>
                 <addrLine>http://cather.unl.edu</addrLine>
               </address>
-              <publisher>University of Nebraska&#xD3;Lincoln</publisher>
+              <publisher>University of Nebraska-Lincoln</publisher>
               <distributor>
                 <name>Center for Digital Research in the Humanities</name>
                 <address>
                   <addrLine>319 Love Library</addrLine>
-                  <addrLine>University of Nebraska&#xD3;Lincoln</addrLine>
+                  <addrLine>University of Nebraska-Lincoln</addrLine>
                   <addrLine>Lincoln, NE 68588-4100</addrLine>
                   <addrLine>http://cdrh.unl.edu</addrLine>
                 </address>
@@ -89,7 +100,7 @@ class TeiDocument
             </sourceDesc>
           </fileDesc>
           <revisionDesc>
-            <change when="#{change_date}">Automatically generate file from annotations created with Annotonia tool.</change>
+            <change when="#{change_date}">Automatically generated file from annotations created with Annotonia tool.</change>
           </revisionDesc>
         </teiHeader>
           <text>

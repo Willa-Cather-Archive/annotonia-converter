@@ -111,11 +111,11 @@ class Letter
     if tags.include?("Published")
       # at this time, do not do anything, may change in the future
     elsif tags.include?("Complete") && tags.include?("Needs Correction")
-      updated = insert_annotation_and_badtei(html, location, annotation.id)
+      updated = insert_annotation_and_badtei(html, location, annotation.anno_ref_id)
     elsif tags.include?("Needs Correction")
-      updated = insert_badtei(html, location, annotation.id)
+      updated = insert_badtei(html, location, annotation.anno_ref_id)
     elsif tags.include?("Complete")
-      updated = insert_annotation(html, location, annotation.id)
+      updated = insert_annotation(html, location, annotation.anno_ref_id)
     end
     return html
   end

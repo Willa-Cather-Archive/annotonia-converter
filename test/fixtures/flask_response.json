@@ -1,501 +1,555 @@
 {
   "rows": [
-    {
-      "updated": "2016-05-03T20:33:34.022291+00:00", 
-      "created": "2016-05-03T20:33:34.022197+00:00", 
-      "text": "<p>It's a state.</p>", 
-      "pageID": "let2161", 
+        {
+      "anno_ref_id": "",
+      "updated": "2016-09-07T20:39:23.376532+00:00",
+      "pageID": "let2514",
+      "created": "2016-08-23T19:53:07.516578+00:00",
+      "text": "<p>A recital series of chamber music given, at least in part, by the Hambourg Trio at the Jenkins Gallery in Toronto.</p>",
+      "tags": [
+        "Draft"
+      ],
       "ranges": [
         {
-          "start": "/div[2]/tei[1]/text[1]/p[2]/persname[1]", 
-          "end": "/div[2]/tei[1]/text[1]/p[2]/persname[1]", 
-          "startOffset": 0, 
+          "start": "/div[1]/tei[1]/text[1]/fw[1]",
+          "end": "/div[1]/tei[1]/text[1]/fw[1]",
+          "startOffset": 1,
+          "endOffset": 26
+        }
+      ],
+      "user": "alice",
+      "quote": "THE TUESDAY NINE O'CLOCKS",
+      "consumer": "mockconsumer",
+      "id": "000138",
+      "permissions": {
+        "read": [
+          "group:__consumer__"
+        ]
+      }
+    },
+    {
+      "anno_ref_id": "000178",
+      "updated": "2016-09-07T20:33:26.264816+00:00",
+      "pageID": "let2514",
+      "created": "2016-09-07T20:33:16.155606+00:00",
+      "text": "",
+      "tags": [
+        "Complete"
+      ],
+      "ranges": [
+        {
+          "start": "/div[1]/tei[1]/text[1]/postscript[1]/p[2]",
+          "end": "/div[1]/tei[1]/text[1]/postscript[1]/p[2]",
+          "startOffset": 32,
+          "endOffset": 36
+        }
+      ],
+      "user": "alice",
+      "quote": "type",
+      "consumer": "mockconsumer",
+      "id": "000179",
+      "permissions": {
+        "read": [
+          "group:__consumer__"
+        ]
+      }
+    },
+    {
+      "updated": "2016-05-03T20:33:34.022291+00:00",
+      "created": "2016-05-03T20:33:34.022197+00:00",
+      "text": "<p>It's a state.</p>",
+      "pageID": "let2161",
+      "ranges": [
+        {
+          "start": "/div[2]/tei[1]/text[1]/p[2]/persname[1]",
+          "end": "/div[2]/tei[1]/text[1]/p[2]/persname[1]",
+          "startOffset": 0,
           "endOffset": 8
         }
-      ], 
-      "user": "alice", 
-      "quote": "Virginia", 
-      "consumer": "mockconsumer", 
-      "id": "anno.172", 
-      "tags": ["Complete", "Needs Correction"], 
+      ],
+      "user": "alice",
+      "quote": "Virginia",
+      "consumer": "mockconsumer",
+      "id": "anno.172",
+      "tags": ["Complete", "Needs Correction"],
       "permissions": {
         "read": [
           "group:__consumer__"
         ]
       }
-    }, 
+    },
     {
-      "updated": "2016-05-03T17:40:39.735268+00:00", 
-      "created": "2016-05-03T17:40:39.735203+00:00", 
-      "text": "<p>Wilella</p>", 
-      "pageID": "let0000", 
+      "updated": "2016-05-03T17:40:39.735268+00:00",
+      "created": "2016-05-03T17:40:39.735203+00:00",
+      "text": "<p>Wilella</p>",
+      "pageID": "let0000",
       "ranges": [
         {
-          "start": "/div[2]/tei[1]/teiheader[1]/filedesc[1]/titlestmt[1]/tei-title[1]", 
-          "end": "/div[2]/tei[1]/teiheader[1]/filedesc[1]/titlestmt[1]/tei-title[1]", 
-          "startOffset": 0, 
+          "start": "/div[2]/tei[1]/teiheader[1]/filedesc[1]/titlestmt[1]/tei-title[1]",
+          "end": "/div[2]/tei[1]/teiheader[1]/filedesc[1]/titlestmt[1]/tei-title[1]",
+          "startOffset": 0,
           "endOffset": 12
         }
-      ], 
-      "user": "alice", 
-      "quote": "Willa Cather", 
-      "consumer": "mockconsumer", 
-      "id": "anno.173", 
+      ],
+      "user": "alice",
+      "quote": "Willa Cather",
+      "consumer": "mockconsumer",
+      "id": "anno.173",
       "tags": [
         "Needs Annotated"
-      ], 
+      ],
       "permissions": {
         "read": [
           "group:__consumer__"
         ]
       }
-    }, 
+    },
     {
-      "updated": "2016-05-02T16:32:18.847151+00:00", 
-      "created": "2016-05-02T16:32:18.847039+00:00", 
-      "text": "<p>Refers to the people of France</p>", 
-      "pageID": "let0550", 
+      "updated": "2016-05-02T16:32:18.847151+00:00",
+      "created": "2016-05-02T16:32:18.847039+00:00",
+      "text": "<p>Refers to the people of France</p>",
+      "pageID": "let0550",
       "ranges": [
         {
-          "start": "/div[2]/tei[1]/text[1]/p[1]", 
-          "end": "/div[2]/tei[1]/text[1]/p[1]", 
-          "startOffset": 29, 
+          "start": "/div[2]/tei[1]/text[1]/p[1]",
+          "end": "/div[2]/tei[1]/text[1]/p[1]",
+          "startOffset": 29,
           "endOffset": 35
         }
-      ], 
-      "user": "alice", 
-      "quote": "French", 
-      "consumer": "mockconsumer", 
-      "id": "anno.183", 
-      "tags": ["Complete"], 
+      ],
+      "user": "alice",
+      "quote": "French",
+      "consumer": "mockconsumer",
+      "id": "anno.183",
+      "tags": ["Complete"],
       "permissions": {
         "read": [
           "group:__consumer__"
         ]
       }
-    }, 
+    },
     {
-      "updated": "2016-03-18T18:00:17.898993+00:00", 
-      "created": "2016-03-18T17:59:29.145844+00:00", 
-      "text": "<p>Testy test test TEST</p>", 
-      "pageID": "let2096", 
+      "updated": "2016-03-18T18:00:17.898993+00:00",
+      "created": "2016-03-18T17:59:29.145844+00:00",
+      "text": "<p>Testy test test TEST</p>",
+      "pageID": "let2096",
       "ranges": [
         {
-          "start": "/div[2]/tei[1]/text[1]/p[1]", 
-          "end": "/div[2]/tei[1]/text[1]/p[1]", 
-          "startOffset": 1001, 
+          "start": "/div[2]/tei[1]/text[1]/p[1]",
+          "end": "/div[2]/tei[1]/text[1]/p[1]",
+          "startOffset": 1001,
           "endOffset": 1014
         }
-      ], 
-      "user": "alice", 
-      "quote": "Duty Schedule", 
-      "consumer": "mockconsumer", 
-      "id": "anno.185", 
-      "tags": ["Complete"], 
+      ],
+      "user": "alice",
+      "quote": "Duty Schedule",
+      "consumer": "mockconsumer",
+      "id": "anno.185",
+      "tags": ["Complete"],
       "permissions": {
         "read": [
           "group:__consumer__"
         ]
       }
-    }, 
+    },
     {
-      "updated": "2016-03-18T18:00:04.339472+00:00", 
-      "created": "2016-03-18T17:59:29.145844+00:00", 
-      "text": "<p>Testy test test TEST</p>", 
-      "pageID": "let2096", 
+      "updated": "2016-03-18T18:00:04.339472+00:00",
+      "created": "2016-03-18T17:59:29.145844+00:00",
+      "text": "<p>Testy test test TEST</p>",
+      "pageID": "let2096",
       "ranges": [
         {
-          "start": "/div[2]/tei[1]/text[1]/p[1]", 
-          "end": "/div[2]/tei[1]/text[1]/p[1]", 
-          "startOffset": 1001, 
+          "start": "/div[2]/tei[1]/text[1]/p[1]",
+          "end": "/div[2]/tei[1]/text[1]/p[1]",
+          "startOffset": 1001,
           "endOffset": 1014
         }
-      ], 
-      "user": "alice", 
-      "quote": "Duty Schedule", 
-      "consumer": "mockconsumer", 
-      "id": "anno.189", 
-      "tags": [], 
+      ],
+      "user": "alice",
+      "quote": "Duty Schedule",
+      "consumer": "mockconsumer",
+      "id": "anno.189",
+      "tags": [],
       "permissions": {
         "read": [
           "group:__consumer__"
         ]
       }
-    }, 
+    },
     {
-      "updated": "2016-03-18T17:59:29.145890+00:00", 
-      "created": "2016-03-18T17:59:29.145844+00:00", 
-      "text": "<p>Testy test test</p>", 
-      "pageID": "let2096", 
+      "updated": "2016-03-18T17:59:29.145890+00:00",
+      "created": "2016-03-18T17:59:29.145844+00:00",
+      "text": "<p>Testy test test</p>",
+      "pageID": "let2096",
       "ranges": [
         {
-          "start": "/div[2]/tei[1]/text[1]/p[1]", 
-          "end": "/div[2]/tei[1]/text[1]/p[1]", 
-          "startOffset": 1001, 
+          "start": "/div[2]/tei[1]/text[1]/p[1]",
+          "end": "/div[2]/tei[1]/text[1]/p[1]",
+          "startOffset": 1001,
           "endOffset": 1014
         }
-      ], 
-      "user": "alice", 
-      "quote": "Duty Schedule", 
-      "consumer": "mockconsumer", 
-      "id": "anno.199", 
-      "tags": ["Complete"], 
+      ],
+      "user": "alice",
+      "quote": "Duty Schedule",
+      "consumer": "mockconsumer",
+      "id": "anno.199",
+      "tags": ["Complete"],
       "permissions": {
         "read": [
           "group:__consumer__"
         ]
       }
-    }, 
+    },
     {
-      "updated": "2016-03-18T17:38:56.190358+00:00", 
-      "created": "2016-03-17T18:44:14.760969+00:00", 
-      "text": "<p>This is her article about Mrs. Fields (This is a test edit)</p>", 
-      "pageID": "let2096", 
+      "updated": "2016-03-18T17:38:56.190358+00:00",
+      "created": "2016-03-17T18:44:14.760969+00:00",
+      "text": "<p>This is her article about Mrs. Fields (This is a test edit)</p>",
+      "pageID": "let2096",
       "ranges": [
         {
-          "start": "/div[2]/tei[1]/text[1]/p[1]", 
-          "end": "/div[2]/tei[1]/text[1]/p[1]", 
-          "startOffset": 16, 
+          "start": "/div[2]/tei[1]/text[1]/p[1]",
+          "end": "/div[2]/tei[1]/text[1]/p[1]",
+          "startOffset": 16,
           "endOffset": 41
         }
-      ], 
-      "user": "alice", 
-      "quote": "see the sketch and review", 
-      "consumer": "mockconsumer", 
-      "id": "anno.200", 
+      ],
+      "user": "alice",
+      "quote": "see the sketch and review",
+      "consumer": "mockconsumer",
+      "id": "anno.200",
       "tags": [
         "Draft"
-      ], 
+      ],
       "permissions": {
         "read": [
           "group:__consumer__"
         ]
       }
-    }, 
+    },
     {
-      "updated": "2016-03-18T17:37:46.300718+00:00", 
-      "created": "2016-03-18T17:37:46.300665+00:00", 
-      "text": "<p>Text</p>\n<p>&nbsp;</p>", 
-      "pageID": "let1144", 
+      "updated": "2016-03-18T17:37:46.300718+00:00",
+      "created": "2016-03-18T17:37:46.300665+00:00",
+      "text": "<p>Text</p>\n<p>&nbsp;</p>",
+      "pageID": "let1144",
       "ranges": [
         {
-          "start": "/div[2]/tei[1]/text[1]/p[2]", 
-          "end": "/div[2]/tei[1]/text[1]/p[2]", 
-          "startOffset": 54, 
+          "start": "/div[2]/tei[1]/text[1]/p[2]",
+          "end": "/div[2]/tei[1]/text[1]/p[2]",
+          "startOffset": 54,
           "endOffset": 76
         }
-      ], 
-      "user": "alice", 
-      "quote": "educational department", 
-      "consumer": "mockconsumer", 
-      "id": "anno.201", 
-      "tags": [], 
+      ],
+      "user": "alice",
+      "quote": "educational department",
+      "consumer": "mockconsumer",
+      "id": "anno.201",
+      "tags": [],
       "permissions": {
         "read": [
           "group:__consumer__"
         ]
       }
-    }, 
+    },
     {
-      "updated": "2016-03-17T18:48:49.284088+00:00", 
-      "created": "2016-03-17T18:48:49.284034+00:00", 
-      "text": "<p>handwritten note at top of page - we assume this indicates that ferris has received and read the letter</p>\n<p><a href=\"http://brucespringsteen.net\" target=\"_blank\">http://brucespringsteen.net</a></p>", 
-      "pageID": "let1587", 
+      "updated": "2016-03-17T18:48:49.284088+00:00",
+      "created": "2016-03-17T18:48:49.284034+00:00",
+      "text": "<p>handwritten note at top of page - we assume this indicates that ferris has received and read the letter</p>\n<p><a href=\"http://brucespringsteen.net\" target=\"_blank\">http://brucespringsteen.net</a></p>",
+      "pageID": "let1587",
       "ranges": [
         {
-          "start": "/div[2]/tei[1]/text[1]/group[1]/text[1]/note[1]", 
-          "end": "/div[2]/tei[1]/text[1]/group[1]/text[1]/note[1]", 
-          "startOffset": 0, 
+          "start": "/div[2]/tei[1]/text[1]/group[1]/text[1]/note[1]",
+          "end": "/div[2]/tei[1]/text[1]/group[1]/text[1]/note[1]",
+          "startOffset": 0,
           "endOffset": 2
         }
-      ], 
-      "user": "alice", 
-      "quote": "FG", 
-      "consumer": "mockconsumer", 
-      "id": "anno.202", 
-      "tags": [], 
+      ],
+      "user": "alice",
+      "quote": "FG",
+      "consumer": "mockconsumer",
+      "id": "anno.202",
+      "tags": [],
       "permissions": {
         "read": [
           "group:__consumer__"
         ]
       }
-    }, 
+    },
     {
-      "updated": "2016-03-17T18:46:31.226848+00:00", 
-      "created": "2016-03-17T18:45:39.529244+00:00", 
-      "text": "<p>humpback whale?</p>", 
-      "pageID": "let2161", 
+      "updated": "2016-03-17T18:46:31.226848+00:00",
+      "created": "2016-03-17T18:45:39.529244+00:00",
+      "text": "<p>humpback whale?</p>",
+      "pageID": "let2161",
       "ranges": [
         {
-          "start": "/div[2]/tei[1]/text[1]/fw[1]", 
-          "end": "/div[2]/tei[1]/text[1]/fw[1]", 
-          "startOffset": 0, 
+          "start": "/div[2]/tei[1]/text[1]/fw[1]",
+          "end": "/div[2]/tei[1]/text[1]/fw[1]",
+          "startOffset": 0,
           "endOffset": 5
         }
-      ], 
-      "user": "alice", 
-      "quote": "WHALE", 
-      "consumer": "mockconsumer", 
-      "id": "anno.203", 
+      ],
+      "user": "alice",
+      "quote": "WHALE",
+      "consumer": "mockconsumer",
+      "id": "anno.203",
       "tags": [
         "Complete"
-      ], 
+      ],
       "permissions": {
         "read": [
           "group:__consumer__"
         ]
       }
-    }, 
+    },
     {
-      "updated": "2016-03-17T18:46:18.066877+00:00", 
-      "created": "2016-03-17T18:46:18.066832+00:00", 
-      "text": "<p>is she talking about New Jersey?</p>", 
-      "pageID": "let2161", 
+      "updated": "2016-03-17T18:46:18.066877+00:00",
+      "created": "2016-03-17T18:46:18.066832+00:00",
+      "text": "<p>is she talking about New Jersey?</p>",
+      "pageID": "let2161",
       "ranges": [
         {
-          "start": "/div[2]/tei[1]/text[1]/fw[1]", 
-          "end": "/div[2]/tei[1]/text[1]/fw[1]", 
-          "startOffset": 86, 
+          "start": "/div[2]/tei[1]/text[1]/fw[1]",
+          "end": "/div[2]/tei[1]/text[1]/fw[1]",
+          "startOffset": 86,
           "endOffset": 100
         }
-      ], 
-      "user": "alice", 
-      "quote": "NEW BRUNSWICK", 
-      "consumer": "mockconsumer", 
-      "id": "anno.204", 
+      ],
+      "user": "alice",
+      "quote": "NEW BRUNSWICK",
+      "consumer": "mockconsumer",
+      "id": "anno.204",
       "tags": [
         "Complete"
-      ], 
+      ],
       "permissions": {
         "read": [
           "group:__consumer__"
         ]
       }
-    }, 
+    },
     {
-      "updated": "2016-03-17T18:44:41.084506+00:00", 
-      "created": "2016-03-17T18:44:14.760969+00:00", 
-      "text": "<p>This is her article about Mrs. Fields, called \"136 Charles Street.\"</p>", 
-      "pageID": "let2096", 
+      "updated": "2016-03-17T18:44:41.084506+00:00",
+      "created": "2016-03-17T18:44:14.760969+00:00",
+      "text": "<p>This is her article about Mrs. Fields, called \"136 Charles Street.\"</p>",
+      "pageID": "let2096",
       "ranges": [
         {
-          "start": "/div[2]/tei[1]/text[1]/p[1]", 
-          "end": "/div[2]/tei[1]/text[1]/p[1]", 
-          "startOffset": 16, 
+          "start": "/div[2]/tei[1]/text[1]/p[1]",
+          "end": "/div[2]/tei[1]/text[1]/p[1]",
+          "startOffset": 16,
           "endOffset": 41
         }
-      ], 
-      "user": "alice", 
-      "quote": "see the sketch and review", 
-      "consumer": "mockconsumer", 
-      "id": "anno.205", 
+      ],
+      "user": "alice",
+      "quote": "see the sketch and review",
+      "consumer": "mockconsumer",
+      "id": "anno.205",
       "tags": [
         "Draft"
-      ], 
+      ],
       "permissions": {
         "read": [
           "group:__consumer__"
         ]
       }
-    }, 
+    },
     {
-      "updated": "2016-03-17T18:44:14.761027+00:00", 
-      "created": "2016-03-17T18:44:14.760969+00:00", 
-      "text": "<p>This is her article about Mrs. Fields</p>", 
-      "pageID": "let2096", 
+      "updated": "2016-03-17T18:44:14.761027+00:00",
+      "created": "2016-03-17T18:44:14.760969+00:00",
+      "text": "<p>This is her article about Mrs. Fields</p>",
+      "pageID": "let2096",
       "ranges": [
         {
-          "start": "/div[2]/tei[1]/text[1]/p[1]", 
-          "end": "/div[2]/tei[1]/text[1]/p[1]", 
-          "startOffset": 16, 
+          "start": "/div[2]/tei[1]/text[1]/p[1]",
+          "end": "/div[2]/tei[1]/text[1]/p[1]",
+          "startOffset": 16,
           "endOffset": 41
         }
-      ], 
-      "user": "alice", 
-      "quote": "see the sketch and review", 
-      "consumer": "mockconsumer", 
-      "id": "anno.206", 
+      ],
+      "user": "alice",
+      "quote": "see the sketch and review",
+      "consumer": "mockconsumer",
+      "id": "anno.206",
       "tags": [
         "Draft"
-      ], 
+      ],
       "permissions": {
         "read": [
           "group:__consumer__"
         ]
       }
-    }, 
+    },
     {
-      "updated": "2016-03-17T18:41:16.852246+00:00", 
-      "created": "2016-03-17T18:38:24.941103+00:00", 
-      "text": "<p>Courtney Cox is the real talent here. Rude.</p>\n<p><iframe src=\"http://www.youtube.com/embed/129kuDCQtHs\" width=\"425\" height=\"350\"></iframe></p>", 
-      "pageID": "let2096", 
+      "updated": "2016-03-17T18:41:16.852246+00:00",
+      "created": "2016-03-17T18:38:24.941103+00:00",
+      "text": "<p>Courtney Cox is the real talent here. Rude.</p>\n<p><iframe src=\"http://www.youtube.com/embed/129kuDCQtHs\" width=\"425\" height=\"350\"></iframe></p>",
+      "pageID": "let2096",
       "ranges": [
         {
-          "start": "/div[2]/tei[1]/teiheader[1]/filedesc[1]/titlestmt[1]/respstmt[4]/name[1]", 
-          "end": "/div[2]/tei[1]/teiheader[1]/filedesc[1]/titlestmt[1]/respstmt[4]/name[1]", 
-          "startOffset": 0, 
+          "start": "/div[2]/tei[1]/teiheader[1]/filedesc[1]/titlestmt[1]/respstmt[4]/name[1]",
+          "end": "/div[2]/tei[1]/teiheader[1]/filedesc[1]/titlestmt[1]/respstmt[4]/name[1]",
+          "startOffset": 0,
           "endOffset": 9
         }
-      ], 
-      "user": "alice", 
-      "quote": "Emily Rau", 
-      "consumer": "mockconsumer", 
-      "id": "anno.207", 
-      "tags": [], 
+      ],
+      "user": "alice",
+      "quote": "Emily Rau",
+      "consumer": "mockconsumer",
+      "id": "anno.207",
+      "tags": [],
       "permissions": {
         "read": [
           "group:__consumer__"
         ]
       }
-    }, 
+    },
     {
-      "updated": "2016-03-17T18:40:22.533521+00:00", 
-      "created": "2016-03-17T18:38:24.941103+00:00", 
-      "text": "<p>Courtney Cox is the real talent here</p>\n<p><iframe src=\"http://www.youtube.com/embed/129kuDCQtHs\" width=\"425\" height=\"350\"></iframe></p>", 
-      "pageID": "let2096", 
+      "updated": "2016-03-17T18:40:22.533521+00:00",
+      "created": "2016-03-17T18:38:24.941103+00:00",
+      "text": "<p>Courtney Cox is the real talent here</p>\n<p><iframe src=\"http://www.youtube.com/embed/129kuDCQtHs\" width=\"425\" height=\"350\"></iframe></p>",
+      "pageID": "let2096",
       "ranges": [
         {
-          "start": "/div[2]/tei[1]/teiheader[1]/filedesc[1]/titlestmt[1]/respstmt[4]/name[1]", 
-          "end": "/div[2]/tei[1]/teiheader[1]/filedesc[1]/titlestmt[1]/respstmt[4]/name[1]", 
-          "startOffset": 0, 
+          "start": "/div[2]/tei[1]/teiheader[1]/filedesc[1]/titlestmt[1]/respstmt[4]/name[1]",
+          "end": "/div[2]/tei[1]/teiheader[1]/filedesc[1]/titlestmt[1]/respstmt[4]/name[1]",
+          "startOffset": 0,
           "endOffset": 9
         }
-      ], 
-      "user": "alice", 
-      "quote": "Emily Rau", 
-      "consumer": "mockconsumer", 
-      "id": "anno.208", 
-      "tags": [], 
+      ],
+      "user": "alice",
+      "quote": "Emily Rau",
+      "consumer": "mockconsumer",
+      "id": "anno.208",
+      "tags": [],
       "permissions": {
         "read": [
           "group:__consumer__"
         ]
       }
-    }, 
+    },
     {
-      "updated": "2016-03-17T18:38:24.941140+00:00", 
-      "created": "2016-03-17T18:38:24.941103+00:00", 
-      "text": "<p><iframe src=\"http://www.youtube.com/embed/129kuDCQtHs\" width=\"425\" height=\"350\"></iframe></p>", 
-      "pageID": "let2096", 
+      "updated": "2016-03-17T18:38:24.941140+00:00",
+      "created": "2016-03-17T18:38:24.941103+00:00",
+      "text": "<p><iframe src=\"http://www.youtube.com/embed/129kuDCQtHs\" width=\"425\" height=\"350\"></iframe></p>",
+      "pageID": "let2096",
       "ranges": [
         {
-          "start": "/div[2]/tei[1]/teiheader[1]/filedesc[1]/titlestmt[1]/respstmt[4]/name[1]", 
-          "end": "/div[2]/tei[1]/teiheader[1]/filedesc[1]/titlestmt[1]/respstmt[4]/name[1]", 
-          "startOffset": 0, 
+          "start": "/div[2]/tei[1]/teiheader[1]/filedesc[1]/titlestmt[1]/respstmt[4]/name[1]",
+          "end": "/div[2]/tei[1]/teiheader[1]/filedesc[1]/titlestmt[1]/respstmt[4]/name[1]",
+          "startOffset": 0,
           "endOffset": 9
         }
-      ], 
-      "user": "alice", 
-      "quote": "Emily Rau", 
-      "consumer": "mockconsumer", 
-      "id": "anno.211", 
-      "tags": [], 
+      ],
+      "user": "alice",
+      "quote": "Emily Rau",
+      "consumer": "mockconsumer",
+      "id": "anno.211",
+      "tags": [],
       "permissions": {
         "read": [
           "group:__consumer__"
         ]
       }
-    }, 
+    },
     {
-      "updated": "2016-03-17T18:38:22.352391+00:00", 
-      "created": "2016-03-17T18:38:22.352338+00:00", 
-      "text": "<p>Alfred A. Knopf, Inc.</p>", 
-      "pageID": "let2161", 
+      "updated": "2016-03-17T18:38:22.352391+00:00",
+      "created": "2016-03-17T18:38:22.352338+00:00",
+      "text": "<p>Alfred A. Knopf, Inc.</p>",
+      "pageID": "let2161",
       "ranges": [
         {
-          "start": "/div[2]/tei[1]/text[1]/p[1]", 
-          "end": "/div[2]/tei[1]/text[1]/p[1]", 
-          "startOffset": 126, 
+          "start": "/div[2]/tei[1]/text[1]/p[1]",
+          "end": "/div[2]/tei[1]/text[1]/p[1]",
+          "startOffset": 126,
           "endOffset": 134
         }
-      ], 
-      "user": "alice", 
-      "quote": "business", 
-      "consumer": "mockconsumer", 
-      "id": "anno.212", 
+      ],
+      "user": "alice",
+      "quote": "business",
+      "consumer": "mockconsumer",
+      "id": "anno.212",
       "tags": [
         "Complete"
-      ], 
+      ],
       "permissions": {
         "read": [
           "group:__consumer__"
         ]
       }
-    }, 
+    },
     {
-      "updated": "2016-03-17T18:36:51.557502+00:00", 
-      "created": "2016-03-17T18:36:51.557444+00:00", 
-      "text": "<p>creepy</p>", 
-      "pageID": "let0004", 
+      "updated": "2016-03-17T18:36:51.557502+00:00",
+      "created": "2016-03-17T18:36:51.557444+00:00",
+      "text": "<p>creepy</p>",
+      "pageID": "let0004",
       "ranges": [
         {
-          "start": "/div[2]/tei[1]/text[1]/group[1]/text[2]/p[7]", 
-          "end": "/div[2]/tei[1]/text[1]/group[1]/text[2]/p[7]", 
-          "startOffset": 2, 
+          "start": "/div[2]/tei[1]/text[1]/group[1]/text[2]/p[7]",
+          "end": "/div[2]/tei[1]/text[1]/group[1]/text[2]/p[7]",
+          "startOffset": 2,
           "endOffset": 153
         }
-      ], 
-      "user": "alice", 
-      "quote": "have been working on some frogs all morning for the purpose of getting some\n                           information concerning their circulatory systems", 
-      "consumer": "mockconsumer", 
-      "id": "anno.215", 
-      "tags": [], 
+      ],
+      "user": "alice",
+      "quote": "have been working on some frogs all morning for the purpose of getting some\n                           information concerning their circulatory systems",
+      "consumer": "mockconsumer",
+      "id": "anno.215",
+      "tags": [],
       "permissions": {
         "read": [
           "group:__consumer__"
         ]
       }
-    }, 
+    },
     {
-      "updated": "2016-03-17T18:36:06.991631+00:00", 
-      "created": "2016-03-17T18:36:06.991581+00:00", 
-      "text": "<p>This guy is from North Platte, just like this guy:&nbsp;</p>\n<p><img src=\"http://cather.unl.edu/figures/andy.jpg\" alt=\"\" width=\"188\" height=\"285\" /></p>", 
-      "pageID": "let0004", 
+      "updated": "2016-03-17T18:36:06.991631+00:00",
+      "created": "2016-03-17T18:36:06.991581+00:00",
+      "text": "<p>This guy is from North Platte, just like this guy:&nbsp;</p>\n<p><img src=\"http://cather.unl.edu/figures/andy.jpg\" alt=\"\" width=\"188\" height=\"285\" /></p>",
+      "pageID": "let0004",
       "ranges": [
         {
-          "start": "/div[2]/tei[1]/text[1]/group[1]/text[2]/p[4]/persname[2]", 
-          "end": "/div[2]/tei[1]/text[1]/group[1]/text[2]/p[4]/persname[2]", 
-          "startOffset": 0, 
+          "start": "/div[2]/tei[1]/text[1]/group[1]/text[2]/p[4]/persname[2]",
+          "end": "/div[2]/tei[1]/text[1]/group[1]/text[2]/p[4]/persname[2]",
+          "startOffset": 0,
           "endOffset": 14
         }
-      ], 
-      "user": "alice", 
-      "quote": "James McDonald", 
-      "consumer": "mockconsumer", 
-      "id": "anno.220", 
-      "tags": [], 
+      ],
+      "user": "alice",
+      "quote": "James McDonald",
+      "consumer": "mockconsumer",
+      "id": "anno.220",
+      "tags": [],
       "permissions": {
         "read": [
           "group:__consumer__"
         ]
       }
-    }, 
+    },
     {
-      "updated": "2016-03-17T18:23:39.336950+00:00", 
-      "created": "2016-03-17T18:23:29.958356+00:00", 
-      "text": "<p>Who is mr greenslet?</p>\n<p>&nbsp;</p>", 
-      "pageID": "let1697", 
+      "updated": "2016-03-17T18:23:39.336950+00:00",
+      "created": "2016-03-17T18:23:29.958356+00:00",
+      "text": "<p>Who is mr greenslet?</p>\n<p>&nbsp;</p>",
+      "pageID": "let1697",
       "ranges": [
         {
-          "start": "/div[2]/tei[1]/text[1]/opener[1]/salute[1]/persname[1]", 
-          "end": "/div[2]/tei[1]/text[1]/opener[1]/salute[1]/persname[1]", 
-          "startOffset": 0, 
+          "start": "/div[2]/tei[1]/text[1]/opener[1]/salute[1]/persname[1]",
+          "end": "/div[2]/tei[1]/text[1]/opener[1]/salute[1]/persname[1]",
+          "startOffset": 0,
           "endOffset": 13
         }
-      ], 
-      "user": "alice", 
-      "quote": "Mr. Greenslet", 
-      "consumer": "mockconsumer", 
-      "id": "anno.221", 
+      ],
+      "user": "alice",
+      "quote": "Mr. Greenslet",
+      "consumer": "mockconsumer",
+      "id": "anno.221",
       "tags": [
         "question"
-      ], 
+      ],
       "permissions": {
         "read": [
           "group:__consumer__"
         ]
       }
     }
-  ], 
+  ],
   "total": 30
 }

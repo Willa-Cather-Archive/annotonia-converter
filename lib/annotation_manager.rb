@@ -20,9 +20,10 @@ class AnnotationManager
 
   def create_annotation_xml
     create_annotations if !@flask_queried_bool
-    annotations = @flask_annotations.map{ |anno| anno.xml }
+    # only grab annotations which have xml
+    annotations = @flask_annotations.map{ |anno| anno.xml }.compact
     teimaker = TeiDocument.new(annotations, $annotation_file)
-    teimaker.wrap
+    teimaker.wrap_and_write
   end
 
   def find_annotations(attr_type, value)

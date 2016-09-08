@@ -5,6 +5,8 @@ require_relative 'tei_annotation'
 
 class FlaskAnnotation
   attr_reader :id
+  attr_reader :anno_ref_id
+  attr_reader :duplicate
   attr_reader :letter_id
   attr_reader :publishable
   attr_reader :quote
@@ -21,6 +23,14 @@ class FlaskAnnotation
     @raw_res = JSON.parse(JSON.generate(flask_res))
 
     @id = flask_res["id"]
+    if flask_res["anno_ref_id"] && flask_res["anno_ref_id"].length > 0
+      @anno_ref_id = flask_res["anno_ref_id"]
+      @duplicate = true
+    else
+      # use traditional id if it is not referring to a different annotation
+      @anno_ref_id = flask_res["id"]
+      @duplicate = false
+    end
     @letter_id = flask_res["pageID"]
     @quote = flask_res["quote"]
     @tags = flask_res["tags"]
@@ -37,10 +47,12 @@ class FlaskAnnotation
   private
 
   def create_annotation_xml
-    if @text
+    if @text && !@duplicate
       note = %{<note type='annotation' xml:id='a#{@id}' target='#{@id}' corresp='cat.#{@letter_id}'>#{@text}</note>}
       anno = TeiAnnotation.new(note)
       @xml = anno.tei
+    else
+      @xml = nil
     end
   end
 

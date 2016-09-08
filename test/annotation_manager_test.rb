@@ -44,7 +44,7 @@ class TestAnnotationManager < Minitest::Test
   def test_run_generator
     @manager.run_generator
     assert_equal 3, @manager.letters.length
-    assert_equal 20, @manager.flask_annotations.length
+    assert_equal 22, @manager.flask_annotations.length
 
     # 0000
     letter0 = @manager.letters[0]
