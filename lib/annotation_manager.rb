@@ -22,12 +22,18 @@ class AnnotationManager
     create_annotations if !@flask_queried_bool
     # only grab annotations which have xml
     annotations = @flask_annotations.map{ |anno| anno.xml }.compact
-    teimaker = TeiDocument.new(annotations, $annotation_file)
-    teimaker.wrap_and_write
+    teimaker = TeiDocument.new(annotations)
+    tei = teimaker.wrap
+    File.write("#{$annotation_file}", tei.to_xml( indent: 4, encoding: "UTF-8" ))
+    return tei
   end
 
   def find_annotations(attr_type, value)
     @flask_annotations.find_all { |anno| anno.instance_variable_get(attr_type) == value }
+  end
+
+  def find_letters(attr_type, value)
+    @letters.find_all { |letter| letter.instance_variable_get(attr_type) == value }
   end
 
   def publish_letter_annotations

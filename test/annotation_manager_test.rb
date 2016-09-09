@@ -41,23 +41,52 @@ class TestAnnotationManager < Minitest::Test
     assert_equal [], @manager.letters
   end
 
+  def test_create_annotation_xml
+    tei = @manager.create_annotation_xml
+    # verify that it created a file
+    assert File.file?($annotation_file)
+
+    # crudely determine if the file was updated recently
+    file_time = File.mtime($annotation_file)
+    now = Time.new
+    assert file_time > now-1
+    assert file_time < now+1
+
+    # given that two of the annotations reference another
+    # there should be two less notes in the tei than in the annotations object
+    assert_equal @manager.flask_annotations.length-2, tei.css("note[type='annotation']").length
+    expected_text = %{<note type=\"annotation\" xml:id=\"aanno172\" target=\"anno172\" corresp=\"cat.let2161\">
+  <p>It's a state.<lb/><hi rend=\"italic\">Just a fact for you, about states</hi>.</p>
+</note>}
+    tei_text = tei.css("note[target=anno172]").to_s
+    assert_equal tei_text, expected_text
+
+    # verify that the reference annotations return the correct id
+    anno = @manager.find_annotations("@id", "000178")[0]
+    anno_dup = @manager.find_annotations("@id", "000179")[0]
+    assert_equal anno_dup.anno_ref_id, "000178"
+    assert !anno.duplicate
+    assert anno_dup.duplicate
+    assert_nil anno_dup.xml
+  end
+
   def test_run_generator
     @manager.run_generator
-    assert_equal 3, @manager.letters.length
+    assert_equal 4, @manager.letters.length
     assert_equal 22, @manager.flask_annotations.length
 
     # 0000
-    letter0 = @manager.letters[0]
+    letter0 = @manager.find_letters("@id", "let0000")[0]
     assert_equal 1, letter0.annotations.length
     assert_equal false, letter0.publishable?
 
     # 0550
-    letter1 = @manager.letters[1]
+    letter1 = @manager.find_letters("@id", "let0550")[0]
     assert_equal 1, letter1.annotations.length
     assert_equal true, letter1.publishable?
 
     # 2161
-    letter2 = @manager.letters[2]
+    letter2 = @manager.find_letters("@id", "let2161")[0]
     assert_equal 4, letter2.annotations.length
     assert_equal true, letter2.publishable?
     assert_equal ["Complete", "Needs Correction"], letter2.annotations[0].tags
@@ -76,18 +105,27 @@ class TestAnnotationManager < Minitest::Test
     assert_equal 0, orig_wrongs.length
     assert_equal 1, new_wrongs.length
     assert_equal "Virginia", new_wrongs[0].text
-    wrong_content = %{<wrong>\n  <ref type="annotation" target="anno.172">Virginia</ref>\n</wrong>}
+    wrong_content = %{<wrong>\n  <ref type="annotation" target="anno172">Virginia</ref>\n</wrong>}
     assert_equal wrong_content, new_wrongs[0].to_s
 
     assert_equal %{<ref type="annotation" target="anno.203">WHALE</ref>}, new_refs[0].to_s
     assert_equal letter2.warnings.length, 1
+
+    # 2514
+    # letter3 = @manager.find_letters("@id", "let2514")[0]
+    # annotation 179 references 178 and so 178 should be inserted into letter 2514
+    xml2514 = read_xml("#{File.dirname(__FILE__)}/fixtures/letters_new/cat.let2514.xml")
+    refs = xml2514.css("ref[type=annotation]")
+    assert_equal refs.length, 2
+    assert_equal refs[0].attribute("target").to_s, "000178"
   end
 
   # does not actually update the index, see annotation_bash_cmd at top of this file
   def test_publish_letter_annotations
     @manager.publish_letter_annotations
-    assert_equal 5, $published_annos.length
-    assert_equal "<p>It&apos;s a state.</p>", $published_annos[1]["text"]
+    assert_equal 7, $published_annos.length
+    # below should not have html->TEI changes because it would normally be sent back to the annotonia portion
+    assert_equal "<p>It&apos;s a state.<br/><i>Just a fact for you, about states</i>.</p>", $published_annos[1]["text"]
   end
 
   private

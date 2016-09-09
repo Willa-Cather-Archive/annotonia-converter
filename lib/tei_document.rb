@@ -3,21 +3,14 @@ require 'nokogiri'
 
 class TeiDocument
   attr_reader :annotations
-  attr_reader :file
   attr_reader :tei_content
 
-  def initialize(annotations, file)
+  def initialize(annotations)
     @annotations = annotations
-    @file = file
   end
 
   def date
     return Time.now.strftime("%Y-%m-%d")
-  end
-
-  def wrap_and_write
-    wrap
-    write
   end
 
   def wrap
@@ -28,10 +21,6 @@ class TeiDocument
     end
     @tei_content = tei
     return @tei_content
-  end
-
-  def write
-    File.write("#{@file}", @tei_content.to_xml( indent: 4, encoding: "UTF-8" ))
   end
 
   def tei_wrapper(change_date)

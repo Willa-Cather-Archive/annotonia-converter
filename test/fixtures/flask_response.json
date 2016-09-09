@@ -7,7 +7,7 @@
       "created": "2016-08-23T19:53:07.516578+00:00",
       "text": "<p>A recital series of chamber music given, at least in part, by the Hambourg Trio at the Jenkins Gallery in Toronto.</p>",
       "tags": [
-        "Draft"
+        "Complete"
       ],
       "ranges": [
         {
@@ -20,7 +20,7 @@
       "user": "alice",
       "quote": "THE TUESDAY NINE O'CLOCKS",
       "consumer": "mockconsumer",
-      "id": "000138",
+      "id": "000178",
       "permissions": {
         "read": [
           "group:__consumer__"
@@ -57,7 +57,7 @@
     {
       "updated": "2016-05-03T20:33:34.022291+00:00",
       "created": "2016-05-03T20:33:34.022197+00:00",
-      "text": "<p>It's a state.</p>",
+      "text": "<p>It's a state.<br/><i>Just a fact for you, about states</i>.</p>",
       "pageID": "let2161",
       "ranges": [
         {
@@ -70,7 +70,7 @@
       "user": "alice",
       "quote": "Virginia",
       "consumer": "mockconsumer",
-      "id": "anno.172",
+      "id": "anno172",
       "tags": ["Complete", "Needs Correction"],
       "permissions": {
         "read": [
@@ -79,9 +79,10 @@
       }
     },
     {
+      "anno_ref_id": "000178",
       "updated": "2016-05-03T17:40:39.735268+00:00",
       "created": "2016-05-03T17:40:39.735203+00:00",
-      "text": "<p>Wilella</p>",
+      "text": "",
       "pageID": "let0000",
       "ranges": [
         {

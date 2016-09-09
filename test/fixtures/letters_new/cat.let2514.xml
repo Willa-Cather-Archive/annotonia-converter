@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://cather.unl.edu/cat.letters.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title type="main">Willa Cather to Alfred A. Knopf, August 26 [1921]</title>
+                <title type="sub">electronic edition</title>
+                <author key="Cather, Willa">Willa Cather</author>
+                <editor role="co-editor" xml:id="awj">Andrew Jewell</editor>
+                <editor role="co-editor" xml:id="ja_st">Janis Stout</editor>
+                <editor role="associate_editor" xml:id="me_ho">Melissa Homestead</editor>
+                <respStmt>
+                    <resp>Editorial Assistant</resp>
+                    <name xml:id="ga_ki">Gabi Kirilloff</name>
+                </respStmt>
+                <respStmt>
+                    <resp>Editorial Assistant</resp>
+                    <name xml:id="ca_be">Caterina Bernardini</name>
+                </respStmt>
+                <respStmt>
+                    <resp>Editorial Assistant</resp>
+                    <name xml:id="sa_gr">Samantha Greenfield</name>
+                </respStmt>
+                <respStmt>
+                    <resp>Editorial Assistant</resp>
+                    <name xml:id="em_ra">Emily Rau</name>
+                </respStmt>
+            </titleStmt>
+            <publicationStmt>
+                <authority>The Willa Cather Archive</authority>
+                <idno>cat.let2514</idno>
+                <address><addrLine>http://cather.unl.edu</addrLine></address>
+                <publisher>University of Nebraska–Lincoln</publisher>
+                <distributor>
+                    <name>Center for Digital Research in the Humanities</name>
+                    <address>
+              <addrLine>319 Love Library</addrLine> 
+             <addrLine>University of Nebraska–Lincoln</addrLine>      
+             <addrLine>Lincoln, NE 68588-4100</addrLine> 
+             <addrLine>http://cdrh.unl.edu</addrLine>
+                 </address>
+                </distributor>
+                <date>2018</date>
+                <availability>
+                    <p>The Willa Cather Archive is freely distributed by the Center for Digital
+                        Research in the Humanities at the University of Nebraska-Lincoln and
+                        licensed under a Creative Commons Attribution-Noncommercial-Share Alike 3.0
+                        United States License</p>
+                </availability>
+            </publicationStmt>
+            <seriesStmt>
+                <title level="m">The Complete Letters of Willa Cather</title>
+                <editor role="co-editor" sameAs="#awj"/>
+                <editor role="co-editor" sameAs="#ja_st"/>
+                <editor role="associate_editor" sameAs="#me_ho"/>
+            </seriesStmt>
+            <sourceDesc>
+                <bibl>
+                    <author>Willa Cather</author>
+                    <persName type="addressee" target="psn:0518">Alfred A. Knopf</persName>
+                    <date when="1921-08-26">August 26 [1921]</date>
+                </bibl>
+                <msDesc>
+                    <msIdentifier>
+                        <repository target="rep:003">Barbara Dobkin Collection, New York,
+                            NY</repository>
+                        <collection>Cather-Knopf Correspondence </collection>
+                    </msIdentifier>
+                    <msContents>
+                        <p>Document is six leaves, handwritten on recto only of each leaf. </p>
+                    </msContents>
+                    <physDesc>
+                        <objectDesc>
+                            <supportDesc>
+                                <extent>
+                                    <measure type="composition" unit="leaf" quantity="6">6
+                                        leaves</measure>
+                                </extent>
+                            </supportDesc>
+                        </objectDesc>
+                        <handDesc hands="2">
+                            <handNote xml:id="wc_hand" medium="pen"><p>Willa Cather
+                                handwritten</p></handNote>
+                            <handNote xml:id="unknown_hand" medium="pencil"><p>unknownhandwritten</p></handNote>
+                        </handDesc>
+                    </physDesc>
+                    <history>
+                        <origin>
+                            <origDate when="1921-08-26">August 26 [1921]</origDate>
+                            <origPlace>
+                                <placeName target="geo:0213">Toronto, Ontario, Canada</placeName>
+                            </origPlace>
+                        </origin>
+                    </history>
+                </msDesc>
+            </sourceDesc>
+        </fileDesc>
+        <encodingDesc>
+            <editorialDecl>
+                <hyphenation eol="some">
+                    <p>End-of-line hyphenation silently removed where appropriate.</p>
+                </hyphenation>
+                <normalization method="markup">
+                    <p>Typographical or spelling irregularities in the orginal have been noted using
+                        markup. Over-typed characters, where the typist has re-keyed the proper
+                        character over the top of a mis-typed character, have not been noted in the
+                        markup.</p>
+                </normalization>
+            </editorialDecl>
+            <listPrefixDef>
+                <prefixDef ident="psn" matchPattern="([0-9]{4})" replacementPattern="cat.let.personography.xml#$1">
+                    <p> Private URIs using the <code>psn</code> prefix are pointers to
+                            <gi>person</gi> elements in the cat.let.personography.xml file. For
+                        example, <code>psn:2365</code> dereferences to
+                            <code>cat.let.personography.xml#2365</code>. </p>
+                </prefixDef>
+                <prefixDef ident="wrk" matchPattern="([0-9]{4})" replacementPattern="cat.let.works.xml#$1">
+                    <p> Private URIs using the <code>wrk</code> prefix are pointers to <gi>bibl</gi>
+                        elements in the cat.let.works.xml file. For example, <code>wrk:1342</code>
+                        dereferences to <code>cat.let.works.xml#1342</code>. </p>
+                </prefixDef>
+                <prefixDef ident="geo" matchPattern="([0-9]{4})" replacementPattern="cat.let.gazetteer.xml#$1">
+                    <p> Private URIs using the <code>geo</code> prefix are pointers to
+                            <gi>place</gi> elements in the cat.let.gazetteer.xml file. For example,
+                            <code>geo:0023</code> dereferences to
+                            <code>cat.let.gazetteer.xml#0023</code>. </p>
+                </prefixDef>
+                <prefixDef ident="rep" matchPattern="([0-9]{4})" replacementPattern="cat.let.repositories.xml#$1">
+                    <p> Private URIs using the <code>rep</code> prefix are pointers to
+                            <gi>repository</gi> elements in the cat.let.repositories.xml file. For
+                        example, <code>rep:1020</code> dereferences to
+                            <code>cat.let.repositories.xml#1020</code>. </p>
+                </prefixDef>
+            </listPrefixDef>
+        </encodingDesc>
+        <revisionDesc>
+            <change when="2015-11-03" who="#ga_ki">Initial creation of XML from non-XML electronic
+                files</change>
+        </revisionDesc>
+    </teiHeader>
+    <facsimile>
+        <surface>
+            <graphic url="cat.let2514.001"/>
+        </surface>
+        <surface>
+            <graphic url="cat.let2514.002"/>
+        </surface>
+        <surface>
+            <graphic url="cat.let2514.003"/>
+        </surface>
+        <surface>
+            <graphic url="cat.let2514.004"/>
+        </surface>
+        <surface>
+            <graphic url="cat.let2514.005"/>
+        </surface>
+        <surface>
+            <graphic url="cat.let2514.006"/>
+        </surface>
+    </facsimile>
+    <text>
+        <body>
+            <pb facs="cat.let2514.001"/>
+            <fw type="letterhead" place="top">"<ref type="annotation" target="000178">THE TUESDAY NINE O'CLOCKS</ref>"</fw>
+            <fw type="letterhead" place="top">TELEPHONE<lb/>NORTHER 6127</fw>
+            <fw type="letterhead" place="top">38 SAINT VINCENT STREET<lb/>TORONTO</fw>
+            <postscript>
+                <p><add type="date_stamp"><date when="1921-08-29">AUG 29 1921</date></add><add hand="#unknown_hand" place="top">8/29 in P.S.</add></p>
+                <p>It may help you in selection of <ref type="annotation" target="000178">type</ref> to know that the novel will run just about
+                    one hundred and fifty thousand words.</p>
+                <closer><signed>W.S.C.</signed></closer>
+            </postscript>
+            <pb facs="cat.let2514.002"/>
+            <note><add type="date_stamp"><date when="1921-08-29">AUG 29
+                1921</date></add></note>
+            <opener><dateline><placeName target="geo:0213">Toronto</placeName><lb/>
+                    <date when="1921-08-26">August 26</date></dateline><salute>Dear <persName target="psn:0518">Mr. Knopf</persName></salute></opener>
+            <p>Greetings to you and <persName target="psn:0520">your lady</persName>, and welcome
+                home.</p>
+            <p><persName target="psn:0560">Miss Lewis</persName> will see you today, and will
+                deliver a bunch of manuscript to you with explanations. I am hoping that by throwing
+                the first part of <name target="wrk:0307">the story</name> into type you can manage
+                to get serial publication for it.</p>
+            <p>I have been able to finish this story much better than I dared to hope. The latter
+                part is now quite as close-knit and un personal as the first part. In other words, I
+                have at last brought it across. I have stayed <placeName target="geo:eo:0213">here</placeName> and boned away at it all summer, but now it is done.<pb facs="cat.let2514.003"/></p>
+            <p><fw type="pageNum" place="top"><emph rend="underline">2</emph></fw>The press this
+                summer has been extremely good. I hope your people have saved the clippings for you,
+                including the well-placed <name target="wrk:0263"><emph rend="underline">Nation</emph></name> <name target="wrk:0638">article</name>.</p>
+            <p>Now, a sad blow for you. The novel will have to be called "Claude". I did the best I
+                could by the other title--I lived with it for months,--and I hate it vehemently. It
+                sounds like an <persName target="psn:1148">Alice Brown</persName> title--an evasion,
+                    <del rend="strikethrough">an</del> an apology. "Claude" is the <emph rend="underline">only</emph> title for this story--any other title would spoil
+                the book for me, and this book is a present I am making to myself. I won't have it
+                spoiled. Trust me, this story will make its own title. No title could have seemed
+                more unpromising than<pb facs="cat.let2514.004"/><fw type="pageNum" place="top"><emph rend="underline">3</emph></fw>
+                <name target="wrk:0261">"Antonia"</name> seemed at first. <persName target="psn:0831">Scaife</persName> said bitterly, "Couldn't you manage to call
+                it something that people could at least pronounce?" Yet the story has made the title
+                go. This title won't offend so many people as you think.</p>
+          <list>  <item>1. For low-brows "Claude" is as good a name as any.</item>
+            <item>2. The high-brows ought to give me the benefit of the doubt.</item></list>
+            <p>If <persName target="psn:0435">Mr. Hergesheimer</persName>, for instance, called a
+                story "Myrtle" or "Elaine", I should of course know he had a reason for doing so.
+                Nobody has objected to "Sir Claude" in <name target="wrk:0492">"What Maisie
+                    Knew"</name>--in fact, it is one of <persName target="psn:0480">H.
+                    James'</persName> most successful names. If he had called the book<pb facs="cat.let2514.005"/><fw type="pageNum" place="top"><emph rend="underline">4</emph></fw> "Sir Claude", that would have been nothing against it. It is
+                not a sissy name like "Reggie"--it is clumsily romantic--and that is just what this
+                boy is.</p>
+            <p>"Claude" is the title, and by that we must sink or swim.</p>
+            <p>I am leaving for <placeName target="geo:0173">Red Cloud, Nebraska</placeName> on
+                Tuesday the 30<hi rend="superscript"><emph rend="double_underline">th</emph></hi>. I must get to work at once on
+                an <name target="wrk:0266">article on "Nebraska"</name> the Nation has asked me to do for their
+                Portraits-of-the-States series. On October 29 I will lecture for the Omaha Society
+                of Fine Arts. I hate lecturing, but they made their case very strong, and this
+                lecture opens their season.</p>
+            <closer><salute>Faithfully</salute>
+                <signed>Willa Cather</signed></closer>
+            <pb facs="cat.let2514.006"/>
+            <fw type="pageNum" place="top"><emph rend="underline">5</emph></fw>
+            <postscript>
+                <p>P.S. 1. I have decided to let you use two names <add place="above">Willa
+                        Cather</add> for me on this novel, and to drop out the "Sibert" for
+                    good,--except in signing checks.</p>
+                <p>2. Since "Claude" is to be the title, perhaps you would like me to name each of
+                    the several parts of the story, and thus give variety to the title of right-hand
+                    pages. If so, you may use the following: <list>
+                        <item>Book I Lovely Creek</item>
+                        <item>Book II Old Falsehoods</item>
+                        <item>Book III Sunrise on the Prairie</item>
+                        <item>Book IV The Voyage of the Anchises.</item>
+                        <item>Book V "Bidding the Eagles of the West Fly On."</item>
+                    </list></p>
+                <closer><signed> W.S.C.</signed></closer>
+            </postscript>
+        </body>
+    </text>
+</TEI>
