@@ -6,6 +6,7 @@ Alters Cather TEI letters with annotations from the annotonia
 - [Overview](#overview)
 - [First Time Setup](#initial-setup)
 - [Generating Annotated Files](#generating-annotated-files)
+- [Outputting Annotations TEI](#outputting-annotations-tei)
 - [Setting Published Status](#setting-published-status)
 - [Run Tests (Dev)](#run-tests)
 
@@ -14,7 +15,7 @@ Alters Cather TEI letters with annotations from the annotonia
 There are several aspects to this project.
 
 - `generate.rb` : matches annotations created with annotator.py with TEI, collects JSON annotations
-- `annotations.rb` : takes collected JSON annotations and outputs XML version
+- `create_annotation_tei.rb` : collects ALL annotations and outputs as TEI XML
 - `publish.rb` : marks ALL annotations in elasticsearch as "published", does not take args
 
 ## Initial Setup
@@ -109,6 +110,10 @@ Once you are happy with the state of the TEI, take the letters from `letters_ori
 Review the changes and commit them to git as you would with the normal workflow of editing letters.  Assuming that you are happy with all your changes, go ahead and run the publishing script in the next section.
 
 It may be a good idea to delete the letters you copied into `letters_orig` at this point, indicating that the processing of the batch is done for the next person.  Additionally, you can grab any of the generated annotations from `annotations.txt` if you like.  Coming soon:  a script to turn this from JSON into XML!
+
+## Outputting Annotations TEI
+
+Run `ruby create_annotation_tei.rb` to collect all the annotations into a single TEI file.  This file pulls down the results from elasticsearch regardless of their status!
 
 ## Setting Published Status
 
