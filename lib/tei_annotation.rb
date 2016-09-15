@@ -1,11 +1,13 @@
 require 'nokogiri'
+require 'htmlentities'
 
 class TeiAnnotation
   attr_reader :html
   attr_accessor :tei
 
   def initialize(note)
-    @html = Nokogiri::XML(note, &:noblanks)
+    decoded = HTMLEntities.new.decode(note)
+    @html = Nokogiri::XML(decoded, &:noblanks)
     teify
   end
 

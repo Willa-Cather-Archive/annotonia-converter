@@ -42,4 +42,15 @@ class TestTeiAnnotation < Minitest::Test
     assert_equal note.tei.to_s, after_text
   end
 
+  def test_nbsp
+    before = %{<note><p>This advertisement appeared in the October 15, 1927,&nbsp;<em>Boston Evening Transcript</em></p></note>}
+    after = %{<?xml version=\"1.0\"?>
+<note>
+  <p>This advertisement appeared in the October 15, 1927,&#xA0;<hi rend="italic">Boston Evening Transcript</hi></p>
+</note>\n}
+    note = TeiAnnotation.new(before)
+    assert_equal note.tei.to_s, after
+  end
+
+
 end
