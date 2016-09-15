@@ -10,7 +10,7 @@ class TestTeiAnnotation < Minitest::Test
 <ol><li>1</li><li>2</li></ol>
 <p><span style="text-decoration: underline;">Underlined word!</span></p>
 <a href="path">linktext</a>
-<img src="path" alt="alttext" width="w" height="h"/>
+<img src="http://big/path/to/file.jpg" alt="alttext" width="w" height="h"/>
 <p><video width="1" height="2" poster="jessica" controls="controls">
   <source src="first" />
   <source src="second" />
@@ -30,7 +30,7 @@ class TestTeiAnnotation < Minitest::Test
     <hi rend="underline">Underlined word!</hi>
   </p>
   <ref type="url" target="path">linktext</ref>
-  <figure corresp="path">
+  <figure corresp="file.jpg">
     <figDesc>alttext</figDesc>
   </figure>
   <p>

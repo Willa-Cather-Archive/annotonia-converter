@@ -1,5 +1,6 @@
 require 'nokogiri'
 require 'htmlentities'
+require 'fileutils'
 
 class TeiAnnotation
   attr_reader :html
@@ -31,7 +32,8 @@ class TeiAnnotation
     # images
     imgs = @tei.css "img"
     imgs.each do |img|
-      img.replace("<figure corresp='#{img.attribute("src")}'><figDesc>#{img.attribute("alt")}</figDesc></figure>")
+      src = File.basename(img.attribute("src"))
+      img.replace("<figure corresp='#{src}'><figDesc>#{img.attribute("alt")}</figDesc></figure>")
     end
     # video
     vids = @tei.css "video"
