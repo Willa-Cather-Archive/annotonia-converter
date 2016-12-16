@@ -1,4 +1,5 @@
 require 'fileutils'
+require 'htmlentities'
 require 'nokogiri'
 
 class Letter
@@ -76,15 +77,15 @@ class Letter
     return insert_ref(html, location, elements, anno_id)
   end
 
-  def insert_annotation_and_badtei(html, location, anno_id)
-    elements = { :opening => "<wrong><ref type='annotation' target='#{anno_id}'>",
+  def insert_annotation_and_badtei(html, location, anno_id, badtext)
+    elements = { :opening => "<wrong text='#{badtext}'><ref type='annotation' target='#{anno_id}'>",
                  :closing => "</ref></wrong>"
                }
     return insert_ref(html, location, elements, anno_id)
   end
 
-  def insert_badtei(html, location, anno_id)
-    elements = { :opening => "<wrong>", :closing => "</wrong>" }
+  def insert_badtei(html, location, anno_id, badtext)
+    elements = { :opening => "<wrong text='#{badtext}'>", :closing => "</wrong>" }
     return insert_ref(html, location, elements, anno_id)
   end
 
@@ -108,15 +109,17 @@ class Letter
     tags = annotation.tags
     location = { :start => annotation.char_start, :end => annotation.char_end }
     updated = html
+    # this text will only be embedded for the <wrong> tags
+    text_encoded = HTMLEntities.new.encode(annotation.text)
     if tags.include?("Published")
       # at this time, do not do anything, may change in the future
     elsif tags.include?("Complete") && tags.include?("Needs Correction")
-      updated = insert_annotation_and_badtei(html, location, annotation.anno_ref_id)
+      updated = insert_annotation_and_badtei(html, location, annotation.anno_ref_id, text_encoded)
     elsif tags.include?("Needs Correction")
-      updated = insert_badtei(html, location, annotation.anno_ref_id)
+      updated = insert_badtei(html, location, annotation.anno_ref_id, text_encoded)
     elsif tags.include?("Complete")
       updated = insert_annotation(html, location, annotation.anno_ref_id)
     end
-    return html
+    return updated
   end
 end
