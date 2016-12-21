@@ -78,14 +78,14 @@ class Letter
   end
 
   def insert_annotation_and_badtei(html, location, anno_id, badtext)
-    elements = { :opening => "<wrong text='#{badtext}'><ref type='annotation' target='#{anno_id}'>",
+    elements = { :opening => "<wrong why='#{badtext}'><ref type='annotation' target='#{anno_id}'>",
                  :closing => "</ref></wrong>"
                }
     return insert_ref(html, location, elements, anno_id)
   end
 
   def insert_badtei(html, location, anno_id, badtext)
-    elements = { :opening => "<wrong text='#{badtext}'>", :closing => "</wrong>" }
+    elements = { :opening => "<wrong why='#{badtext}'>", :closing => "</wrong>" }
     return insert_ref(html, location, elements, anno_id)
   end
 
@@ -110,7 +110,7 @@ class Letter
     location = { :start => annotation.char_start, :end => annotation.char_end }
     updated = html
     # this text will only be embedded for the <wrong> tags
-    text_encoded = HTMLEntities.new.encode(annotation.text)
+    text_encoded = HTMLEntities.new.encode(strip_html(annotation.text))
     if tags.include?("Published")
       # at this time, do not do anything, may change in the future
     elsif tags.include?("Complete") && tags.include?("Needs Correction")
@@ -121,5 +121,33 @@ class Letter
       updated = insert_annotation(html, location, annotation.anno_ref_id)
     end
     return updated
+  end
+
+  def strip_html(html)
+    tag_list = %w(
+      a
+      blockquote
+      br
+      div
+      em
+      i
+      img
+      li
+      ol
+      p
+      span
+      ul
+      video
+    )
+
+    tag_list.each { |tag|
+      html.gsub!(/<#{tag}.*?>/i, " ")
+      html.gsub!(/<\/#{tag}>/i, " ")
+    }
+
+    html.gsub!(/[[:space:]]+/, " ")
+    html.strip!
+
+    return html
   end
 end

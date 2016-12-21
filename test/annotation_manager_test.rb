@@ -105,7 +105,7 @@ class TestAnnotationManager < Minitest::Test
     assert_equal 0, orig_wrongs.length
     assert_equal 1, new_wrongs.length
     assert_equal "Virginia", new_wrongs[0].text
-    wrong_content = %{<wrong text=\"&lt;p&gt;It's a state.&lt;br/&gt;&lt;i&gt;Just a fact for you, about states&lt;/i&gt;.&lt;/p&gt;\">\n  <ref type="annotation" target="anno172">Virginia</ref>\n</wrong>}
+    wrong_content = %{<wrong why=\"It's a state. Just a fact for you, about states .\">\n  <ref type="annotation" target="anno172">Virginia</ref>\n</wrong>}
     assert_equal wrong_content, new_wrongs[0].to_s
 
     assert_equal %{<ref type="annotation" target="anno.203">WHALE</ref>}, new_refs[0].to_s
