@@ -165,7 +165,7 @@
             <p>I have lost a <persName target="psn:0522">true friend</persName> — one of the
                 most helpful and kind I ever knew — and the <ref type="annotation" target="anno.212">business</ref> has lost a strong arm. It
                 will affect us all seriously. Also I'm writing another line about business so that there are multiple words about business in this paragraph</p>
-            <p>I am so proud of <persName target="psn:0201"><wrong><ref type="annotation" target="anno172">Virginia</ref></wrong></persName> that she won the
+            <p>I am so proud of <persName target="psn:0201"><wrong why="It's a state. Just a fact for you, about states ."><ref type="annotation" target="anno172">Virginia</ref></wrong></persName> that she won the
                 scholarship again, and I enclose a check to show my appreciation. I wish it were
                 larger, but you know the story; none of my grand railroad stocks pay <emph rend="underline">at</emph>
                 <emph rend="underline">all</emph>, etc. etc. With love to all of you.</p>
