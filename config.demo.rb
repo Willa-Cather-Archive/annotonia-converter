@@ -5,6 +5,7 @@ $annotation_file = "#{File.dirname(__FILE__)}/annotations.xml"
 # loaded into the annotonia project
 # $letters_in = "/var/local/www/cocoon/annotonia/xml/letters"
 $letters_in = "#{File.dirname(__FILE__)}/letters_orig"
+$letters_in_selected = "#{File.dirname(__FILE__)}/letters_selected.txt"
 $letters_out = "#{File.dirname(__FILE__)}/letters_new"
 $warnings_file = "#{File.dirname(__FILE__)}/warnings.txt"
 

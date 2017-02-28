@@ -6,6 +6,9 @@ config.rb
 config.php
 warnings.txt
 
+# Ignore letters_selected.txt
+letters_selected.txt
+
 .DS_Store
 
 # some possible annotation file names
