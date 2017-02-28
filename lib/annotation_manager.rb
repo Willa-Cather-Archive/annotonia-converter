@@ -107,7 +107,29 @@ class AnnotationManager
   end
 
   def create_letters
-    letter_paths = Dir.glob("#{$letters_in}/*")
+    letter_paths = []
+
+    if File.size?($letters_in_selected)
+      puts "Converting annotations from selected letters"
+
+      # Create list of selected letter file paths
+      IO.readlines("#{$letters_in_selected}").each do |letter|
+        letter_path = "#{$letters_in}/#{letter.chomp!}.xml"
+
+        if File.size?(letter_path)
+          letter_paths << letter_path
+        else
+          puts "Selected letter \"#{letter}\"'s file not present at: #{letter_path}"
+        end
+      end
+    else
+      puts "Converting annotations from all letters"
+      puts "  To select specific letters, list one letter filename per line"
+      puts "  in the file \"#{$letters_in_selected}\""
+
+      letter_paths = Dir.glob("#{$letters_in}/*")
+    end
+
     letter_paths.each do |path|
       annotations = find_annotations("@letter_id", path.match(/let[0-9]{4}/)[0])
       @letters << Letter.new(path, annotations)
@@ -179,7 +201,7 @@ class AnnotationManager
   end
 
   def prompt_input
-    puts "Running this script will remove files in the #{@output_dir} directory"
+    puts "Running this script will remove files in the #{$letters_out} directory"
     puts "and it will wipe the files #{$annotation_file} and #{$warnings_file}"
     puts "Continue?  y/N"
     return gets.chomp
