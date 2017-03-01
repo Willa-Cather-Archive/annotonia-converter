@@ -41,15 +41,27 @@ Copy `config.demo.rb` to `config.rb` and make edits as needed.  You may only nee
 
 ## Generating Annotated Files
 
-### Begin
+### Prepare Original TEI
 
 Locate letters from the Cather Letters repository which have been annotated via a website and which are ready to have those annotations embedded in their TEI.
 
-Copy them into the `letters_orig` directory.  You will need to look at the `config.rb` file to see where this is.  It may be set up to share the cocoon annotonia directory, in which case you will not need to move any files around.
+Copy them into the `letters_orig` directory.  You will need to look at the `config.rb` file for the `$letters_in` path to see where this is.  It may be set up to share the cocoon annotonia directory, in which case you will not need to move any files around.
 
+#### Select Letters
+One may select specific letters to process instead of processing all with valid annotations by listing one letter's filename (without `.xml` extension) per line in the file defined as `$letters_in_selected` in `config.rb`. This defaults to `letters_selected.txt` in the root of this repository. If this file is emptied or deleted, all letters will be processed again.
+
+e.g.<br>
+`vim letters_selected.txt`:
+```
+cat.let2074
+cat.let2075
+cat.let2082
+cat.let2083
+```
+
+### Generate Annotated TEI
 In the terminal at the base of THIS repository, run the following command:
 
-```
 ```bash
 ruby generate.rb
 ```
