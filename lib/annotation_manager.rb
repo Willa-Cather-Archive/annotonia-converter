@@ -146,21 +146,20 @@ class AnnotationManager
     create_letters if @letters.empty?
   end
 
-  # CAUTION:  Don't remove code checking if output_dir exists
-  #  because if it is left empty this would remove /* instead of a relative path
   def delete_generated
     input = prompt_input
-    if (input == "y" || input == "Y")
-      if $letters_out && $letters_out.length > 0
-        puts "Removing files in #{$letters_out}"
-        files = Dir.glob("#{$letters_out}/*")
-        FileUtils.rm(files)
-      end
-      puts "Removing #{$warnings_file}"
-      FileUtils.rm($warnings_file) if File.file?($warnings_file)
-    else
-      exit
+    exit if ! (input == "y" || input == "Y")
+
+    # CAUTION:  Don't remove code checking if output_dir exists
+    # If it is left empty this would remove /* instead of a relative path
+    if $letters_out && $letters_out.length > 0
+      puts "Removing files in #{$letters_out}"
+      files = Dir.glob("#{$letters_out}/*")
+      FileUtils.rm(files)
     end
+
+    puts "Removing #{$warnings_file}"
+    FileUtils.rm($warnings_file) if File.file?($warnings_file)
   end
 
   def create_annotation_json(annotation)
