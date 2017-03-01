@@ -19,6 +19,11 @@ class AnnotationManager
   end
 
   def create_annotation_xml
+    puts "Would you like to update and overwrite the annotations' TEI for reference in #{$annotation_file}?  y/N"
+
+    input = gets.chomp
+    exit if ! (input == "y" || input == "Y")
+
     create_annotations if !@flask_queried_bool
     # only grab annotations which have xml
     annotations = @flask_annotations.map{ |anno| anno.xml }.compact
@@ -202,7 +207,7 @@ class AnnotationManager
 
   def prompt_input
     puts "Running this script will remove files in the #{$letters_out} directory"
-    puts "and it will wipe the files #{$annotation_file} and #{$warnings_file}"
+    puts "and it will wipe the file #{$warnings_file}"
     puts "Continue?  y/N"
     return gets.chomp
   end
