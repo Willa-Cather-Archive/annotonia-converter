@@ -26,13 +26,13 @@ Install [ruby](https://www.ruby-lang.org/en/documentation/installation/) on your
 
 Download the only required gem (this may take a few minutes):
 
-```
+```bash
 gem install nokogiri
 ```
 
 If you prefer, you can instead run the following to download nokogiri:
 
-```
+```bash
 gem install bundler
 bundle install
 ```
@@ -43,14 +43,14 @@ Copy `config.demo.rb` to `config.rb` and make edits as needed.  You may only nee
 
 ### Begin
 
-Locate letters from the Cather Letters repository which have been annotated via a website and which are ready to have those 
-annotations embedded in their TEI.
+Locate letters from the Cather Letters repository which have been annotated via a website and which are ready to have those annotations embedded in their TEI.
 
 Copy them into the `letters_orig` directory.  You will need to look at the `config.rb` file to see where this is.  It may be set up to share the cocoon annotonia directory, in which case you will not need to move any files around.
 
 In the terminal at the base of THIS repository, run the following command:
 
 ```
+```bash
 ruby generate.rb
 ```
 
@@ -59,8 +59,8 @@ the output of prior runs of this script, type "y" to continue.
 
 The terminal output should look something like this:
 
-```
-user@server:~/path/to/annotonia-converter$ ruby generate.rb 
+```bash
+user@server:~/path/to/annotonia-converter$ ruby generate.rb
 Running this script will remove files in the  directory
 and it will wipe the files /path/to/annotonia-converter/annotations.txt and /path/to/annotonia-converter/warnings.txt
 Continue?  y/N
@@ -119,21 +119,21 @@ Run `ruby create_annotation_tei.rb` to collect all the annotations into a single
 
 `publish.rb` will look at all the letters in the `letters_orig` directory and set all their annotation statuses to "Published" if all of them are currently set to "Complete".  If a letter has any annotations which are not "Complete" then the script will not publish them.
 
-```
+```bash
 ruby publish.rb
 ```
 
 ## Run Tests
 
-Don't worry about this if you aren't a developer, but you're welcome to run them if you like.  First, make sure you have all the test gems (should only need to set this up once): 
+Don't worry about this if you aren't a developer, but you're welcome to run them if you like.  First, make sure you have all the test gems (should only need to set this up once):
 
-```
+```bash
 gem install bundler
 bundle install
 ```
 
 Now you can run your tests!
 
-```
+```bash
 rake test
 ```
