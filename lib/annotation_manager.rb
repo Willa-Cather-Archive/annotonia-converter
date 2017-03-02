@@ -19,6 +19,12 @@ class AnnotationManager
   end
 
   def create_annotation_xml
+    puts
+    puts "Would you like to update and overwrite the annotations' TEI for reference in #{$annotation_file}?  y/N"
+
+    input = gets.chomp
+    exit if ! (input == "y" || input == "Y")
+
     create_annotations if !@flask_queried_bool
     # only grab annotations which have xml
     annotations = @flask_annotations.map{ |anno| anno.xml }.compact
@@ -131,6 +137,9 @@ class AnnotationManager
     end
 
     letter_paths.each do |path|
+      # Skip letter selection file if located within $letters_in directory
+      next if path == $letters_in_selected
+
       annotations = find_annotations("@letter_id", path.match(/let[0-9]{4}/)[0])
       @letters << Letter.new(path, annotations)
     end
@@ -141,21 +150,20 @@ class AnnotationManager
     create_letters if @letters.empty?
   end
 
-  # CAUTION:  Don't remove code checking if output_dir exists
-  #  because if it is left empty this would remove /* instead of a relative path
   def delete_generated
     input = prompt_input
-    if (input == "y" || input == "Y")
-      if $letters_out && $letters_out.length > 0
-        puts "Removing files in #{$letters_out}"
-        files = Dir.glob("#{$letters_out}/*")
-        FileUtils.rm(files)
-      end
-      puts "Removing #{$warnings_file}"
-      FileUtils.rm($warnings_file) if File.file?($warnings_file)
-    else
-      exit
+    exit if ! (input == "y" || input == "Y")
+
+    # CAUTION:  Don't remove code checking if output_dir exists
+    # If it is left empty this would remove /* instead of a relative path
+    if $letters_out && $letters_out.length > 0
+      puts "Removing files in #{$letters_out}"
+      files = Dir.glob("#{$letters_out}/*")
+      FileUtils.rm(files)
     end
+
+    puts "Removing #{$warnings_file}"
+    FileUtils.rm($warnings_file) if File.file?($warnings_file)
   end
 
   def create_annotation_json(annotation)
@@ -202,7 +210,7 @@ class AnnotationManager
 
   def prompt_input
     puts "Running this script will remove files in the #{$letters_out} directory"
-    puts "and it will wipe the files #{$annotation_file} and #{$warnings_file}"
+    puts "and it will wipe the file #{$warnings_file}"
     puts "Continue?  y/N"
     return gets.chomp
   end

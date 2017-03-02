@@ -2,6 +2,7 @@
 # should be in fixtures directory already
 $annotation_file = "#{File.dirname(__FILE__)}/annotations.xml"
 $letters_in = "#{File.dirname(__FILE__)}/letters_orig"
+$letters_in_selected = "#{File.dirname(__FILE__)}/letters_selected.txt"
 $letters_out = "#{File.dirname(__FILE__)}/letters_new"
 $warnings_file = "#{File.dirname(__FILE__)}/warnings.txt"
 

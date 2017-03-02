@@ -26,13 +26,13 @@ Install [ruby](https://www.ruby-lang.org/en/documentation/installation/) on your
 
 Download the only required gem (this may take a few minutes):
 
-```
+```bash
 gem install nokogiri
 ```
 
 If you prefer, you can instead run the following to download nokogiri:
 
-```
+```bash
 gem install bundler
 bundle install
 ```
@@ -41,16 +41,28 @@ Copy `config.demo.rb` to `config.rb` and make edits as needed.  You may only nee
 
 ## Generating Annotated Files
 
-### Begin
+### Prepare Original TEI
 
-Locate letters from the Cather Letters repository which have been annotated via a website and which are ready to have those 
-annotations embedded in their TEI.
+Locate letters from the Cather Letters repository which have been annotated via a website and which are ready to have those annotations embedded in their TEI.
 
-Copy them into the `letters_orig` directory.  You will need to look at the `config.rb` file to see where this is.  It may be set up to share the cocoon annotonia directory, in which case you will not need to move any files around.
+Copy them into the `letters_orig` directory.  You will need to look at the `config.rb` file for the `$letters_in` path to see where this is.  It may be set up to share the cocoon annotonia directory, in which case you will not need to move any files around.
 
+#### Select Letters
+One may select specific letters to process instead of processing all with valid annotations by listing one letter's filename (without `.xml` extension) per line in the file defined as `$letters_in_selected` in `config.rb`. This defaults to `letters_selected.txt` in the root of this repository. If this file is emptied or deleted, all letters will be processed again.
+
+e.g.<br>
+`vim letters_selected.txt`:
+```
+cat.let2074
+cat.let2075
+cat.let2082
+cat.let2083
+```
+
+### Generate Annotated TEI
 In the terminal at the base of THIS repository, run the following command:
 
-```
+```bash
 ruby generate.rb
 ```
 
@@ -59,8 +71,8 @@ the output of prior runs of this script, type "y" to continue.
 
 The terminal output should look something like this:
 
-```
-user@server:~/path/to/annotonia-converter$ ruby generate.rb 
+```bash
+user@server:~/path/to/annotonia-converter$ ruby generate.rb
 Running this script will remove files in the  directory
 and it will wipe the files /path/to/annotonia-converter/annotations.txt and /path/to/annotonia-converter/warnings.txt
 Continue?  y/N
@@ -119,21 +131,21 @@ Run `ruby create_annotation_tei.rb` to collect all the annotations into a single
 
 `publish.rb` will look at all the letters in the `letters_orig` directory and set all their annotation statuses to "Published" if all of them are currently set to "Complete".  If a letter has any annotations which are not "Complete" then the script will not publish them.
 
-```
+```bash
 ruby publish.rb
 ```
 
 ## Run Tests
 
-Don't worry about this if you aren't a developer, but you're welcome to run them if you like.  First, make sure you have all the test gems (should only need to set this up once): 
+Don't worry about this if you aren't a developer, but you're welcome to run them if you like.  First, make sure you have all the test gems (should only need to set this up once):
 
-```
+```bash
 gem install bundler
 bundle install
 ```
 
 Now you can run your tests!
 
-```
+```bash
 rake test
 ```
