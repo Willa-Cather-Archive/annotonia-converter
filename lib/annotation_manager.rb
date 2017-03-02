@@ -19,6 +19,7 @@ class AnnotationManager
   end
 
   def create_annotation_xml
+    puts
     puts "Would you like to update and overwrite the annotations' TEI for reference in #{$annotation_file}?  y/N"
 
     input = gets.chomp
@@ -136,6 +137,9 @@ class AnnotationManager
     end
 
     letter_paths.each do |path|
+      # Skip letter selection file if located within $letters_in directory
+      next if path == $letters_in_selected
+
       annotations = find_annotations("@letter_id", path.match(/let[0-9]{4}/)[0])
       @letters << Letter.new(path, annotations)
     end
