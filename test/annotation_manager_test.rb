@@ -120,6 +120,50 @@ class TestAnnotationManager < Minitest::Test
     assert_equal refs[0].attribute("target").to_s, "000178"
   end
 
+  def test_run_generator_selected_letters
+    # Copy example letter selection file to only process selected letters
+    FileUtils.copy("#{File.dirname(__FILE__)}/fixtures/letters_selected_example.txt", $letters_in_selected)
+
+    @manager.run_generator
+    assert_equal 2, @manager.letters.length
+
+    # 0000 Not selected
+    letter0 = @manager.find_letters("@id", "let0000")[0]
+    assert_nil letter0
+
+    # 0550 selected
+    letter1 = @manager.find_letters("@id", "let0550")[0]
+    assert_equal 1, letter1.annotations.length
+
+    # 2161 selected
+    letter2 = @manager.find_letters("@id", "let2161")[0]
+    assert_equal 4, letter2.annotations.length
+
+    # 2514 not selected
+    letter3 = @manager.find_letters("@id", "let2514")[0]
+    assert_nil letter3
+
+    # Delete copied letter selection file
+    File.delete($letters_in_selected)
+  end
+
+  def test_run_generator_skip_empty_letter_selection_file_in_letters_in_dir
+    # Change $letters_in_selected to be within $letters_in
+    $letters_in_selected = "#{$letters_in}/letters_selected.txt"
+
+    # Copy example empty letter selection file
+    FileUtils.copy("#{File.dirname(__FILE__)}/fixtures/letters_selected_example_empty.txt", $letters_in_selected)
+
+    @manager.run_generator
+    assert_equal 4, @manager.letters.length
+
+    letter_selection_present = @manager.find_letters("@file_read", $letters_in_selected)[0]
+    assert_nil letter_selection_present
+
+    # Delete copied letter selection file
+    File.delete($letters_in_selected)
+  end
+
   # does not actually update the index, see annotation_bash_cmd at top of this file
   def test_publish_letter_annotations
     @manager.publish_letter_annotations
