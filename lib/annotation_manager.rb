@@ -34,6 +34,44 @@ class AnnotationManager
     return tei
   end
 
+  def delete_letters
+    letter_paths = []
+
+    if File.size?($letters_in_selected)
+      puts "Delete selected letters?  y/N"
+
+      input = gets.chomp
+      exit if ! (input == "y" || input == "Y")
+
+      # Create list of selected letter file paths
+      IO.readlines("#{$letters_in_selected}").each do |letter|
+        letter_path = "#{$letters_in}/#{letter.chomp!}.xml"
+
+        if File.size?(letter_path)
+          letter_paths << letter_path
+        else
+          puts "Selected letter \"#{letter}\"'s file not present at: #{letter_path}"
+        end
+      end
+    else
+      puts "Delete all letters?  y/N"
+      puts "  To select specific letters, list one letter filename per line"
+      puts "  in the file \"#{$letters_in_selected}\""
+
+      input = gets.chomp
+      exit if ! (input == "y" || input == "Y")
+
+      letter_paths = Dir.glob("#{$letters_in}/*")
+    end
+
+    letter_paths.each do |path|
+      # Skip letter selection file if located within $letters_in directory
+      next if path == $letters_in_selected
+
+      FileUtils.remove_file(path)
+    end
+  end
+
   def find_annotations(attr_type, value)
     @flask_annotations.find_all { |anno| anno.instance_variable_get(attr_type) == value }
   end
