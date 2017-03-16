@@ -154,6 +154,14 @@ class TestAnnotationManager < Minitest::Test
     File.delete($letters_in_selected)
   end
 
+  # annotation_bash_cmd stub above prevents updating the index
+  def test_publish_letter_annotations
+    @manager.publish_letter_annotations
+    assert_equal 7, $published_annos.length
+    # below should not have html->TEI changes because it would normally be sent back to the annotonia portion
+    assert_equal "<p>It&apos;s a state.<br/><i>Just a fact for you, about states</i>.</p>", $published_annos[3]["text"]
+  end
+
   def test_run_generator
     @manager.run_generator
     assert_equal 4, @manager.letters.length
@@ -248,13 +256,6 @@ class TestAnnotationManager < Minitest::Test
     File.delete($letters_in_selected)
   end
 
-  # annotation_bash_cmd stub above prevents updating the index
-  def test_publish_letter_annotations
-    @manager.publish_letter_annotations
-    assert_equal 7, $published_annos.length
-    # below should not have html->TEI changes because it would normally be sent back to the annotonia portion
-    assert_equal "<p>It&apos;s a state.<br/><i>Just a fact for you, about states</i>.</p>", $published_annos[3]["text"]
-  end
 
   private
 
