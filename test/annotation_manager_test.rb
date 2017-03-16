@@ -248,12 +248,12 @@ class TestAnnotationManager < Minitest::Test
     File.delete($letters_in_selected)
   end
 
-  # does not actually update the index, see annotation_bash_cmd at top of this file
+  # annotation_bash_cmd stub above prevents updating the index
   def test_publish_letter_annotations
     @manager.publish_letter_annotations
     assert_equal 7, $published_annos.length
     # below should not have html->TEI changes because it would normally be sent back to the annotonia portion
-    assert_equal "<p>It&apos;s a state.<br/><i>Just a fact for you, about states</i>.</p>", $published_annos[1]["text"]
+    assert_equal "<p>It&apos;s a state.<br/><i>Just a fact for you, about states</i>.</p>", $published_annos[3]["text"]
   end
 
   private
