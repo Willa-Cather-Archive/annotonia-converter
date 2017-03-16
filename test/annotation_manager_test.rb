@@ -20,8 +20,10 @@ class AnnotationManager
     return JSON.parse(file)["rows"]
   end
 
-  def prompt_input
-    return "y"
+  def prompt_for_affirmation(message="Continue?")
+  end
+
+  def prompt_for_negation(message="Continue?")
   end
 
   def report_messages
