@@ -55,13 +55,20 @@ class TestAnnotationManager < Minitest::Test
     assert file_time < now+1
 
     # given that two of the annotations reference another
-    # there should be two less notes in the tei than in the annotations object
-    assert_equal @manager.flask_annotations.length-2, tei.css("note[type='annotation']").length
-    expected_text = %{<note type=\"annotation\" xml:id=\"aanno172\" target=\"anno172\" corresp=\"cat.let2161\">
-  <p>It's a state.<lb/><hi rend=\"italic\">Just a fact for you, about states</hi>.</p>
+    # and one with the "Needs Correction" tag is skipped
+    # there should be three less notes in the tei than the annotations object
+    assert_equal @manager.flask_annotations.length-3, tei.css("note[type='annotation']").length
+
+    expected_text = %q{<note type="annotation" xml:id="a000178" target="000178" corresp="cat.let2514">
+  <p>A recital series of chamber music given, at least in part, by the Hambourg Trio at the Jenkins Gallery in Toronto.</p>
 </note>}
+    tei_text = tei.css("note[target=\"000178\"]").to_s
+    assert_equal expected_text, tei_text
+
+    # Verify annotations tagged "Needs Correction" aren't included in TEI
+    expected_text = ""
     tei_text = tei.css("note[target=anno172]").to_s
-    assert_equal tei_text, expected_text
+    assert_equal expected_text, tei_text
 
     # verify that the reference annotations return the correct id
     anno = @manager.find_annotations("@id", "000178")[0]
