@@ -5,7 +5,7 @@ class TestTeiAnnotation < Minitest::Test
     start_text = %{
 <note>
 <p>This is a <i>test</i> of <br/> the <em>system</em>.</p>
-<p>It has some other stuff like lists</p>
+<p>It has some <span style="display: none;">other stuff</span> like lists</p>
 <ul><li>1</li><li>2</li></ul>
 <ol><li>1</li><li>2</li></ol>
 <p><span style="text-decoration: underline;">Underlined word!</span></p>
