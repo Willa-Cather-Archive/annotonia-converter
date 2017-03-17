@@ -19,11 +19,7 @@ class AnnotationManager
   end
 
   def create_annotation_xml
-    puts
-    puts "Would you like to update and overwrite the annotations' TEI for reference in #{$annotation_file}?  y/N"
-
-    input = gets.chomp
-    exit if ! (input == "y" || input == "Y")
+    prompt_for_negation "Would you like to update and overwrite the annotations' TEI for reference in #{$annotation_file}?"
 
     create_annotations if !@flask_queried_bool
     # only grab annotations which have xml
@@ -32,6 +28,36 @@ class AnnotationManager
     tei = teimaker.wrap
     File.write("#{$annotation_file}", tei.to_xml( indent: 4, encoding: "UTF-8" ))
     return tei
+  end
+
+  def delete_letters
+    letter_paths = []
+
+    if File.size?($letters_in_selected)
+      prompt_for_negation "Delete selected letters?"
+
+      # Create list of selected letter file paths
+      IO.readlines("#{$letters_in_selected}").each do |letter|
+        letter_path = "#{$letters_in}/#{letter.chomp!}.xml"
+
+        if File.size?(letter_path)
+          letter_paths << letter_path
+        else
+          puts "Selected letter \"#{letter}\"'s file not present at: #{letter_path}"
+        end
+      end
+    else
+      prompt_for_negation "Delete all letters?"
+
+      letter_paths = Dir.glob("#{$letters_in}/*")
+    end
+
+    letter_paths.each do |path|
+      # Skip letter selection file if located within $letters_in directory
+      next if path == $letters_in_selected
+
+      FileUtils.remove_file(path)
+    end
   end
 
   def find_annotations(attr_type, value)
@@ -151,8 +177,7 @@ class AnnotationManager
   end
 
   def delete_generated
-    input = prompt_input
-    exit if ! (input == "y" || input == "Y")
+    prompt_for_affirmation "Running this script will remove files in the #{$letters_out} directory and it will wipe the file #{$warnings_file}"
 
     # CAUTION:  Don't remove code checking if output_dir exists
     # If it is left empty this would remove /* instead of a relative path
@@ -198,6 +223,18 @@ class AnnotationManager
     end
   end
 
+  def prompt_for_affirmation(message="Continue?")
+    puts "\n#{message}\n[y/N]: "
+
+    exit if ! /^y$/i.match(gets.chomp)
+  end
+
+  def prompt_for_negation(message="Continue?")
+    puts "\n#{message}\n[Y/n]: "
+
+    exit if /^n$/i.match(gets.chomp)
+  end
+
   def update_cloud_annotations(annotation_json)
     # TODO I HATE THIS but I suck at net/http + PUT, apparently?
     annotation_json.each do |anno|
@@ -207,11 +244,5 @@ class AnnotationManager
       annotation_bash_cmd(cmd, anno)
     end
   end
-
-  def prompt_input
-    puts "Running this script will remove files in the #{$letters_out} directory"
-    puts "and it will wipe the file #{$warnings_file}"
-    puts "Continue?  y/N"
-    return gets.chomp
-  end
 end
+

@@ -20,8 +20,10 @@ class AnnotationManager
     return JSON.parse(file)["rows"]
   end
 
-  def prompt_input
-    return "y"
+  def prompt_for_affirmation(message="Continue?")
+  end
+
+  def prompt_for_negation(message="Continue?")
   end
 
   def report_messages
@@ -68,6 +70,96 @@ class TestAnnotationManager < Minitest::Test
     assert !anno.duplicate
     assert anno_dup.duplicate
     assert_nil anno_dup.xml
+  end
+
+  def test_delete_all_letters
+    # Copy letters to be deleted for restoration after test
+    backup_dir = "#{File.dirname(__FILE__)}/fixtures/letters_orig_backup"
+    FileUtils.mkdir(backup_dir)
+    FileUtils.cp(Dir.glob("#{$letters_in}/*"), backup_dir)
+
+    @manager.delete_letters
+
+    # 0000 Deleted
+    assert_nil File.size?("#{$letters_in}/cat.let0000.xml")
+
+    # 0550 Deleted
+    assert_nil File.size?("#{$letters_in}/cat.let0550.xml")
+
+    # 2161 Deleted
+    assert_nil File.size?("#{$letters_in}/cat.let2161.xml")
+
+    # 2514 Deleted
+    assert_nil File.size?("#{$letters_in}/cat.let2514.xml")
+
+    # Restore deleted letters
+    FileUtils.mv(Dir.glob("#{backup_dir}/*"), $letters_in, force: true)
+    FileUtils.rm_rf(backup_dir)
+  end
+
+  def test_delete_selected_letters
+    # Copy example letter selection file to only delete selected letters
+    FileUtils.cp("#{File.dirname(__FILE__)}/fixtures/letters_selected_example.txt", $letters_in_selected)
+
+    # Copy letters to be deleted for restoration after test
+    backup_dir = "#{File.dirname(__FILE__)}/fixtures/letters_orig_backup"
+    FileUtils.mkdir(backup_dir)
+    FileUtils.cp(Dir.glob("#{$letters_in}/*"), backup_dir)
+
+    @manager.delete_letters
+
+    # 0000 Not deleted
+    assert_operator 0, :<, File.size?("#{$letters_in}/cat.let0000.xml")
+
+    # 0550 Deleted
+    assert_nil File.size?("#{$letters_in}/cat.let0550.xml")
+
+    # 2161 Deleted
+    assert_nil File.size?("#{$letters_in}/cat.let2161.xml")
+
+    # 2514 Not deleted
+    assert_operator 0, :<, File.size?("#{$letters_in}/cat.let2514.xml")
+
+    # Restore deleted letters
+    FileUtils.mv(Dir.glob("#{backup_dir}/*"), $letters_in, force: true)
+    FileUtils.rm_rf(backup_dir)
+
+    # Delete copied letter selection file
+    File.delete($letters_in_selected)
+  end
+
+  def test_delete_selected_letters_skip_empty_letter_selection_file_in_letters_in_dir
+    # Change $letters_in_selected to be within $letters_in
+    $letters_in_selected = "#{$letters_in}/letters_selected.txt"
+
+    # Copy example empty letter selection file
+    FileUtils.copy("#{File.dirname(__FILE__)}/fixtures/letters_selected_example_empty.txt", $letters_in_selected)
+
+    # Copy letters to be deleted for restoration after test
+    backup_dir = "#{File.dirname(__FILE__)}/fixtures/letters_orig_backup"
+    FileUtils.mkdir(backup_dir)
+    FileUtils.cp(Dir.glob("#{$letters_in}/*"), backup_dir)
+
+    @manager.delete_letters
+
+    # Letter selection file not deleted
+    assert File.file?($letters_in_selected)
+    assert_nil File.size?($letters_in_selected)
+
+    # Restore deleted letters
+    FileUtils.mv(Dir.glob("#{backup_dir}/*"), $letters_in, force: true)
+    FileUtils.rm_rf(backup_dir)
+
+    # Delete copied letter selection file
+    File.delete($letters_in_selected)
+  end
+
+  # annotation_bash_cmd stub above prevents updating the index
+  def test_publish_letter_annotations
+    @manager.publish_letter_annotations
+    assert_equal 7, $published_annos.length
+    # below should not have html->TEI changes because it would normally be sent back to the annotonia portion
+    assert_equal "<p>It&apos;s a state.<br/><i>Just a fact for you, about states</i>.</p>", $published_annos[3]["text"]
   end
 
   def test_run_generator
@@ -164,13 +256,6 @@ class TestAnnotationManager < Minitest::Test
     File.delete($letters_in_selected)
   end
 
-  # does not actually update the index, see annotation_bash_cmd at top of this file
-  def test_publish_letter_annotations
-    @manager.publish_letter_annotations
-    assert_equal 7, $published_annos.length
-    # below should not have html->TEI changes because it would normally be sent back to the annotonia portion
-    assert_equal "<p>It&apos;s a state.<br/><i>Just a fact for you, about states</i>.</p>", $published_annos[1]["text"]
-  end
 
   private
 
