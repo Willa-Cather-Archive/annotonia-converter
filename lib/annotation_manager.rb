@@ -22,8 +22,17 @@ class AnnotationManager
     prompt_for_negation "Would you like to update and overwrite the annotations' TEI for reference in #{$annotation_file}?"
 
     create_annotations if !@flask_queried_bool
+
+    # Remove "Needs Correction" annotations
+    annotations = []
+    @flask_annotations.each do |anno|
+      if ! anno.tags.include? "Needs Correction"
+        annotations << anno
+      end
+    end
+
     # only grab annotations which have xml
-    annotations = @flask_annotations.map{ |anno| anno.xml }.compact
+    annotations = annotations.map{ |anno| anno.xml }.compact
     teimaker = TeiDocument.new(annotations)
     tei = teimaker.wrap
     File.write("#{$annotation_file}", tei.to_xml( indent: 4, encoding: "UTF-8" ))
