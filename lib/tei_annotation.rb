@@ -43,6 +43,9 @@ class TeiAnnotation
       # TODO what about video description?
       vid.replace("<media mimeType='video/mp4' url='#{source1.attribute("src")}' width='#{vid.attribute("width")}'/>")
     end
+
+    # Remove span tags with non-underline styles, keeping their contents
+    replace_open_close("span[style]", "", "")
   end
 
   private
