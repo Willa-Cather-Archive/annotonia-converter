@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://cather.unl.edu/cat.letters.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title type="main">Willa Cather to Roscoe Cather, [June to December, 1938]</title>
+                <title type="sub">electronic edition</title>
+                <author key="Cather, Willa">Willa Cather</author>
+                <editor role="co-editor" xml:id="awj">Andrew Jewell</editor>
+                <editor role="co-editor" xml:id="ja_st">Janis Stout</editor>
+                <editor role="associate_editor" xml:id="me_ho">Melissa Homestead</editor>
+                <respStmt>
+                    <resp>Editorial Assistant</resp>
+                    <name xml:id="ga_ki">Gabi Kirilloff</name>
+                </respStmt>
+                <respStmt>
+                    <resp>Editorial Assistant</resp>
+                    <name xml:id="ca_be">Caterina Bernardini</name>
+                </respStmt>
+                <respStmt>
+                    <resp>Editorial Assistant</resp>
+                    <name xml:id="sa_gr">Samantha Greenfield</name>
+                </respStmt>
+                <respStmt>
+                    <resp>Editorial Assistant</resp>
+                    <name xml:id="em_ra">Emily Rau</name>
+                </respStmt>
+            </titleStmt>
+            <publicationStmt>
+                <authority>The Willa Cather Archive</authority>
+                <idno>cat.let2140</idno>
+                <address><addrLine>http://cather.unl.edu</addrLine></address>
+                <publisher>University of Nebraska&#8211;Lincoln</publisher>
+                <distributor>
+                    <name>Center for Digital Research in the Humanities</name>
+                    <address>
+              <addrLine>319 Love Library</addrLine> 
+             <addrLine>University of Nebraska&#8211;Lincoln</addrLine>      
+             <addrLine>Lincoln, NE 68588-4100</addrLine> 
+             <addrLine>http://cdrh.unl.edu</addrLine>
+                 </address>
+                </distributor>
+                <date>2018</date>
+                <availability>
+                    <p>The Willa Cather Archive is freely distributed by the Center for Digital
+                        Research in the Humanities at the University of Nebraska&#8211;Lincoln and
+                        licensed under a Creative Commons
+                        Attribution&#8211;Noncommercial&#8211;Share Alike 3.0 United States
+                        License</p>
+                </availability>
+            </publicationStmt>
+            <seriesStmt>
+                <title level="m">The Complete Letters of Willa Cather</title>
+                <editor role="co-editor" sameAs="#awj"/>
+                <editor role="co-editor" sameAs="#ja_st"/>
+                <editor role="associate_editor" sameAs="#me_ho"/>
+            </seriesStmt>
+            <sourceDesc>
+                <bibl>
+                    <author>Willa Cather</author>
+                    <persName type="addressee" target="psn:0200">Roscoe Cather</persName>
+                    <date notBefore="1938-06-01" notAfter="1938-12-31">[June to December
+                        1938]</date>
+                    <note type="date">Internal evidence suggests that this letter was written in
+                        1938, shortly following Douglass Cather's death in June.</note>
+                </bibl>
+                <msDesc>
+                    <msIdentifier>
+                        <repository target="rep:001">University of Nebraska&#8211;Lincoln, Archives
+                            and Special Collections</repository>
+                        <collection>Roscoe and Meta Cather Collection </collection>
+                        <idno type="collection">MS316</idno>
+                    </msIdentifier>
+                    <msContents>
+                        <p>Document is two leaves, typewritten on recto of each leaf only.</p>
+                    </msContents>
+                    <physDesc>
+                        <objectDesc>
+                            <supportDesc>
+                                <extent>
+                                    <measure type="composition" unit="leaf" quantity="2">2
+                                        leaves</measure>
+                                </extent>
+                            </supportDesc>
+                        </objectDesc>
+                        <handDesc hands="2">
+                            <handNote xml:id="wc_type" medium="typewriter"><p>Willa Cather
+                                    typewritten</p></handNote>
+                            <handNote xml:id="wc_hand" medium="pen"><p>Willa Cather
+                                handwritten</p></handNote>
+                        </handDesc>
+                    </physDesc>
+                    <history>
+                        <origin>
+                            <origDate notBefore="1938-06-01" notAfter="1938-12-31">[June to December
+                                1938]</origDate>
+                            <origPlace>
+                                <placeName target="geo:0082">Grand Manan, New Brunswick,
+                                    Canada</placeName>
+                            </origPlace>
+                        </origin>
+                    </history>
+                </msDesc>
+            </sourceDesc>
+        </fileDesc>
+        <encodingDesc>
+            <editorialDecl>
+                <hyphenation eol="some">
+                    <p>End-of-line hyphenation silently removed where appropriate.</p>
+                </hyphenation>
+                <normalization method="markup">
+                    <p>Typographical or spelling irregularities in the orginal have been noted using
+                        markup. Over-typed characters, where the typist has re-keyed the proper
+                        character over the top of a mis-typed character, have not been noted in the
+                        markup.</p>
+                </normalization>
+            </editorialDecl>
+            <listPrefixDef>
+                <prefixDef ident="psn" matchPattern="([0-9]{4})"
+                    replacementPattern="cat.let.personography.xml#$1">
+                    <p> Private URIs using the <code>psn</code> prefix are pointers to
+                            <gi>person</gi> elements in the cat.let.personography.xml file. For
+                        example, <code>psn:2365</code> dereferences to
+                            <code>cat.let.personography.xml#2365</code>. </p>
+                </prefixDef>
+                <prefixDef ident="wrk" matchPattern="([0-9]{4})"
+                    replacementPattern="cat.let.works.xml#$1">
+                    <p> Private URIs using the <code>wrk</code> prefix are pointers to <gi>bibl</gi>
+                        elements in the cat.let.works.xml file. For example, <code>wrk:1342</code>
+                        dereferences to <code>cat.let.works.xml#1342</code>. </p>
+                </prefixDef>
+                <prefixDef ident="geo" matchPattern="([0-9]{4})"
+                    replacementPattern="cat.let.gazetteer.xml#$1">
+                    <p> Private URIs using the <code>geo</code> prefix are pointers to
+                            <gi>place</gi> elements in the cat.let.gazetteer.xml file. For example,
+                            <code>geo:0023</code> dereferences to
+                            <code>cat.let.gazetteer.xml#0023</code>. </p>
+                </prefixDef>
+                <prefixDef ident="rep" matchPattern="([0-9]{4})"
+                    replacementPattern="cat.let.repositories.xml#$1">
+                    <p> Private URIs using the <code>rep</code> prefix are pointers to
+                            <gi>repository</gi> elements in the cat.let.repositories.xml file. For
+                        example, <code>rep:1020</code> dereferences to
+                            <code>cat.let.repositories.xml#1020</code>. </p>
+                </prefixDef>
+            </listPrefixDef>
+        </encodingDesc>
+        <revisionDesc>
+            <change when="2015-03-25" who="#em_ra">Initial creation of XML from non-XML electronic
+                files</change>
+            <change when="2015-09-22" who="#ga_ki">First round of XML revision</change>
+        </revisionDesc>
+    </teiHeader>
+    <facsimile>
+        <surface>
+            <graphic url="cat.let2140.001"/>
+        </surface>
+        <surface>
+            <graphic url="cat.let2140.002"/>
+        </surface>
+    </facsimile>
+    <text>
+        <body>
+            <pb facs="cat.let2140.001"/>
+            <opener>
+                <salute>My Dearest <persName target="psn:0200">Brother</persName>;</salute>
+            </opener>
+            <p>Your long letter from the clinic brought me great peace of mind; first, because it
+                gave good report of your physical state, secondly because you confessed a weakness,
+                and that enables me to confess mine. The reason I have not written you <del
+                    rend="strikethrough">f</del> oftener is that after I write a letter to <emph
+                    rend="underline">any</emph> of the family, I <del rend="strikethrough"
+                    hand="#wc_hand">like</del>
+                <add place="above" hand="#wc_hand">lie</add> awake all night, and all my past
+                failings and failures go through me head like a horrible <choice>
+                    <sic>cinnema</sic>
+                    <corr>cinema</corr>
+                </choice> film: <emph rend="underline">Why</emph> did I not do more for <persName
+                    target="psn:0198">mother</persName> and <persName target="psn:0180"
+                    >father</persName> when they were living? <emph rend="underline">Why</emph> did
+                I give up one evening of <persName target="psn:0182">Douglass'</persName> short stay
+                in <placeName target="geo:0137">New York</placeName> to an <persName target="psn:"
+                    >English publisher,</persName> and send Doug to a show alone? My life seems to
+                have been made up of mistakes of this kind. And yet, I have never been 'ambitious'.
+                I drove ahead so hard <choice>
+                    <sic>beacuse</sic>
+                    <corr>because</corr>
+                </choice> I wanted never, never to come back <del rend="strikethrough">of</del> on
+                Father for anything, <del rend="strikethrough">and</del> nor to ask any of my family
+                to put up a dollar to back a game they didn't understand. But in doing that, I let a
+                good deal of life slip by. I was at home on three different summers <del
+                    rend="strikethrough">e</del> when <persName target="psn:0195">Jim</persName> was
+                coercing, tormenting father to "set him up in a business". Father used to hide in
+                the bath room for hours. I got a great disgust for that form of
+                parent&#8211;torture. Perhaps in trying so hard to be quit and clean of that sort of
+                    wheedling<add place="inline" hand="#wc_hand">,</add> I neglected some things
+                that mattered more. </p>
+            <p>You ask for a report of health. Better than when I left town. Then I had not been
+                    s<del rend="overwrite" hand="#wc_hand">p</del><add place="inline"
+                    hand="#wc_hand">l</add>eeping without <choice>
+                    <sic>medecine</sic>
+                    <corr>medicine</corr>
+                </choice> for sometime, and had a very unpleasant trembling of the hands. All <del
+                    rend="strikethrough">nere</del> nerve reactions were bad, and, <del
+                    rend="strikethrough" hand="#wc_hand">myx</del> funniest of all, <del
+                    rend="overwrite" hand="#wc_hand">M</del><add place="inline" hand="#wc_hand"
+                    >m</add>y hair was coming out in great bunches&#8211; &#8212; it seems that
+                sometimes results from nervous disorders.</p>
+            <p> I am much better now, of course. My hands are steady again, I sleep fairly well, but
+                I am not very happy. </p>
+            <note hand="#wc_hand" target="#a1">copy for <persName target="psn:0187"
+                >Elsie</persName></note>
+            <p><anchor xml:id="a1"/>It seems strange that <persName target="psn:0518">Alfred
+                    Knopf,</persName> who has been always such a dear and loyal friend to me, <del
+                    rend="strikethrough" hand="#wc_hand">should</del> in music and art, not to speak
+                of our happy business relation, should turn up with the <pb facs="cat.let2140.002"
+                />only recent picture I have of Douglass. One day when I took Douglass into his
+                office, Alfred snapped him with his little Li Leica
+                camera, <del rend="strikethrough">invisable</del> invisible and soundless. Douglass
+                never knew he was snapped, and I <choice>
+                    <sic>didn'y</sic>
+                    <corr>didn't</corr>
+                </choice> know it. They were not very <del rend="strikethrough">s</del> good, so
+                    <del rend="strikethrough" hand="#wc_hand">he</del><add place="above"
+                    hand="#wc_hand">Alfred</add> didn't offer them until after Douglass'
+                    death.<anchor xml:id="a2"/></p>
+            <note hand="#wc_hand" target="#a2">copy</note>
+            <p>Please send <choice>
+                    <sic>on</sic>
+                    <corr>one</corr>
+                </choice> of the prints I enclose to Elsie, <emph rend="underline">with</emph>
+                <emph rend="underline">a</emph>
+                <emph rend="underline">Copy</emph>
+                <emph rend="underline">of</emph>
+                <emph rend="underline">this</emph>
+                <emph rend="underline">explanation</emph>. Keep one for yourself, and give one to
+                    <persName target="psn:0196">Jack</persName> an<add place="above" hand="#wc_hand"
+                    >d</add> one to Jim; to <choice>
+                    <sic>noone</sic>
+                    <corr>no one</corr>
+                </choice> else. </p>
+            <p>Elsie says you have Douglass' copies of my books. You may give one to Jack and one to
+                Jim, but see that they are copies which <emph rend="underline" hand="#wc_hand"
+                    >are</emph>
+                <emph rend="underline" hand="#wc_hand">clearly</emph>
+                <emph rend="underline" hand="#wc_hand">inscribed</emph>
+                <emph rend="underline">to</emph>
+                <emph rend="underline">Douglass</emph>. Even so, they may be used for club purposes
+                by <persName target="psn:0190 psn:0194">the women</persName>. All the other copies
+                you will please take to your own home.</p>
+            <p>Tell my darling little <persName target="psn:0197">Margaret</persName> that I am very
+                happy that she is happy, and that every one of our lovely places on this island make
+                me think of her. Last summer I had five gay <choice>
+                    <sic>companion</sic>
+                    <corr>companions</corr>
+                </choice> who made me love life; <persName target="psn:0197 psn:0185">the
+                    twins</persName> for summer, and <persName target="psn:0647 psn:0650 psn:0651"
+                    >the Menuhins</persName> for winter. Within six months they have all married.
+                Just now I must try to work a little every day on <name type="work"
+                    target="wrk:0378">the book</name> I began in the last autumn. It's lost its pep,
+                but it is the only thing that will bring me back to myself<del rend="overwrite"
+                    hand="#wc_hand">.</del><add place="inline" hand="#wc_hand">;</add>
+                <add place="above" hand="#wc_hand">regular work hours, I mean.</add> Alfred and
+                    <persName target="psn:0352">Dr. Garbat</persName> agree on that. Letter writing
+                disintegrates me. Margaret will get a little wedding present some day.</p>
+            <p>I shall not be here after September 15th, but I don't yet<add place="inline"
+                    hand="#wc_hand"> </add>know just where I shall be. </p>
+            <p>This is the old typewriter Doug bought for me from the busted gambler in <placeName
+                    target="geo:0046">Cheyenne</placeName> thirty year ago<add place="inline"
+                    hand="#wc_hand">,</add> when we three were there together. It has lain up
+                    <placeName target="0082">here</placeName> in the damp sea air for six years, so
+                please excuse mistakes. <persName target="psn:0079">Ralph</persName> has tried to
+                mend it with automobile tools.</p>
+            <closer>
+                <salute hand="#wc_hand">Very lovingly to you all</salute>
+                <signed hand="#wc_hand">Willie</signed>
+            </closer>
+        </body>
+    </text>
+</TEI>

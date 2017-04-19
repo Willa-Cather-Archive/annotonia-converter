@@ -164,15 +164,20 @@ class TestAnnotationManager < Minitest::Test
   # annotation_bash_cmd stub above prevents updating the index
   def test_publish_letter_annotations
     @manager.publish_letter_annotations
-    assert_equal 7, $published_annos.length
+    assert_equal 8, $published_annos.length
+
+    # Verify annotation with xpath for self-closing element uses parent
+    # Tweaked original letter TEI so fallback element.inner_html.index works
+    assert_equal "<p>This photograph of Douglass Cather is likely the one Alfred Knopf took in his office in December 1937.</p>\n<p><img src=\"http://cather.unl.edu/letters/annotations/cat.let.ann001448.jpg\" alt=\"Douglass Cather\" width=\"693\" height=\"469\" />&nbsp;</p>", $published_annos[2]["text"]
+
     # below should not have html->TEI changes because it would normally be sent back to the annotonia portion
-    assert_equal "<p>It&apos;s a state.<br/><i>Just a fact for you, about states</i>.</p>", $published_annos[3]["text"]
+    assert_equal "<p>It&apos;s a state.<br/><i>Just a fact for you, about states</i>.</p>", $published_annos[4]["text"]
   end
 
   def test_run_generator
     @manager.run_generator
-    assert_equal 4, @manager.letters.length
-    assert_equal 22, @manager.flask_annotations.length
+    assert_equal 5, @manager.letters.length
+    assert_equal 23, @manager.flask_annotations.length
 
     # 0000
     letter0 = @manager.find_letters("@id", "let0000")[0]
@@ -254,7 +259,7 @@ class TestAnnotationManager < Minitest::Test
     FileUtils.copy("#{File.dirname(__FILE__)}/fixtures/letters_selected_example_empty.txt", $letters_in_selected)
 
     @manager.run_generator
-    assert_equal 4, @manager.letters.length
+    assert_equal 5, @manager.letters.length
 
     letter_selection_present = @manager.find_letters("@file_read", $letters_in_selected)[0]
     assert_nil letter_selection_present
