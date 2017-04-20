@@ -27,6 +27,20 @@ class Letter
 
   def add_ref(annotation)
     element = @xml.at_xpath(annotation.xpath, "tei" => $tei_ns)
+
+    if !element || element.inner_html.empty?
+      # If no element found or the element is self-closing (e.g. <anchor/>),
+      # try looking at the parent xpath
+
+      # If self-closing element, shift highlight range forward by length of HTML
+      if element
+        annotation.char_start += element.to_html.length
+        annotation.char_end += element.to_html.length
+      end
+
+      element = @xml.at_xpath(annotation.xpath.partition(/\/\/tei\:\w+\[\d+\]$/)[0], "tei" => $tei_ns)
+    end
+
     if element
       range = (annotation.char_start..annotation.char_end)
       highlight = element.inner_html[range]

@@ -1,6 +1,6 @@
 {
   "rows": [
-        {
+    {
       "anno_ref_id": "",
       "updated": "2016-09-07T20:39:23.376532+00:00",
       "pageID": "let2514",
@@ -550,7 +550,33 @@
           "group:__consumer__"
         ]
       }
+    },
+    {
+      "updated": "2017-03-30T17:30:09.044688+00:00",
+      "created": "2017-03-30T17:27:57.604837+00:00",
+      "text": "<p>This photograph of Douglass Cather is likely the one Alfred Knopf took in his office in December 1937.</p>\n<p><img src=\"http://cather.unl.edu/letters/annotations/cat.let.ann001448.jpg\" alt=\"Douglass Cather\" width=\"693\" height=\"469\" />&nbsp;</p>",
+      "pageID": "let2140",
+      "ranges": [
+        {
+          "start": "/div[1]/tei[1]/text[1]/p[4]/anchor[1]",
+          "end": "/div[1]/tei[1]/text[1]/p[4]/anchor[1]",
+          "startOffset": 327,
+          "endOffset": 393
+        }
+      ],
+      "user": "alice",
+      "quote": "Alfred snapped him with his little Li Leica\n                camera",
+      "consumer": "mockconsumer",
+      "id": "001448",
+      "tags": [
+        "Complete"
+      ],
+      "permissions": {
+        "read": [
+          "group:__consumer__"
+        ]
+      }
     }
   ],
-  "total": 30
+  "total": 31
 }
