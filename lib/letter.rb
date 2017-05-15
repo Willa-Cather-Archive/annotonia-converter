@@ -38,12 +38,42 @@ class Letter
         annotation.char_end += element.to_html.length
       end
 
-      element = @xml.at_xpath(annotation.xpath.partition(/\/\/tei\:\w+\[\d+\]$/)[0], "tei" => $tei_ns)
+      element = xpath_parent(annotation.xpath)
     end
 
     if element
       range = (annotation.char_start..annotation.char_end)
       highlight = element.inner_html[range]
+
+      # If highlight not found, check in sibling elements, then in parent
+      if highlight == nil
+        sibling_index = annotation.xpath[/\[(\d+)\]$/]
+
+        # If xpath not first sibling, start over at 1
+        sibling_index = 1 if sibling_index != 1
+
+        # Loop through sibling elements
+        while highlight == nil
+          element = xpath_sibling(annotation.xpath, sibling_index)
+
+          # No more siblings exist
+          break if element == nil
+
+          # Extract highlight from sibling
+          highlight = element.inner_html[range]
+
+          sibling_index += 1
+        end
+
+        # If highlight still not found, look in parent element
+        element = xpath_parent(annotation.xpath)
+        highlight = element.inner_html[range]
+
+        # If still no highlight found, set highlight to empty string
+        # to prevent error on Nil.strip below
+        highlight = "" if highlight == nil
+      end
+
       # if the start - end range does not match the annotation quote, then something
       # differs between the HTML and the TEI characters in the xpath
       # so pick the first instance of the annotation quote and use that instead
@@ -163,5 +193,14 @@ class Letter
     html.strip!
 
     return html
+  end
+
+  def xpath_parent xpath
+    return @xml.at_xpath(xpath.partition(/\/\/tei\:\w+\[\d+\]$/)[0], "tei" => $tei_ns)
+
+  end
+
+  def xpath_sibling xpath, index
+    return @xml.at_xpath(xpath.gsub(/\[\d+\]$/, "[#{index}]"), "tei" => $tei_ns)
   end
 end
