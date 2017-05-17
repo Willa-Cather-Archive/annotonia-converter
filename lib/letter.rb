@@ -46,18 +46,18 @@ class Letter
       highlight = element.inner_html[range]
 
       # If highlight not found, check in sibling elements, then in parent
-      if highlight == nil
+      if highlight.nil?
         sibling_index = annotation.xpath[/\[(\d+)\]$/]
 
         # If xpath not first sibling, start over at 1
         sibling_index = 1 if sibling_index != 1
 
         # Loop through sibling elements
-        while highlight == nil
+        while highlight.nil?
           element = xpath_sibling(annotation.xpath, sibling_index)
 
           # No more siblings exist
-          break if element == nil
+          break if element.nil?
 
           # Extract highlight from sibling
           highlight = element.inner_html[range]
@@ -71,7 +71,7 @@ class Letter
 
         # If still no highlight found, set highlight to empty string
         # to prevent error on Nil.strip below
-        highlight = "" if highlight == nil
+        highlight = "" if highlight.nil?
       end
 
       # if the start - end range does not match the annotation quote, then something
