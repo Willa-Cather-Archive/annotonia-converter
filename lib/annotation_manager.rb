@@ -208,6 +208,17 @@ class AnnotationManager
     url = id ? "#{$flask_url}&pageID=#{id}" : $flask_url
     res = Net::HTTP.get(URI.parse(URI.encode(url)))
     json = JSON.parse(res)
+
+    if json["total"] >= $flask_limit
+      puts "WARNING: ANNOTATOR-STORE RESULT LIMIT REACHED"
+      puts "Annotation TEI output will be missing annotations"
+      puts "We MUST update $flask_limit in config.rb and sync value with config variables in annotonia-status and annotator-store"
+    elsif json["total"].to_f / $flask_limit >= 0.9
+      puts "WARNING: Annotator-store limit almost reached"
+      puts "#{json["total"]} / #{$flask_limit}"
+      puts "Update $flask_limit in config.rb and sync value with config variables in annotonia-status and annotator-store soon"
+    end
+
     if json["rows"]
       @flask_queried_bool = true
       return json["rows"]

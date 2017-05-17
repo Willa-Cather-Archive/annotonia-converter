@@ -9,7 +9,11 @@ $letters_in_selected = "#{File.dirname(__FILE__)}/letters_selected.txt"
 $letters_out = "#{File.dirname(__FILE__)}/letters_new"
 $warnings_file = "#{File.dirname(__FILE__)}/warnings.txt"
 
-$flask_url = "path?limit=2000"
+# If limit changed, must also change:
+# RESULTS_MAX_SIZE in annotator-store/annotator/elasticsearch.py
+# $flask_results_max in annotonia-status/env/config.php
+$flask_limit = 10000
+$flask_url = "path?limit=#{$flask_limit}"
 $anno_store_url = "server/annostore/annotations/"
 $tei_ns = "http://www.tei-c.org/ns/1.0"
 
