@@ -6,6 +6,13 @@ Alters Cather TEI letters with annotations from the annotonia
 - [Overview](#overview)
 - [First Time Setup](#initial-setup)
 - [Generating Annotated Files](#generating-annotated-files)
+  - [Prepare Original TEI](#prepare-original-tei)
+    - [Select Letters](#select-letters)
+  - [Generate Annotated TEI](#generate-annotated-tei)
+  - [The Results](#the-results)
+  - [Finishing Up](#finishing-up)
+    - [Annotations](#annotations)
+    - [Deleting Letters](#deleting-letters)
 - [Outputting Annotations TEI](#outputting-annotations-tei)
 - [Setting Published Status](#setting-published-status)
 - [Run Tests (Dev)](#run-tests)
@@ -121,7 +128,33 @@ Once you are happy with the state of the TEI, take the letters from `letters_ori
 
 Review the changes and commit them to git as you would with the normal workflow of editing letters.  Assuming that you are happy with all your changes, go ahead and run the publishing script in the next section.
 
-It may be a good idea to delete the letters you copied into `letters_orig` at this point, indicating that the processing of the batch is done for the next person.  Additionally, you can grab any of the generated annotations from `annotations.txt` if you like.  Coming soon:  a script to turn this from JSON into XML!
+#### Annotations
+You can grab any of the generated annotations from `annotations.txt` if you like.
+
+**Coming soon:** A script to turn this from JSON into XML!
+
+#### Deleting Letters
+It may be a good idea to delete the letters you copied into `letters_orig` at this point, indicating that the processing of the batch is done for the next person. We have a script for this, `delete_letters.rb`.
+
+The script deletes letters according to how we [select letters](#select-letters).
+
+Example:
+```bash
+annotonia-converter  vim config.rb 
+annotonia-converter  vim letters_selected.txt
+annotonia-converter  ./delete_letters.rb 
+
+Delete selected letters?
+[Y/n]: 
+y
+
+annotonia-converter  cat /dev/null > letters_selected.txt
+annotonia-converter  ./delete_letters.rb 
+
+Delete all letters?
+[Y/n]:
+y
+```
 
 ## Outputting Annotations TEI
 
