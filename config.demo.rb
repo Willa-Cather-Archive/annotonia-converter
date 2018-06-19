@@ -10,6 +10,7 @@ $letters_out = "#{File.dirname(__FILE__)}/letters_new"
 $warnings_file = "#{File.dirname(__FILE__)}/warnings.txt"
 
 # If limit changed, must also change:
+# index.max_result_window in /etc/elasticsearch/elasticsearch.yml
 # RESULTS_MAX_SIZE in annotator-store/annotator/elasticsearch.py
 # $flask_results_max in annotonia-status/env/config.php
 $flask_limit = 10000
